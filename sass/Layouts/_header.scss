@@ -1,0 +1,39 @@
+header{
+    background-color: $color-purple-0;
+    position: fixed;
+    z-index: 99999;
+    width: 100%;
+    .navbarGaNam{
+        margin: 0;
+        padding: 0;
+    }
+    .header__content{
+        padding: $pd-2;
+        margin: 0 auto;
+        .navbar-brand{
+            color: $color-white-0;
+            font-size: $fs-4;
+            font-weight: $fw-1;
+        }
+        .navbar-nav{
+            list-style: none;
+            .nav-item{
+                font-size: $fs-3;
+                font-weight: $fw-0;
+                letter-spacing: $ls-1;
+                padding: 0 $pd-3;
+                .nav-link{
+                    text-decoration: none;
+                    color: $color-white-0;
+                    transition: all 0.5s;
+                    &:hover{
+                        color: $color-pink-0;
+                    }
+                }
+                .active{
+                    color: $color-pink-0;
+                }
+            }
+        }
+    }
+}

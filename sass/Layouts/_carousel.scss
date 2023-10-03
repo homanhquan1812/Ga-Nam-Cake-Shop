@@ -1,0 +1,16 @@
+.cover{
+    .cover__content{
+        h1{
+            font-size: $fs-5;
+        }
+        p{
+            font-size: $fs-6;
+            padding: $pd-4;
+        }
+        .button{
+            &:hover{
+                animation: upDown 1s linear 0s infinite ;
+            }
+        }
+    }
+}

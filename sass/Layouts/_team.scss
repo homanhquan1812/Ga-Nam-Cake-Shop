@@ -1,0 +1,76 @@
+.team{
+    background-color: $color-purple-0;
+    padding: $pd-5 0;
+    h2{
+        color: $color-white-0;
+    }
+    .team__content{
+        .team__item{
+            position: relative;
+            padding: 12.5px 15px;
+            img{
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+            h3{
+                font-size: $fs-6 + 0.2;
+            }
+            p{
+                font-size: $fs-1;
+                line-height: $lh-0;
+            }
+            .team__title{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                background-color: $color-pink-0;
+                color: $color-white-0;
+                width: 100%;
+                padding: $pd-1 - 2;
+                opacity: 1;
+                transition: all 0.75s;
+            }
+            .team__detail{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $color-black-3;
+                color: $color-white-0;
+                padding: $pd-7 $pd-6 + 2;
+                opacity: 0;
+                transition: all 0.75s;
+                h3{
+                    color: $color-pink-0;
+                }
+                .team__text{
+                    margin: $mg-4;
+                }
+                .team__social{
+                    margin-top: $mg-5;
+                    i{
+                        width: 37px;
+                        height: 37px;
+                        line-height: 37px;
+                        border: 1.5px solid $color-gray-2;
+                        text-align: center;
+                        margin: 0 $mg-4 - 3;
+                        transition: all 0.5s;
+                        &:hover{
+                            color: $color-pink-0;
+                            border-color: $color-pink-0;
+                        }
+                    }
+                }
+            }
+            &:hover .team__title{
+                opacity: 0;
+            }
+            &:hover .team__detail{
+                opacity: 1;
+            }
+        }
+    }
+}
