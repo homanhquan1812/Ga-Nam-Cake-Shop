@@ -2,9 +2,10 @@
   "name": "tta_project",
   "version": "1.0.0",
   "description": "Cake Shop Website",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node src/app.js",
+    "watch": "node-sass --watch src/resources/scss/app.scss --output src/public/css/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

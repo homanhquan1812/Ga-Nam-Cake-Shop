@@ -1,0 +1,8 @@
+1. Create MongoDB on Cloud. => Done
+2. Create a main javascript file (app.js). => Done
+3. Connect the project to MongoDB. => Done
+4. Change Front-end's files' type to "hbs". => Done
+5. Create a folder for both "header" and "footer" (src/resources/views/partials). => Done
+6. Create a folder for SCSS files (src/resources/scss). => Done
+7. Create a route folder (src/routes). => Done
+8. Create a controller folder (src/app/controllers). => Done
