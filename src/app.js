@@ -1,8 +1,8 @@
 const express = require('express')
 const morgan = require('morgan')
-const Handlebars = require("express-handlebars")
+const Handlebars = require('express-handlebars')
 const path = require('path')
-
+const route = require('./routes')
 const app = express()
 const port = 1234 // Website address is: localhost:1234
 
@@ -29,13 +29,28 @@ app.engine('hbs', Handlebars.engine({
   extname: '.hbs'
   }))
 app.set('view engine', 'hbs')
-// Temporary UI
-// app.use(express.static('src'));
 
 // Homepage
 app.get('/', function (req, res) {
   res.render('home')
 })
+
+// Route for Managers' Dashboard
+app.get('/dashboard/manager', (req, res) => {
+  res.render('dashboard\\dashboard', {
+    styles: ['..\\css\\style.css'] // Specify the styles needed for this view
+  });
+});
+
+// Route for Staffs' Dashboard
+app.get('/dashboard/staff', (req, res) => {
+  res.render('dashboard\\dashboard', {
+    styles: ['..\\css\\style.css'] // Specify the styles needed for this view
+  });
+});
+
+// Routes
+route(app)
 
 // Port
 app.listen(port, () => {
