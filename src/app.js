@@ -37,15 +37,15 @@ app.get('/', function (req, res) {
 
 // Route for Managers' Dashboard
 app.get('/dashboard/manager', (req, res) => {
-  res.render('dashboard\\dashboard', {
-    styles: ['..\\css\\style.css'] // Specify the styles needed for this view
+  res.render('dashboard\\managersDashboard', {
+    styles: ['..\\css\\style.css']
   });
 });
 
 // Route for Staffs' Dashboard
 app.get('/dashboard/staff', (req, res) => {
-  res.render('dashboard\\dashboard', {
-    styles: ['..\\css\\style.css'] // Specify the styles needed for this view
+  res.render('dashboard\\staffsDashboard', {
+    styles: ['..\\css\\style.css']
   });
 });
 

@@ -3,7 +3,7 @@ const router = express.Router()
 
 const dashboardController = require('../app/controllers/DashboardController')
 
-router.get('/staff', dashboardController.show)
-router.get('/manager', dashboardController.index)
+router.get('/staff', dashboardController.index_staff)
+router.get('/manager', dashboardController.index_manager)
 
 module.exports = router

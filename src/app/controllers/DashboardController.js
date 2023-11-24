@@ -4,9 +4,14 @@
 class DashboardController
 {
     // [GET] /dashboard
-    index(req, res)
+    index_staff(req, res)
     {
-        res.render('dashboard');
+        res.render('dashboard/staff');
+    }
+
+    index_manager(req, res)
+    {
+        res.render('dashboard/manager');
     }
 
     // [GET] /:slug
