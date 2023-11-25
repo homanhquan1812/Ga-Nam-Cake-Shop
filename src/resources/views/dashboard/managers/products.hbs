@@ -3,96 +3,89 @@
                 <link rel="stylesheet" href="{{this}}">
             {{/each}}
         {{/if}}
-                
+
         <!-- Header -->
-        <!--
         <header class="p-3 bg-dark text-white">
-            <div class="container">
-                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                    <img src="img/logo.png" style="width: 50px; height: 50px;" onclick="window.location.reload()">
-                
-                    <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
-                    </a>
-            
-                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                        <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-                    </ul>
-            
+            <div class="header-container">
+                <div class="search-box">
                     <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                         <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
                     </form>
-            
-                    <div class="text-end">
-                        <button type="button" class="btn btn-outline-light me-2">Login</button>
-                        <button type="button" class="btn btn-warning">Sign-up</button>
+                </div>
+
+                <!--
+                <div class="text-end">
+                    <button type="button" class="btn btn-outline-light me-2">Login</button>
+                    <button type="button" class="btn btn-warning">Sign-up</button>
+                </div>
+                -->
+
+                <div class="title" style="padding-left: 50px;">
+                    <h1>PRODUCTS</h1>
+                </div>
+
+                <div class="right">
+                    <div class="top">
+                        <div class="profile">
+                            <div class="info">
+                                <p style="color: white;">Welcome back, <b style="color: yellow;">Quan</b>.</p>
+                                <p style="color: white;">Position: <b style="color: cyan;">Manager</b></p>
+                            </div>                                <div class="profile-photo">
+                                <img src="../../img/avatar.jpg">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </header>
-        -->
 
         <!-- Content -->
         <div class="container">
             <aside>
                 <div class="top">
                     <div class="logo">
-                        <img src="../img/logo.png" style="width: 50px; height: 50px;">
+                        <img src="../../img/logo.png">
                     </div>
                     <div class="close">
                         <span class="material-icons-sharp">close</span>
                     </div>
                 </div>
-                <div class="sidebar">
-                    <a href="#">
+                <div class="sidebar" id="sidebar">
+                    <a href="/managers/overview">
+                        <span class="material-symbols-outlined"> overview </span>
+                        <h3>Overview</h3>
+                    </a>
+                    <a href="/managers/dashboard">
                         <span class="material-icons-sharp">grid_view</span>
                         <h3>Dashboard</h3>
                     </a>
-                    <a href="#" class="active">
+                    <a href="/managers/staffs">
+                        <span class="material-symbols-outlined">groups</span>
+                        <h3>Staffs</h3>
+                    </a>
+                    <a href="/managers/customers">
                         <span class="material-icons-sharp">person_outline</span>
                         <h3>Customers</h3>
                     </a>
-                    <a href="#">
-                        <span class="material-icons-sharp">receipt_long</span>
-                        <h3>Orders</h3>
-                    </a>
-                    <a href="#">
-                        <span class="material-icons-sharp">insights</span>
-                        <h3>Analytics</h3>
-                    </a>
-                    <a href="#">
-                        <span class="material-icons-sharp">mail_outline</span>
-                        <h3>Messages</h3>
+                    <a href="/managers/notes">
+                        <span class="material-symbols-outlined"> format_list_bulleted_add </span>
+                        <h3>Notes</h3>
+                        <!--
                         <span class="message-count">23</span>
+                        -->
                     </a>
-                    <a href="#">
+                    <a href="/managers/products" class="active">
                         <span class="material-icons-sharp">inventory</span>
                         <h3>Products</h3>
                     </a>
-                    <a href="#">
-                        <span class="material-icons-sharp">report_gmailerrorred</span>
-                        <h3>Reports</h3>
-                    </a>
-                    <a href="#">
+                    <a href="/managers/settings">
                         <span class="material-icons-sharp">settings</span>
                         <h3>Settings</h3>
-                    </a>
-                    <a href="#">
-                        <span class="material-icons-sharp">add</span>
-                        <h3>Add Product</h3>
-                    </a>
-                    <a href="#">
-                        <span class="material-icons-sharp">logout</span>
-                        <h3>Logout</h3>
                     </a>
                 </div>
             </aside>
 
-            <main>
+            <main id="dynamic-content">
                 <h1>Dashboard</h1>
 
                 <div class="date">
@@ -241,24 +234,29 @@
             </main>
             
             <div class="right">
+                <!--
                 <div class="top">
                     <button id="menu-btn">
                         <span class="material-icons-sharp">menu</span>
                     </button>
+
                     <div class="theme-toggler">
                         <span class="material-icons-sharp active">light_mode</span>
                         <span class="material-icons-sharp">dark_mode</span>
                     </div>
+
                     <div class="profile">
                         <div class="info">
-                            <p>Hey, <b>Quan</b>.</p>
-                            <small class="text-muted"><b>Admin</b></small>
+                            <p>Welcome back, <b>Quan</b>.</p>
+                            <p>Position: <b>Manager</b></p>
+                            <button type="button" class="btn btn-secondary">Sign out</button>
                         </div>
                         <div class="profile-photo">
-                            <img src="../img/avatar.jpg">
+                            <img src="../../img/avatar.jpg">
                         </div>
                     </div>
                 </div>
+                -->
 
                 <div class="recent-updates">
                     <h2>Recent Updates</h2>

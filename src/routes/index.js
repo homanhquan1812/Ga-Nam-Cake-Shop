@@ -1,8 +1,7 @@
-const dashboardRouter = require('./dashboard')
+const adminRouter = require('./dashboard');
 
-function route(app)
-{
-    app.use('/dashboard', dashboardRouter)
+function route(app) {
+    app.use('/', adminRouter);
 }
 
-module.exports = route
+module.exports = route;
