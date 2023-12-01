@@ -1,78 +1,144 @@
-// const { multipleMongooseToObject } = require('../../util/mongoose')
+const { multipleMongooseToObject } = require('../../util/mongoose')
+const DatabaseInfo = require('../models/Users')
+
 class DashboardController
 {
     // [GET] /dashboard/employees
     // Overview
-    index_employees_overview(req, res)
+    employees_overview(req, res)
     {
-        res.render('dashboard/employees/overview');
+        res.render('dashboard/employees/overview', {
+            styles: ['/css/overview.css']
+        });
     }
 
     // Dashboard
-    index_employees_dashboard(req, res)
+    employees_dashboard(req, res, next)
     {
-        res.render('dashboard/employees/dashboard');
+        Promise.all([DatabaseInfo.find({})])
+            .then(csw_info => res.render('dashboard/employees/dashboard', {
+                styles: ['/css/dashboard.css']
+            }))
+            .catch(next)
     }
 
     // Notes
-    index_employees_notes(req, res)
+    employees_notes(req, res)
     {
-        res.send('dashboard/employees/notes');
+        res.render('dashboard/employees/notes', {
+            styles: ['/css/notes.css']
+        });
     }
 
     // Products
-    index_employees_products(req, res)
+    employees_products(req, res)
     {
-        res.send('Tdashboard/employees/products');
+        res.render('dashboard/employees/products', {
+            styles: ['/css/products.css']
+        });
     }
 
     // Settings
-    index_employees_settings(req, res)
+    employees_settings(req, res)
     {
-        res.send('dashboard/employees/settings');
+        res.render('dashboard/employees/settings', {
+            styles: ['/css/settings.css']
+        });
     }
 
     // [GET] /dashboard/manager
     // Overview
-    index_managers_overview(req, res)
+    managers_overview(req, res)
     {
-        res.render('dashboard/managers/overview');
+        res.render('dashboard/managers/overview', {
+            styles: ['/css/overview.css']
+        });
     }
 
     // Dashboard
-    index_managers_dashboard(req, res)
+    managers_dashboard(req, res, next)
     {
-        res.render('dashboard/managers/dashboard');
+        Promise.all([DatabaseInfo.find({})])
+            .then(([csw_info]) => res.render('dashboard/managers/dashboard', {
+                styles: ['/css/dashboard.css'],
+                csw_info: multipleMongooseToObject(csw_info)
+            }))
+            .catch(next)
     }
 
     // Staffs
-    index_managers_staffs(req, res)
+    managers_staffs(req, res, next)
     {
-        res.render('dashboard/managers/staffs');
+        Promise.all([DatabaseInfo.find({})])
+            .then(([csw_info]) => res.render('dashboard/managers/staffs', {
+                styles: ['/css/staffs.css'],
+                csw_info: multipleMongooseToObject(csw_info)
+            }))
+            .catch(next)
     }
 
     // Customers
-    index_managers_customers(req, res)
+    managers_customers(req, res)
     {
-        res.send('dashboard/managers/customers');
+        res.render('dashboard/managers/customers', {
+            styles: ['/css/customers.css']
+        });
     }
 
     // To-do List
-    index_managers_notes(req, res)
+    managers_notes(req, res)
     {
-        res.send('dashboard/managers/notes');
+        res.render('dashboard/managers/notes', {
+            styles: ['/css/notes.css']
+        });
     }
 
     // Products
-    index_managers_products(req, res)
+    managers_products(req, res)
     {
-        res.send('Tdashboard/managers/products');
+        res.render('dashboard/managers/products', {
+            styles: ['/css/products.css']
+        });
     }
 
     // Settings
-    index_managers_settings(req, res)
+    managers_settings(req, res)
     {
-        res.send('dashboard/managers/settings');
+        res.render('dashboard/managers/settings', {
+            styles: ['/css/settings.css']
+        });
+    }
+
+    // Delete
+    managers_deletestaffs(req, res, next)
+    {
+        DatabaseInfo.delete({_id: req.params.id}, req.body)
+            .then(() => res.redirect('back'))
+            .catch(next)
+    }
+
+    // [POST] handle-form-actions
+    handleFormActions(req, res, next)
+    {
+        switch(req.body.action)
+        {
+            case 'delete':
+                DatabaseInfo.deleteOne({_id: { $in: req.body.memberID }})
+                    .then(() => res.redirect('back'))
+                    .catch(next)
+                break
+            default:
+                res.json({message: 'Action is invalid.'})
+        }
+    }
+
+    managers_store(req, res, next)
+    {
+        const formData = req.body      
+        const newInfo = new DatabaseInfo(formData)
+        newInfo.save()
+            .then(() => res.redirect('/managers/staffs'))
+            .catch(next)
     }
 
     // [GET] /:slug

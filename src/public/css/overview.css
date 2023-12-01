@@ -162,7 +162,7 @@ aside .sidebar {
     background: white;
     display: flex;
     flex-direction: column;
-    height: 60vh;
+    height: 50vh;
     position: relative;
     top: 1.4rem;
     border-radius: var(--border-radius-3);
@@ -250,7 +250,7 @@ main .date input[type="dates"] {
 
 main .insights {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 1.6rem;
 }
 
@@ -354,7 +354,7 @@ main .recent-orders h2 {
 }
 
 main .recent-orders table {
-    background: var(--color-white);
+    background: whitesmoke;
     width: 100%;
     border-radius: var(--card-border-radius);
     padding: var(--card-padding);
@@ -369,8 +369,17 @@ main .recent-orders table:hover {
 
 main table tbody td {
     height: 2.8rem;
+    padding: 15px;
+    font-size: 15px;
     border-bottom: 1px solid var(--color-light);
     color: var(--color-dark-variant);
+}
+
+main table thead th {
+    height: 2.8rem;
+    padding: 15px;
+    font-size: 20px;
+    background-color: lightgray;
 }
 
 main table tbody tr:last-child td {
@@ -494,3 +503,13 @@ main .recent-orders a {
 .header-container .title h1 {
     font-size: 35px!important;
 }
+
+.showall {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
+}
+

@@ -85,120 +85,264 @@
             </aside>
 
             <main id="dynamic-content">
+                <!--
                 <div class="date">
                     <input type="date">
                 </div>
+                -->
 
-                <div class="insights">
-                    <div class="sales">
-                        <span class="material-icons-sharp">analytics</span>
-                        <div class="middle">
-                            <div class="left">
-                                <h3>Total Sales</h3>
-                                <h1>$25,024</h1>
+                <div class="mt-4">
+                    <div class="insights">
+                        <div class="sales">
+                            <span class="material-icons-sharp">analytics</span>
+                            <div class="middle">
+                                <div class="left">
+                                    <h3>Total Sales</h3>
+                                    <h1>$25,024</h1>
+                                </div>
                             </div>
+                            <table style="margin-top: 20px;">
+                                <thead>
+                                    <tr>
+                                        <th>Customers</th>
+                                        <th>Phone Numbers</th>
+                                        <th>Product Name</th>
+                                        <th>Payment Method</th>
+                                        <th>Time</th>
+                                        <th>Total Cost</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>John Doe</td>
+                                        <td>(555) 123-4567</td>
+                                        <td>Widget X</td>
+                                        <td>Credit Card</td>
+                                        <td>12:30 PM</td>
+                                        <td>$75.50</td>
+                                        <td>Shipped</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jane Smith</td>
+                                        <td>(555) 987-6543</td>
+                                        <td>Gizmo Y</td>
+                                        <td>PayPal</td>
+                                        <td>3:45 PM</td>
+                                        <td>$120.25</td>
+                                        <td>Processing</td>
+                                    </tr>
+                                    <tr>
+                                        <td>John Doe</td>
+                                        <td>(555) 123-4567</td>
+                                        <td>Widget X</td>
+                                        <td>Credit Card</td>
+                                        <td>12:30 PM</td>
+                                        <td>$75.50</td>
+                                        <td>Shipped</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jane Smith</td>
+                                        <td>(555) 987-6543</td>
+                                        <td>Gizmo Y</td>
+                                        <td>PayPal</td>
+                                        <td>3:45 PM</td>
+                                        <td>$120.25</td>
+                                        <td>Processing</td>
+                                    </tr>
+                                    <tr></tr>
+                                </tbody>
+                            </table>
+                        <div class="showall">
+                            <a href="#">Show All</a>
                         </div>
-                        <table style="margin-top: 20px;">
-                            <thead>
-                                <tr>
-                                    <th>Product Name</th>
-                                    <th>Product Number</th>
-                                    <th>Payment</th>
-                                    <th>Status</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Quantum Fusion Blender</td>
-                                    <td>PDQ-7845</td>
-                                    <td>Credit Card</td>
-                                    <td><button type="button" class="btn btn-success">Success</button></td>
-                                    <td>Details</td>
-                                </tr>
-                                <tr>
-                                    <td>Solar Eclipse Sunglasses</td>
-                                    <td>XTR-2098</td>
-                                    <td>PayPal</td>
-                                    <td><button type="button" class="btn btn-success">Success</button></td>
-                                    <td>Details</td>
-                                </tr>
-                                <tr>
-                                    <td>Galactic Adventure Backpack</td>
-                                    <td>ZEN-6012</td>
-                                    <td>Bitcoin</td>
-                                    <td><button type="button" class="btn btn-danger">Failure</button></td>
-                                    <td>Details</td>
-                                </tr>
-                                <tr>
-                                    <td>Midnight Serenity Candle</td>
-                                    <td>LUX-8763</td>
-                                    <td>Apple Pay</td>
-                                    <td><button type="button" class="btn btn-success">Success</button></td>
-                                    <td>Details</td>
-                                </tr>
-                                <tr>
-                                    <td>AquaDream Smart Water Bottle</td>
-                                    <td>NEO-4221</td>
-                                    <td>Gift Card</td>
-                                    <td><button type="button" class="btn btn-danger">Failure</button></td>
-                                    <td>Details</td>
-                                </tr>
-                                                            <tr>
-                                    <td>Midnight Serenity Candle</td>
-                                    <td>LUX-8763</td>
-                                    <td>Apple Pay</td>
-                                    <td><button type="button" class="btn btn-success">Success</button></td>
-                                    <td>Details</td>
-                                </tr>
-                                <tr>
-                                    <td>AquaDream Smart Water Bottle</td>
-                                    <td>NEO-4221</td>
-                                    <td>Gift Card</td>
-                                    <td><button type="button" class="btn btn-danger">Failure</button></td>
-                                    <td>Details</td>
-                                </tr>
-                                                            <tr>
-                                    <td>Midnight Serenity Candle</td>
-                                    <td>LUX-8763</td>
-                                    <td>Apple Pay</td>
-                                    <td><button type="button" class="btn btn-success">Success</button></td>
-                                    <td>Details</td>
-                                </tr>
-                                <tr>
-                                    <td>AquaDream Smart Water Bottle</td>
-                                    <td>NEO-4221</td>
-                                    <td>Gift Card</td>
-                                    <td><button type="button" class="btn btn-danger">Failure</button></td>
-                                    <td>Details</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    <a href="#">Show All</a>
-                        <small class="text-muted">Last 24 Hours</small>
-                    </div>
+                        
+                            <small class="text-muted">Last 24 Hours</small>
+                        </div>
 
-                    <div class="expenses">
-                        <span class="material-icons-sharp">bar_chart</span>
-                        <div class="middle">
-                            <div class="left">
-                                <h3>Total Expenses</h3>
-                                <h1>$10,299</h1>
-                            </div>
-                        </div>
-                        <small class="text-muted">Last 24 Hours</small>
-                    </div>
+                        <!--
 
-                    <div class="income">
-                        <span class="material-icons-sharp">stacked_line_chart</span>
-                        <div class="middle">
-                            <div class="left">
-                                <h3>Total Income</h3>
-                                <h1>$14,725</h1>
+                        <div class="expenses">
+                            <span class="material-icons-sharp">bar_chart</span>
+                            <div class="middle">
+                                <div class="left">
+                                    <h3>Total Expenses</h3>
+                                    <h1>$10,299</h1>
+                                </div>
                             </div>
+                            <table style="margin-top: 20px;">
+                                <thead>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Product Number</th>
+                                        <th>Payment</th>
+                                        <th>Status</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Quantum Fusion Blender</td>
+                                        <td>PDQ-7845</td>
+                                        <td>Credit Card</td>
+                                        <td><button type="button" class="btn btn-success">Success</button></td>
+                                        <td>Details</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Solar Eclipse Sunglasses</td>
+                                        <td>XTR-2098</td>
+                                        <td>PayPal</td>
+                                        <td><button type="button" class="btn btn-success">Success</button></td>
+                                        <td>Details</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Galactic Adventure Backpack</td>
+                                        <td>ZEN-6012</td>
+                                        <td>Bitcoin</td>
+                                        <td><button type="button" class="btn btn-danger">Failure</button></td>
+                                        <td>Details</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Midnight Serenity Candle</td>
+                                        <td>LUX-8763</td>
+                                        <td>Apple Pay</td>
+                                        <td><button type="button" class="btn btn-success">Success</button></td>
+                                        <td>Details</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AquaDream Smart Water Bottle</td>
+                                        <td>NEO-4221</td>
+                                        <td>Gift Card</td>
+                                        <td><button type="button" class="btn btn-danger">Failure</button></td>
+                                        <td>Details</td>
+                                    </tr>
+                                                                <tr>
+                                        <td>Midnight Serenity Candle</td>
+                                        <td>LUX-8763</td>
+                                        <td>Apple Pay</td>
+                                        <td><button type="button" class="btn btn-success">Success</button></td>
+                                        <td>Details</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AquaDream Smart Water Bottle</td>
+                                        <td>NEO-4221</td>
+                                        <td>Gift Card</td>
+                                        <td><button type="button" class="btn btn-danger">Failure</button></td>
+                                        <td>Details</td>
+                                    </tr>
+                                                                <tr>
+                                        <td>Midnight Serenity Candle</td>
+                                        <td>LUX-8763</td>
+                                        <td>Apple Pay</td>
+                                        <td><button type="button" class="btn btn-success">Success</button></td>
+                                        <td>Details</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AquaDream Smart Water Bottle</td>
+                                        <td>NEO-4221</td>
+                                        <td>Gift Card</td>
+                                        <td><button type="button" class="btn btn-danger">Failure</button></td>
+                                        <td>Details</td>
+                                    </tr>
+                                    <tr>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <small class="text-muted">Last 24 Hours</small>
                         </div>
-                        <small class="text-muted">Last 24 Hours</small>
+
+                        <div class="incomes">
+                            <span class="material-icons-sharp">stacked_line_chart</span>
+                            <div class="middle">
+                                <div class="left">
+                                    <h3>Total Incomes</h3>
+                                    <h1>$14,725</h1>
+                                </div>
+                            </div>
+                            <table style="margin-top: 20px;">
+                                <thead>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Product Number</th>
+                                        <th>Payment</th>
+                                        <th>Status</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Quantum Fusion Blender</td>
+                                        <td>PDQ-7845</td>
+                                        <td>Credit Card</td>
+                                        <td><button type="button" class="btn btn-success">Success</button></td>
+                                        <td>Details</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Solar Eclipse Sunglasses</td>
+                                        <td>XTR-2098</td>
+                                        <td>PayPal</td>
+                                        <td><button type="button" class="btn btn-success">Success</button></td>
+                                        <td>Details</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Galactic Adventure Backpack</td>
+                                        <td>ZEN-6012</td>
+                                        <td>Bitcoin</td>
+                                        <td><button type="button" class="btn btn-danger">Failure</button></td>
+                                        <td>Details</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Midnight Serenity Candle</td>
+                                        <td>LUX-8763</td>
+                                        <td>Apple Pay</td>
+                                        <td><button type="button" class="btn btn-success">Success</button></td>
+                                        <td>Details</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AquaDream Smart Water Bottle</td>
+                                        <td>NEO-4221</td>
+                                        <td>Gift Card</td>
+                                        <td><button type="button" class="btn btn-danger">Failure</button></td>
+                                        <td>Details</td>
+                                    </tr>
+                                                                <tr>
+                                        <td>Midnight Serenity Candle</td>
+                                        <td>LUX-8763</td>
+                                        <td>Apple Pay</td>
+                                        <td><button type="button" class="btn btn-success">Success</button></td>
+                                        <td>Details</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AquaDream Smart Water Bottle</td>
+                                        <td>NEO-4221</td>
+                                        <td>Gift Card</td>
+                                        <td><button type="button" class="btn btn-danger">Failure</button></td>
+                                        <td>Details</td>
+                                    </tr>
+                                                                <tr>
+                                        <td>Midnight Serenity Candle</td>
+                                        <td>LUX-8763</td>
+                                        <td>Apple Pay</td>
+                                        <td><button type="button" class="btn btn-success">Success</button></td>
+                                        <td>Details</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AquaDream Smart Water Bottle</td>
+                                        <td>NEO-4221</td>
+                                        <td>Gift Card</td>
+                                        <td><button type="button" class="btn btn-danger">Failure</button></td>
+                                        <td>Details</td>
+                                    </tr>
+                                    <tr>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <small class="text-muted">Last 24 Hours</small>
+                        </div>
                     </div>
+                    -->
                 </div>
 
                 <!--

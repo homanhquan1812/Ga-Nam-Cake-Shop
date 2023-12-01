@@ -235,6 +235,10 @@ main {
     margin-top: 1.4rem;
 }
 
+main .title h1 {
+    font-size: 50px!important;
+}
+
 main .date {
     display: block;
     background: var(--color-light);
@@ -250,8 +254,10 @@ main .date input[type="dates"] {
 
 main .insights {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 1.6rem;
+    width: 350px;
+    height: 300px;
 }
 
 main .insights > div {
@@ -294,52 +300,6 @@ main .insights h3 {
     font-size: 1rem;
 }
 
-main .insights .progress {
-    position: relative;
-    width: 92px;
-    height: 92px;
-    border-radius: 50%;
-}
-
-main .insights svg {
-    width: 7rem;
-    height: 7rem;
-}
-
-main .insights svg circle {
-    fill: none;
-    stroke: var(--color-primary);
-    stroke-width: 14;
-    stroke-linecap: round;
-    transform: translate(5px, 5px);
-}
-
-main .insights .sales svg circle {
-    stroke-dashoffset: -30;
-    stroke-dasharray: 200;
-}
-
-main .insights .expenses svg circle {
-    stroke-dashoffset: 20;
-    stroke-dasharray: 110;
-}
-
-main .insights .income svg circle {
-    stroke-dashoffset: 35;
-    stroke-dasharray: 110;
-}
-
-main .insights .progress .number {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 main .insights small {
     margin-top: 1.6rem;
     display: block;
@@ -369,8 +329,16 @@ main .recent-orders table:hover {
 
 main table tbody td {
     height: 2.8rem;
+    padding: 15px;
+    font-size: 15px;
+    width: 100%;
     border-bottom: 1px solid var(--color-light);
     color: var(--color-dark-variant);
+}
+
+main table thead th {
+    height: 2.8rem;
+    padding: 15px;
 }
 
 main table tbody tr:last-child td {
@@ -493,4 +461,30 @@ main .recent-orders a {
 
 .header-container .title h1 {
     font-size: 35px!important;
+}
+
+.insights table {
+    width: 800px;
+    background-color: whitesmoke;
+}
+
+.insights table thead tr {
+    background-color: lightgray;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.insights .sales table, .expenses table, .incomes table
+{
+    margin: auto;
+    
+}
+
+.showall {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
 }

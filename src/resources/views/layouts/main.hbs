@@ -7,6 +7,10 @@
         <meta name="description" content="Cake Shop Bakery">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="../../img/logo.png">
+        <!-- Include Bootstrap for button styling -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <!-- Include jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -14,34 +18,89 @@
     </head>
     <body>
         {{{body}}}
-        <!--
         <script>
-            const sidebarLinks = document.querySelectorAll('.sidebar a');
+            $("#discardInfoBtn, #saveInfoBtn").hide();
+            $("#discardAddedInfoBtn, #saveAddedInfoBtn").hide();
+            $(".add-data").hide();
 
-            sidebarLinks.forEach((link) => {
-                link.addEventListener('click', (event) => {
-                    // Prevent the default action (page loading) for the clicked link
-                    // event.preventDefault();
-
-                    // Load the corresponding content using AJAX or fetch
-                    const contentURL = link.href;
-
-                    fetch(contentURL)
-                    .then((response) => response.text())
-                    .then((html) => {
-                        // Replace the current content with the loaded content
-                        const contentContainer = document.getElementById('content-container');
-                        contentContainer.innerHTML = html;
-                    });
-
-                    // Update the active link class
-                    sidebarLinks.forEach((link) => {
-                    link.classList.remove('active');
-                    });
-                    event.currentTarget.classList.add('active');
+            // Wait for the document to be ready
+            $(document).ready(function () {
+                // Handle the click event on the "Change member's information" button
+                $("#changeInfoBtn").click(function () {
+                    // Replace the content of the specified <td> with the new form content
+                    $(".positionCell").html(`
+                        <form action="#">
+                            <select name="languages" id="selectposition">
+                                <optgroup label="Select position">
+                                    <option value="maPo">Manager</option>
+                                    <option value="emPo">Employee</option>
+                                </optgroup>
+                            </select>
+                            <!-- <input style="margin-top: 5px; background-color: yellow; padding: 2px;"  type="submit" value="Submit" /> -->
+                        </form>
+                    `);
+                    $(".departmentCell").html(`
+                        <form action="#">
+                            <select name="languages" id="lang">
+                                <optgroup label="Select position">
+                                    <option value="maPo">Department 1</option>
+                                    <option value="emPo">Department 2</option>
+                                    <option value="maPo">Department 3</option>
+                                    <option value="emPo">Department 4</option>
+                                    <option value="maPo">Department 5</option>
+                                    <option value="emPo">Department 6</option>
+                                    <option value="maPo">Department 7</option>
+                                    <option value="emPo">Department 8</option>
+                                    <option value="maPo">Department 9</option>
+                                    <option value="emPo">Department 10</option>
+                                </optgroup>
+                            </select>
+                            <!-- <input style="margin-top: 5px; background-color: yellow; padding: 2px;" type="submit" value="Submit" /> -->
+                        </form>
+                    `);
                 });
+                // 
+
+                $("#changeInfoBtn").click(function () {
+                    $("#discardInfoBtn, #saveInfoBtn").show();
+                    $("#changeInfoBtn, #addInfoBtn").hide();
+                    var element = document.getElementById('saveInfoBtn');
+                    element.style.margin = null;
+                });
+
+                $('#discardInfoBtn').click(function () {
+                    $("#discardInfoBtn, #saveInfoBtn").hide();
+                    $("#changeInfoBtn, #addInfoBtn").show();
+                    $("#positionCell").html(`Test`);
+                });
+
+                $('#addInfoBtn').click(function() {
+                    $("#discardInfoBtn, #saveInfoBtn, #changeInfoBtn, #addInfoBtn").hide();
+                    $("#discardAddedInfoBtn, #saveAddedInfoBtn").show();
+                    var element = document.getElementById('saveAddedInfoBtn');
+                    element.style.margin = null;
+                    $(".add-data").show();
+                })
+
+                $('#discardAddedInfoBtn').click(function () {
+                    $("#discardInfoBtn, #saveInfoBtn").hide();
+                    $("#changeInfoBtn, #addInfoBtn").show();
+                    $("#discardAddedInfoBtn, #saveAddedInfoBtn").hide();
+                    $("#positionCell").html(`Test`);
+                    $(".add-data").hide();
+                });
+
+                $('#saveAddedInfoBtn').click(function () {
+                    $(".add-data").hide();
+                    $('#saveAddedInfoBtn, #discardAddedInfoBtn').hide();
+                    $("#addInfoBtn, #changeInfoBtn").show();
+                })
+
+                $('#saveInfoBtn').click(function () {
+                    $('#saveInfoBtn, #discardInfoBtn').hide();
+                    $("#addInfoBtn, #changeInfoBtn").show();
+                })
             });
         </script>
-        -->
     </body>
 </html>

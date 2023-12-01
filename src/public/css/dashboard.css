@@ -256,8 +256,8 @@ main .insights {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 1.6rem;
-    width: 1150px;
-    height: 1500px;
+    width: 100%;
+    height: 900px;
 }
 
 main .insights > div {
@@ -329,8 +329,16 @@ main .recent-orders table:hover {
 
 main table tbody td {
     height: 2.8rem;
+    padding: 15px;
+    font-size: 15px;
+    width: 100%;
     border-bottom: 1px solid var(--color-light);
     color: var(--color-dark-variant);
+}
+
+main table thead th {
+    height: 2.8rem;
+    padding: 15px;
 }
 
 main table tbody tr:last-child td {
@@ -453,4 +461,30 @@ main .recent-orders a {
 
 .header-container .title h1 {
     font-size: 35px!important;
+}
+
+.insights table {
+    width: 800px;
+    background-color: whitesmoke;
+}
+
+.insights table thead tr {
+    background-color: lightgray;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.insights .sales table, .expenses table, .incomes table
+{
+    margin: auto;
+    
+}
+
+.showall {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
 }
