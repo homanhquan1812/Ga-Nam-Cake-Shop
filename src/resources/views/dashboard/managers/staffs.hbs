@@ -88,7 +88,7 @@
                                         <button type="button" class="btn btn-primary" id="addInfoBtn">Add more members</button>
                                         <button style="margin-left: 10px;" type="button" class="btn btn-warning" id="changeInfoBtn">Change member's information</button>
                                         <!-- <button style="margin-left: 10px;" type="button" class="btn btn-success" id="saveInfoBtn">Save all changes</button> -->
-                                        <button style="margin-left: 0px;" type="button" class="btn btn-danger" id="discardInfoBtn">Discard all changes</button>
+                                        <button style="margin-left: 0px;" type="button" class="btn btn-danger" id="discardInfoBtn" onclick="window.location.href='/managers/staffs'">Discard all changes</button>
                                         <button style="margin-left: 10px;" type="submit" class="btn btn-success" id="saveAddedInfoBtn" form="addInfoForm">Save this member</button>
                                         <button style="margin-left: 10px;" type="button" class="btn btn-danger" id="discardAddedInfoBtn" onclick="window.location.href='/managers/staffs'">Discard</button>
                                     </div>
@@ -131,37 +131,54 @@
                                             <td>{{this.csw_username}}</td>
                                             <td>{{this.csw_emailaddress}}</td>
                                             <!-- <td>{{this.csw_password}}</td> -->
-                                            <td class="positionCell">{{this.csw_position}}</td>
-                                            <td class="departmentCell">{{this.csw_department}}</td>
+                                            <td>             
+                                                <div class="currentPosition">
+                                                    {{this.csw_position}}
+                                                </div>                           
+                                                <div class="changeCurrentPosition">
+                                                    <form action="#" id="selectPositionForm">
+                                                        <select name="selectposition" id="selectposition">
+                                                            <optgroup label="Select position">
+                                                                <option {{#if (eq this.csw_position 'Manager')}} selected="selected"{{/if}}>Manager</option>
+                                                                <option {{#unless (eq this.csw_position 'Manager')}} selected="selected"{{/unless}}>Employee</option>
+                                                            </optgroup>
+                                                        </select>
+                                                        <!-- <input style="margin-top: 5px; background-color: yellow; padding: 2px;"  type="submit" value="Submit" /> -->
+                                                    </form>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="currentDepartment">
+                                                    {{this.csw_department}}
+                                                </div>                           
+                                                <div class="changeCurrentDepartment">
+                                                    <form action="#" id="selectDepartmentForm">
+                                                        <select name="selectdepartment" id="selectdepartment">
+                                                            <optgroup label="Select Department">
+                                                                <option {{#if (eq this.csw_department 'Cake Cook')}} selected="selected"{{/if}}>Cake Cook</option>
+                                                                <option {{#if (eq this.csw_department 'Cupcake Creations')}} selected="selected"{{/if}}>Cupcake Creations</option>
+                                                                <option {{#if (eq this.csw_department 'Chocolate Delights')}} selected="selected"{{/if}}>Chocolate Delights</option>
+                                                                <option {{#if (eq this.csw_department 'Frosty Treats')}} selected="selected"{{/if}}>Frosty Treats</option>
+                                                                <option {{#if (eq this.csw_department 'Sweet Innovations')}} selected="selected"{{/if}}>Sweet Innovations</option>
+                                                                <option {{#if (eq this.csw_department 'Tasty Tarts')}} selected="selected"{{/if}}>Tasty Tarts</option>
+                                                                <option {{#if (eq this.csw_department 'Creamy Confections')}} selected="selected"{{/if}}>Creamy Confections</option>
+                                                                <option {{#if (eq this.csw_department 'Fruity Delights')}} selected="selected"{{/if}}>Fruity Delights</option>
+                                                                <option {{#if (eq this.csw_department 'Velvet Vanilla')}} selected="selected"{{/if}}>Velvet Vanilla</option>
+                                                                <option {{#if (eq this.csw_department 'Divine Desserts')}} selected="selected"{{/if}}>Divine Desserts</option>
+                                                            </optgroup>
+                                                        </select>
+                                                        <!-- <input style="margin-top: 5px; background-color: yellow; padding: 2px;"  type="submit" value="Submit" /> -->
+                                                    </form>
+                                                </div>
+                                            </td>
                                             <td>
                                                 {{#unless (eq this.csw_position "Manager")}}
-                                                    <button type="button" class="btn btn-danger" class="btn btn-link" data-toggle="modal" data-id="{{this._id}}" data-target="#delete-course-modal">Remove</button>
+                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-id="{{this._id}}" data-target="#delete-course-modal">Remove</button>
                                                 {{/unless}}
                                             </td>
-
                                         </tr>
                                         <tr></tr>
-                                        {{/each}}
-                                                <!-- 
-                                                <form action="#">
-                                                <select name="languages" id="lang">
-                                                    <optgroup label="first-choice">
-                                                    <option value="select">Select a language</option>
-                                                    <option value="javascript">JavaScript</option>
-                                                    <option value="php">PHP</option>
-                                                    <option value="java">Java</option>
-                                                    <option value="golang">Golang</option>
-                                                    </optgroup>
-                                                    <optgroup label="second-choice">
-                                                    <option value="python">Python</option>
-                                                    <option value="c#">C#</option>
-                                                    <option value="C++">C++</option>
-                                                    <option value="erlang">Erlang</option>
-                                                    </optgroup>
-                                                </select>
-                                                <input type="submit" value="Submit" />
-                                            </form>
-                                            -->
+                                        {{/each}}                                    
                                         <tr></tr>
                                     </tbody>
                                 </table>

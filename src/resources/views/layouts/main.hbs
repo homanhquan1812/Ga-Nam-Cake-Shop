@@ -22,42 +22,17 @@
             $("#discardInfoBtn, #saveInfoBtn").hide();
             $("#discardAddedInfoBtn, #saveAddedInfoBtn").hide();
             $(".add-data").hide();
+            $(".currentPosition").show();
+            $(".changeCurrentPosition").hide();
+            $(".currentDepartment").show();
+            $(".changeCurrentDepartment").hide();
 
-            // Wait for the document to be ready
             $(document).ready(function () {
-                // Handle the click event on the "Change member's information" button
-                $("#changeInfoBtn").click(function () {
-                    // Replace the content of the specified <td> with the new form content
-                    $(".positionCell").html(`
-                        <form action="#">
-                            <select name="languages" id="selectposition">
-                                <optgroup label="Select position">
-                                    <option value="maPo">Manager</option>
-                                    <option value="emPo">Employee</option>
-                                </optgroup>
-                            </select>
-                            <!-- <input style="margin-top: 5px; background-color: yellow; padding: 2px;"  type="submit" value="Submit" /> -->
-                        </form>
-                    `);
-                    $(".departmentCell").html(`
-                        <form action="#">
-                            <select name="languages" id="lang">
-                                <optgroup label="Select position">
-                                    <option value="maPo">Department 1</option>
-                                    <option value="emPo">Department 2</option>
-                                    <option value="maPo">Department 3</option>
-                                    <option value="emPo">Department 4</option>
-                                    <option value="maPo">Department 5</option>
-                                    <option value="emPo">Department 6</option>
-                                    <option value="maPo">Department 7</option>
-                                    <option value="emPo">Department 8</option>
-                                    <option value="maPo">Department 9</option>
-                                    <option value="emPo">Department 10</option>
-                                </optgroup>
-                            </select>
-                            <!-- <input style="margin-top: 5px; background-color: yellow; padding: 2px;" type="submit" value="Submit" /> -->
-                        </form>
-                    `);
+                $("#changeInfoBtn").click(function () {     
+                    $(".currentPosition").toggle();
+                    $(".changeCurrentPosition").toggle();
+                    $(".currentDepartment").toggle();
+                    $(".changeCurrentDepartment").toggle();
                 });
                 // 
 
