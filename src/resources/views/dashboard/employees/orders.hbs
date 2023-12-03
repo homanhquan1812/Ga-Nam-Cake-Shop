@@ -60,7 +60,7 @@
                     </a>
                     <a href="/employees/orders" class="active">
                         <span class="material-symbols-outlined"> list_alt </span>
-                        <h3>Orders</h3>
+                        <h3>New Orders</h3>
                     </a>
                     <a href="/employees/notes">
                         <span class="material-symbols-outlined"> format_list_bulleted_add </span>
@@ -102,26 +102,36 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Customer</th>
-                                        <th>Gender</th>
                                         <th>Phone number</th>
-                                        <th>Username</th>
-                                        <th>Email address</th>
+                                        <th>Address</th>
+                                        <th>Product</th>
+                                        <th>Quantity</th>
+                                        <th>Total cost</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{#each csw_info2}}
+                                    {{#each orders}}
                                     <tr>
                                         <td>{{sum @index 1}}</td>
-                                        <td>{{this.csw_name}}</td>
-                                        <td>{{this.csw_gender}}</td>
-                                        <td>{{this.csw_phonenumber}}</td>
-                                        <td>{{this.csw_username}}</td>
-                                        <td>{{this.csw_emailaddress}}</td>
+                                        <td>{{this.customer}}</td>
+                                        <td>{{this.phonenumber}}</td>
+                                        <td>{{this.address}}</td>
                                         <td>
-                                            {{#unless (eq this.csw_position "Manager")}}
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-id="{{this._id}}" data-target="#delete-course-modal">Remove</button>
-                                            {{/unless}}
+                                            {{#each this.products}}
+                                                {{this.name}}
+                                                {{#unless @last}}<br><hr> {{/unless}}
+                                            {{/each}}
+                                        </td>
+                                        <td>
+                                            {{#each this.products}}
+                                                {{this.quantity}}
+                                                {{#unless @last}}<br><hr> {{/unless}}
+                                            {{/each}}
+                                        </td>
+                                        <td>{{this.totalcost}} VND</td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-id="{{this._id}}" data-target="#delete-course-modal">Finish delivering</button>
                                         </td>
                                     </tr>
                                     {{/each}}
@@ -149,7 +159,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Are you sure that you want to delete this customer?</p>
+                        <p>Are you sure that you've already delivered cakes to this customer?</p>
                     </div>
                     <div class="modal-footer">
                         <button id="btn-delete-course" type="button" class="btn btn-primary">Yes</button>

@@ -5,6 +5,7 @@ const employeesRouter = express.Router();
 const managersRouter = express.Router();
 
 // Staff routes
+employeesRouter.get('/', adminController.employees_overview)
 employeesRouter.get('/overview', adminController.employees_overview);
 employeesRouter.get('/dashboard', adminController.employees_dashboard);
 employeesRouter.get('/notes', adminController.employees_notes);
@@ -13,6 +14,7 @@ employeesRouter.get('/settings', adminController.employees_settings);
 employeesRouter.get('/orders', adminController.employees_orders);
 
 // Manager routes
+managersRouter.get('/', adminController.managers_overview)
 managersRouter.get('/overview', adminController.managers_overview);
 managersRouter.get('/dashboard', adminController.managers_dashboard);
 managersRouter.get('/staffs', adminController.managers_staffs);
@@ -20,6 +22,7 @@ managersRouter.get('/customers', adminController.managers_customers);
 managersRouter.get('/notes', adminController.managers_notes);
 managersRouter.get('/products', adminController.managers_products);
 managersRouter.get('/settings', adminController.managers_settings);
+managersRouter.get('/orders', adminController.managers_orders)
 managersRouter.delete('/staffs/:id', adminController.managers_deletestaffs)
 managersRouter.delete('/customers/:id', adminController.managers_deletecustomers)
 managersRouter.delete('/products/:id', adminController.managers_deleteproducts)
@@ -30,6 +33,7 @@ managersRouter.post('/storenotes', adminController.managers_storenotes)
 managersRouter.post('/storeproducts', adminController.managers_storeproducts)
 managersRouter.get('/:id', adminController.managers_editstaffs)
 managersRouter.put('/:id', adminController.managers_updatestaffs)
+
 
 // Use the nested routers
 router.use('/employees', employeesRouter);
