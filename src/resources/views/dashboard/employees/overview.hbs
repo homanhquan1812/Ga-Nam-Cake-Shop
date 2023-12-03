@@ -59,9 +59,13 @@
                         <span class="material-icons-sharp">grid_view</span>
                         <h3>Dashboard</h3>
                     </a>
+                    <a href="/employees/orders">
+                        <span class="material-symbols-outlined"> list_alt </span>
+                        <h3>Orders</h3>
+                    </a>
                     <a href="/employees/notes">
                         <span class="material-symbols-outlined"> format_list_bulleted_add </span>
-                        <h3>Notes</h3>
+                        <h3>To-Do Lists</h3>
                         <!--
                         <span class="message-count">23</span>
                         -->
@@ -170,7 +174,7 @@
                 <div class="recent-updates">
                     <div class="updates">
                         <div class="insights">
-                            <span style="display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 20px;">TODO Lists  <button style="margin-left: 10px;" type="button" class="btn btn-primary" onclick="window.location.href='/employees/notes'">More Details</button></span>
+                            <span style="display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 25px;">To-Do Lists</span>
                             <table style="margin-top: 20px; width: 100%;">
                                 <thead>
                                     <tr>
@@ -179,24 +183,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {{#each notes}}
                                     <tr>
-                                        <td>1</td>
-                                        <td>John DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn Doe</td>                                    
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>John DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn Doe</td>
-                                    
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>John DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn Doe</td>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>John DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn Doe</td>                      
-                                    </tr>
+                                        <td>{{sum @index 1}}</td>
+                                        <td>{{this.csw_notes}}</td>
+                                    <tr></tr>
+                                    {{/each}}
                                     <tr></tr>
                                 </tbody>
                             </table>

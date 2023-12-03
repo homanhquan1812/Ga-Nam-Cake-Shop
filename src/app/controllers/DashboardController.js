@@ -8,11 +8,14 @@ class DashboardController
 {
     // [GET] /dashboard/employees
     // Overview
-    employees_overview(req, res)
+    employees_overview(req, res, next)
     {
-        res.render('dashboard/employees/overview', {
-            styles: ['/css/overview.css']
-        });
+        Promise.all([Notes.find({})])
+            .then(([notes]) => res.render('dashboard/employees/overview', {
+                styles: ['/css/overview.css'],
+                notes: multipleMongooseToObject(notes)
+            }))
+            .catch(next)
     }
 
     // Dashboard
@@ -23,6 +26,14 @@ class DashboardController
                 styles: ['/css/dashboard.css']
             }))
             .catch(next)
+    }
+
+    // Orders
+    employees_orders(req, res, next)
+    {
+        res.render('dashboard/employees/orders', {
+            styles: ['/css/orders.css']
+        })
     }
 
     // Notes
@@ -37,11 +48,14 @@ class DashboardController
     }
 
     // Products
-    employees_products(req, res)
+    employees_products(req, res, next)
     {
-        res.render('dashboard/employees/products', {
-            styles: ['/css/products.css']
-        });
+        Promise.all([Products.find({})])
+            .then(([products]) => res.render('dashboard/employees/products', {
+                styles: ['/css/products.css'],
+                products: multipleMongooseToObject(products)
+            }))
+            .catch(next)
     }
 
     // Settings

@@ -10,6 +10,7 @@ employeesRouter.get('/dashboard', adminController.employees_dashboard);
 employeesRouter.get('/notes', adminController.employees_notes);
 employeesRouter.get('/products', adminController.employees_products);
 employeesRouter.get('/settings', adminController.employees_settings);
+employeesRouter.get('/orders', adminController.employees_orders);
 
 // Manager routes
 managersRouter.get('/overview', adminController.managers_overview);
