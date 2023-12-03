@@ -487,3 +487,14 @@ main .recent-orders a {
     font-size: 15px;
     margin-top: 10px;
 }
+
+.add-data {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.add-data input {
+    padding: 10px;
+    width: 250px;
+    font-size: 15px;
+}

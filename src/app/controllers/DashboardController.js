@@ -1,5 +1,8 @@
-const { multipleMongooseToObject } = require('../../util/mongoose')
-const DatabaseInfo = require('../models/Users')
+const { multipleMongooseToObject, mongooseToObject } = require('../../util/mongoose')
+const DatabaseInfo = require('../models/Staffs')
+const DatabaseInfo2 = require('../models/Customers')
+const Notes = require('../models/Notes')
+const Products = require('../models/Products')
 
 class DashboardController
 {
@@ -23,11 +26,14 @@ class DashboardController
     }
 
     // Notes
-    employees_notes(req, res)
+    employees_notes(req, res, next)
     {
-        res.render('dashboard/employees/notes', {
-            styles: ['/css/notes.css']
-        });
+        Promise.all([Notes.find({})])
+            .then(([notes]) => res.render('dashboard/employees/notes', {
+                styles: ['/css/notes.css'],
+                notes: multipleMongooseToObject(notes)
+            }))
+            .catch(next)
     }
 
     // Products
@@ -48,11 +54,14 @@ class DashboardController
 
     // [GET] /dashboard/manager
     // Overview
-    managers_overview(req, res)
+    managers_overview(req, res, next)
     {
-        res.render('dashboard/managers/overview', {
-            styles: ['/css/overview.css']
-        });
+        Promise.all([Notes.find({})])
+            .then(([notes]) => res.render('dashboard/managers/overview', {
+                styles: ['/css/overview.css'],
+                notes: multipleMongooseToObject(notes)
+            }))
+            .catch(next)
     }
 
     // Dashboard
@@ -78,27 +87,36 @@ class DashboardController
     }
 
     // Customers
-    managers_customers(req, res)
+    managers_customers(req, res, next)
     {
-        res.render('dashboard/managers/customers', {
-            styles: ['/css/customers.css']
-        });
+        Promise.all([DatabaseInfo2.find({})])
+            .then(([csw_info2]) => res.render('dashboard/managers/customers', {
+                styles: ['/css/customers.css'],
+                csw_info2: multipleMongooseToObject(csw_info2)
+            }))
+            .catch(next)
     }
 
     // To-do List
-    managers_notes(req, res)
+    managers_notes(req, res, next)
     {
-        res.render('dashboard/managers/notes', {
-            styles: ['/css/notes.css']
-        });
+        Promise.all([Notes.find({})])
+            .then(([notes]) => res.render('dashboard/managers/notes', {
+                styles: ['/css/notes.css'],
+                notes: multipleMongooseToObject(notes)
+            }))
+            .catch(next)
     }
 
     // Products
-    managers_products(req, res)
+    managers_products(req, res, next)
     {
-        res.render('dashboard/managers/products', {
-            styles: ['/css/products.css']
-        });
+        Promise.all([Products.find({})])
+            .then(([products]) => res.render('dashboard/managers/products', {
+                styles: ['/css/products.css'],
+                products: multipleMongooseToObject(products)
+            }))
+            .catch(next)
     }
 
     // Settings
@@ -113,6 +131,27 @@ class DashboardController
     managers_deletestaffs(req, res, next)
     {
         DatabaseInfo.delete({_id: req.params.id}, req.body)
+            .then(() => res.redirect('back'))
+            .catch(next)
+    }
+
+    managers_deletecustomers(req, res, next)
+    {
+        DatabaseInfo2.delete({_id: req.params.id}, req.body)
+            .then(() => res.redirect('back'))
+            .catch(next)
+    }
+
+    managers_deleteproducts(req, res, next)
+    {
+        Products.delete({_id: req.params.id}, req.body)
+            .then(() => res.redirect('back'))
+            .catch(next)
+    }
+
+    managers_deletenotes(req, res, next)
+    {
+        Notes.delete({_id: req.params.id}, req.body)
             .then(() => res.redirect('back'))
             .catch(next)
     }
@@ -137,6 +176,40 @@ class DashboardController
         const formData = req.body      
         const newInfo = new DatabaseInfo(formData)
         newInfo.save()
+            .then(() => res.redirect('/managers/staffs'))
+            .catch(next)
+    }
+
+    managers_storenotes(req, res, next)
+    {
+        const formData = req.body      
+        const newInfo = new Notes(formData)
+        newInfo.save()
+            .then(() => res.redirect('/managers/notes'))
+            .catch(next)
+    }
+
+    managers_storeproducts(req, res, next)
+    {
+        const formData = req.body      
+        const newInfo = new Products(formData)
+        newInfo.save()
+            .then(() => res.redirect('/managers/products'))
+            .catch(next)
+    }
+
+    managers_editstaffs(req, res, next)
+    {
+        DatabaseInfo.findByIdAndUpdate(req.params.id)
+            .then(csw_info => res.render('/managers/staffs', {
+                csw_info: mongooseToObject(csw_info)
+            }))
+            .catch(next)
+    }
+
+    managers_updatestaffs(req, res, next)
+    {
+        DatabaseInfo.updateMany({_id: req.params.id}, req.body)
             .then(() => res.redirect('/managers/staffs'))
             .catch(next)
     }

@@ -26,6 +26,9 @@
             $(".changeCurrentPosition").hide();
             $(".currentDepartment").show();
             $(".changeCurrentDepartment").hide();
+            $('#discardNoteBtn').hide();
+            $('#discardProductBtn').hide();
+            $('#saveProductBtn').hide();
 
             $(document).ready(function () {
                 $("#changeInfoBtn").click(function () {     
@@ -41,12 +44,14 @@
                     $("#changeInfoBtn, #addInfoBtn").hide();
                     var element = document.getElementById('saveInfoBtn');
                     element.style.margin = null;
+                    document.getElementById('warning').style.display = '';
                 });
 
                 $('#discardInfoBtn').click(function () {
                     $("#discardInfoBtn, #saveInfoBtn").hide();
                     $("#changeInfoBtn, #addInfoBtn").show();
                     $("#positionCell").html(`Test`);
+                    document.getElementById('warning').style.display = 'none'; 
                 });
 
                 $('#addInfoBtn').click(function() {
@@ -57,11 +62,40 @@
                     $(".add-data").show();
                 })
 
+                $('#addNoteBtn').click(function() {
+                    $('#addNoteBtn').hide();
+                    $(".add-data").show();
+                    $('#discardNoteBtn').show();
+                    document.getElementById('warning2').style.display = '';
+                })
+
+                $('#addProductBtn').click(function() {
+                    $('#addProductBtn').hide();
+                    $(".add-data").show();
+                    $('#discardProductBtn').show();
+                    $('#saveProductBtn').show();
+                    document.getElementById('warning3').style.display = '';
+                })
+
+                $('#discardNoteBtn').click(function() {
+                    document.getElementById('warning2').style.display = 'none';
+                    $('#discardNoteBtn').hide();
+                    $(".add-data").hide();
+                    $('#addNoteBtn').show();
+                })
+
+                $('#discardProductBtn').click(function() {
+                    document.getElementById('warning3').style.display = 'none';
+                    $('#discardProductBtn').hide();
+                    $(".add-data").hide();
+                    $('#addProductBtn').show();
+                    $('#saveProductBtn').hide();
+                })
+
                 $('#discardAddedInfoBtn').click(function () {
                     $("#discardInfoBtn, #saveInfoBtn").hide();
                     $("#changeInfoBtn, #addInfoBtn").show();
                     $("#discardAddedInfoBtn, #saveAddedInfoBtn").hide();
-                    $("#positionCell").html(`Test`);
                     $(".add-data").hide();
                 });
 

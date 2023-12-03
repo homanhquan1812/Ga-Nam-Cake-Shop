@@ -54,7 +54,7 @@
                     </a>
                     <a href="/managers/staffs"  class="active">
                         <span class="material-symbols-outlined">groups</span>
-                        <h3>Employees</h3>
+                        <h3>Members</h3>
                     </a>
                     <a href="/managers/customers">
                         <span class="material-icons-sharp">person_outline</span>
@@ -62,7 +62,7 @@
                     </a>
                     <a href="/managers/notes">
                         <span class="material-symbols-outlined"> format_list_bulleted_add </span>
-                        <h3>Notes</h3>
+                        <h3>To-Do Lists</h3>
                         <!--
                         <span class="message-count">23</span>
                         -->
@@ -87,13 +87,19 @@
                                     <div class="left">
                                         <button type="button" class="btn btn-primary" id="addInfoBtn">Add more members</button>
                                         <button style="margin-left: 10px;" type="button" class="btn btn-warning" id="changeInfoBtn">Change member's information</button>
-                                        <!-- <button style="margin-left: 10px;" type="button" class="btn btn-success" id="saveInfoBtn">Save all changes</button> -->
-                                        <button style="margin-left: 0px;" type="button" class="btn btn-danger" id="discardInfoBtn" onclick="window.location.href='/managers/staffs'">Discard all changes</button>
+                                        <button style="margin-left: 10px;" type="submit" class="btn btn-success" id="saveInfoBtn" form="selectPositionForm" disabled>Save all changes</button>
+                                        <button style="margin-left: 10px;" type="button" class="btn btn-danger" id="discardInfoBtn" onclick="window.location.href='/managers/staffs'">Discard all changes</button>
                                         <button style="margin-left: 10px;" type="submit" class="btn btn-success" id="saveAddedInfoBtn" form="addInfoForm">Save this member</button>
                                         <button style="margin-left: 10px;" type="button" class="btn btn-danger" id="discardAddedInfoBtn" onclick="window.location.href='/managers/staffs'">Discard</button>
-                                    </div>
+                                    </div>       
                                 </div>
 
+                                <div id="warning" style="margin-top: 10px; font-size: 15px; display: none;">
+                                    <div style="color: red; font-weight: bold;">Notes: </div>
+                                    - "<b>Save all changes</b>" is temporarily disabled.
+                                    <br>
+                                    - Click <b>Enter</b> in every cell of information you want to save.
+                                    </ul></div>
                                 <div class="add-data">
                                     <form method="POST" id="addInfoForm" action="/managers/store">
                                         <input type="type" id="csw_name" name="csw_name" placeholder="Name" required>
@@ -136,13 +142,16 @@
                                                     {{this.csw_position}}
                                                 </div>                           
                                                 <div class="changeCurrentPosition">
-                                                    <form action="#" id="selectPositionForm">
+                                                    <form method="POST" action="/managers/{{this._id}}?_method=PUT">
+                                                        <input type="type" class="form-control" value="{{this.csw_position}}" id="csw_position" name="csw_position">
+                                                        <!--
                                                         <select name="selectposition" id="selectposition">
                                                             <optgroup label="Select position">
-                                                                <option {{#if (eq this.csw_position 'Manager')}} selected="selected"{{/if}}>Manager</option>
-                                                                <option {{#unless (eq this.csw_position 'Manager')}} selected="selected"{{/unless}}>Employee</option>
+                                                                <option {{#if (eq this.csw_position 'Manager')}} selected {{/if}}>Manager</option>
+                                                                <option {{#unless (eq this.csw_position 'Manager')}} selected {{/unless}}>Employee</option>
                                                             </optgroup>
                                                         </select>
+                                                        -->
                                                         <!-- <input style="margin-top: 5px; background-color: yellow; padding: 2px;"  type="submit" value="Submit" /> -->
                                                     </form>
                                                 </div>
@@ -152,7 +161,9 @@
                                                     {{this.csw_department}}
                                                 </div>                           
                                                 <div class="changeCurrentDepartment">
-                                                    <form action="#" id="selectDepartmentForm">
+                                                    <form method="POST" action="/managers/{{this._id}}?_method=PUT">
+                                                        <input type="type" class="form-control" value="{{this.csw_department}}" id="csw_department" name="csw_department">
+                                                        <!--
                                                         <select name="selectdepartment" id="selectdepartment">
                                                             <optgroup label="Select Department">
                                                                 <option {{#if (eq this.csw_department 'Cake Cook')}} selected="selected"{{/if}}>Cake Cook</option>
@@ -167,6 +178,7 @@
                                                                 <option {{#if (eq this.csw_department 'Divine Desserts')}} selected="selected"{{/if}}>Divine Desserts</option>
                                                             </optgroup>
                                                         </select>
+                                                        -->
                                                         <!-- <input style="margin-top: 5px; background-color: yellow; padding: 2px;"  type="submit" value="Submit" /> -->
                                                     </form>
                                                 </div>
@@ -227,6 +239,7 @@
             var courseID
             var deleteForm = document.forms['delete-course-form']
             var btnDeleteCourse = document.getElementById('btn-delete-course')
+            var saveInfoBtn = $('#saveInfoBtn')
 
             $('#delete-course-modal').on('show.bs.modal', function (event) {
                 var button = $(event.relatedTarget)
@@ -235,7 +248,7 @@
 
             btnDeleteCourse.onclick = function()
             {
-                deleteForm.action = '/managers/' + courseID + '?_method=DELETE'
+                deleteForm.action = '/managers/staffs/' + courseID + '?_method=DELETE'
                 deleteForm.submit()
             }
         })
