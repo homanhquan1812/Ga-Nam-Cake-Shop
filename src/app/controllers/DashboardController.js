@@ -58,10 +58,11 @@ class DashboardController
     // Notes
     employees_notes(req, res, next)
     {
-        Promise.all([Notes.find({})])
-            .then(([notes]) => res.render('dashboard/employees/notes', {
+        Promise.all([Notes.find({}), Orders.find({})])
+            .then(([notes, orders]) => res.render('dashboard/employees/notes', {
                 styles: ['/css/notes.css'],
-                notes: multipleMongooseToObject(notes)
+                notes: multipleMongooseToObject(notes),
+                orders: multipleMongooseToObject(orders)
             }))
             .catch(next)
     }
@@ -69,20 +70,24 @@ class DashboardController
     // Products
     employees_products(req, res, next)
     {
-        Promise.all([Products.find({})])
-            .then(([products]) => res.render('dashboard/employees/products', {
+        Promise.all([Products.find({}), Orders.find({})])
+            .then(([products, orders]) => res.render('dashboard/employees/products', {
                 styles: ['/css/products.css'],
-                products: multipleMongooseToObject(products)
+                products: multipleMongooseToObject(products),
+                orders: multipleMongooseToObject(orders)
             }))
             .catch(next)
     }
 
     // Settings
-    employees_settings(req, res)
+    employees_settings(req, res, next)
     {
-        res.render('dashboard/employees/settings', {
-            styles: ['/css/settings.css']
-        });
+        Promise.all([Orders.find({})])
+            .then(([orders]) => res.render('dashboard/employees/settings', {
+                styles: ['/css/settings.css'],
+                orders: multipleMongooseToObject(orders)
+            }))
+            .catch(next)
     }
 
     // [GET] /dashboard/manager
@@ -135,9 +140,10 @@ class DashboardController
     // Staffs
     managers_staffs(req, res, next)
     {
-        Promise.all([DatabaseInfo.find({})])
-            .then(([csw_info]) => res.render('dashboard/managers/staffs', {
+        Promise.all([DatabaseInfo.find({}), Orders.find({})])
+            .then(([csw_info, orders]) => res.render('dashboard/managers/staffs', {
                 styles: ['/css/staffs.css'],
+                orders: multipleMongooseToObject(orders),
                 csw_info: multipleMongooseToObject(csw_info)
             }))
             .catch(next)
@@ -146,9 +152,10 @@ class DashboardController
     // Customers
     managers_customers(req, res, next)
     {
-        Promise.all([DatabaseInfo2.find({})])
-            .then(([csw_info2]) => res.render('dashboard/managers/customers', {
+        Promise.all([DatabaseInfo2.find({}), Orders.find({})])
+            .then(([csw_info2, orders]) => res.render('dashboard/managers/customers', {
                 styles: ['/css/customers.css'],
+                orders: multipleMongooseToObject(orders),
                 csw_info2: multipleMongooseToObject(csw_info2)
             }))
             .catch(next)
@@ -157,9 +164,10 @@ class DashboardController
     // To-do List
     managers_notes(req, res, next)
     {
-        Promise.all([Notes.find({})])
-            .then(([notes]) => res.render('dashboard/managers/notes', {
+        Promise.all([Notes.find({}), Orders.find({})])
+            .then(([notes, orders]) => res.render('dashboard/managers/notes', {
                 styles: ['/css/notes.css'],
+                orders: multipleMongooseToObject(orders),
                 notes: multipleMongooseToObject(notes)
             }))
             .catch(next)
@@ -168,20 +176,24 @@ class DashboardController
     // Products
     managers_products(req, res, next)
     {
-        Promise.all([Products.find({})])
-            .then(([products]) => res.render('dashboard/managers/products', {
+        Promise.all([Products.find({}), Orders.find({})])
+            .then(([products, orders]) => res.render('dashboard/managers/products', {
                 styles: ['/css/products.css'],
+                orders: multipleMongooseToObject(orders),
                 products: multipleMongooseToObject(products)
             }))
             .catch(next)
     }
 
     // Settings
-    managers_settings(req, res)
+    managers_settings(req, res, next)
     {
-        res.render('dashboard/managers/settings', {
-            styles: ['/css/settings.css']
-        });
+        Promise.all([Orders.find({})])
+            .then(([orders]) => res.render('dashboard/managers/settings', {
+                styles: ['/css/settings.css'],
+                orders: multipleMongooseToObject(orders)
+            }))
+            .catch(next)
     }
 
     // Delete

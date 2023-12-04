@@ -52,6 +52,21 @@ app.engine('hbs', Handlebars.engine({
       });
 
       return totalSum;
+    },
+    countRow: function (orders) {
+      if (!Array.isArray(orders)) {
+        return 0; // Return 0 if orders is not an array
+      }
+
+      let totalRow = 0;
+
+      orders.forEach(order => {
+        if (order && order.declined) { // Check if order is defined and declined is false
+          totalRow += 1 || 0;
+        }
+      });
+
+      return totalRow;
     }
   }
 }));
