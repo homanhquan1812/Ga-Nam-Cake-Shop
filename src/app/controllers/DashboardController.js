@@ -45,6 +45,16 @@ class DashboardController
             .catch(next)
     }
 
+    employees_ordersdelivered(req, res, next)
+    {
+        Orders.findByIdAndUpdate(req.params.id, { delivered: true })
+            .then(orders => res.render('dashboard/employees/orders', {
+                styles: ['/css/orders.css'],
+                orders: mongooseToObject(orders)
+            }))
+            .catch(next)
+    }
+
     // Notes
     employees_notes(req, res, next)
     {
@@ -108,6 +118,16 @@ class DashboardController
             .then(([orders]) => res.render('dashboard/managers/orders', {
                 styles: ['/css/orders.css'],
                 orders: multipleMongooseToObject(orders)
+            }))
+            .catch(next)
+    }
+
+    managers_ordersdeclined(req, res, next)
+    {
+        Orders.findByIdAndUpdate(req.params.id, { delivered: true, declined: true })
+            .then(orders => res.render('dashboard/managers/orders', {
+                styles: ['/css/orders.css'],
+                orders: mongooseToObject(orders)
             }))
             .catch(next)
     }

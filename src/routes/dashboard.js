@@ -12,6 +12,7 @@ employeesRouter.get('/notes', adminController.employees_notes);
 employeesRouter.get('/products', adminController.employees_products);
 employeesRouter.get('/settings', adminController.employees_settings);
 employeesRouter.get('/orders', adminController.employees_orders);
+employeesRouter.put('/orders/:id', adminController.employees_ordersdelivered)
 
 // Manager routes
 managersRouter.get('/', adminController.managers_overview)
@@ -27,13 +28,13 @@ managersRouter.delete('/staffs/:id', adminController.managers_deletestaffs)
 managersRouter.delete('/customers/:id', adminController.managers_deletecustomers)
 managersRouter.delete('/products/:id', adminController.managers_deleteproducts)
 managersRouter.delete('/notes/:id', adminController.managers_deletenotes)
+managersRouter.put('/orders/:id', adminController.managers_ordersdeclined)
 managersRouter.post('/handle-form-actions', adminController.handleFormActions)
 managersRouter.post('/store', adminController.managers_store)
 managersRouter.post('/storenotes', adminController.managers_storenotes)
 managersRouter.post('/storeproducts', adminController.managers_storeproducts)
 managersRouter.get('/:id', adminController.managers_editstaffs)
 managersRouter.put('/:id', adminController.managers_updatestaffs)
-
 
 // Use the nested routers
 router.use('/employees', employeesRouter);

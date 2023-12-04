@@ -116,7 +116,17 @@
                                                 {{#unless @last}}<br><hr> {{/unless}}
                                             {{/each}}
                                         </td>
-                                        <td></td>
+                                        <td>
+                                            {{#if (isBool this.declined true)}}
+                                                <button type="button" class="btn btn-danger">Declined</button>
+                                            {{else}}
+                                                {{#if (isBool this.delivered true)}}
+                                                <button type="button" class="btn btn-success">Delivered</button>
+                                                {{else}}
+                                                <button type="button" class="btn btn-warning">Processing</button>
+                                                {{/if}}
+                                            {{/if}}
+                                        </td>
                                     </tr>
                                     {{/each}}
                                     <tr></tr>
@@ -139,7 +149,7 @@
                             <div class="middle">
                                 <div class="left">
                                     <h3>Total Sales</h3>
-                                    <h1>$25,024</h1>
+                                    <h1>{{getTotal orders}} VND</h1>
                                 </div>
                             </div>
                             <small class="text-muted">Last 24 Hours</small>

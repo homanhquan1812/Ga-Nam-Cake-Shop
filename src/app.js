@@ -36,9 +36,27 @@ app.engine('hbs', Handlebars.engine({
   extname: '.hbs',
   helpers: {
     sum: (a, b) => a + b,
-    eq: (c, d) => c == d
+    eq: (c, d) => c == d,
+    isBool: (value, compareValue) => typeof value === 'boolean' && value === compareValue,
+    getTotal: function (orders) {
+      if (!Array.isArray(orders)) {
+        return 0; // Return 0 if orders is not an array
+      }
+
+      let totalSum = 0;
+
+      orders.forEach(order => {
+        if (order && !order.declined) { // Check if order is defined and declined is false
+          totalSum += order.totalcost || 0;
+        }
+      });
+
+      return totalSum;
+    }
   }
-  }))
+}));
+
+
 app.set('view engine', 'hbs')
 
 // Homepage

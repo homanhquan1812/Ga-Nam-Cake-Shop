@@ -17,7 +17,9 @@ const Orders = new Schema({
     phonenumber: { type: String, maxLength: 255, required: true},
     address: { type: String, maxLength: 255, required: true },
     products: [DetailedProduct],
-    totalcost: { type: Number, maxLength: 255, required: true }
+    totalcost: { type: Number, maxLength: 255, required: true },
+    delivered: {type: Boolean},
+    declined: {type: Boolean}
     // slug: { type: String, slug: 'name', unique: true }
 }, { timestamps: true });
 

@@ -14,7 +14,7 @@
                 </div>
 
                 <div class="title" style="padding-left: 50px;">
-                    <h1>ORDERS</h1>
+                    <h1>NEW ORDERS</h1>
                 </div>
                 <!--
                 <div class="text-end">
@@ -113,26 +113,28 @@
                                 <tbody>
                                     {{#each orders}}
                                     <tr>
-                                        <td>{{sum @index 1}}</td>
-                                        <td>{{this.customer}}</td>
-                                        <td>{{this.phonenumber}}</td>
-                                        <td>{{this.address}}</td>
-                                        <td>
-                                            {{#each this.products}}
-                                                {{this.name}}
-                                                {{#unless @last}}<br><hr> {{/unless}}
-                                            {{/each}}
-                                        </td>
-                                        <td>
-                                            {{#each this.products}}
-                                                {{this.quantity}}
-                                                {{#unless @last}}<br><hr> {{/unless}}
-                                            {{/each}}
-                                        </td>
-                                        <td>{{this.totalcost}} VND</td>
-                                        <td>
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-id="{{this._id}}" data-target="#delete-course-modal">Finish delivering</button>
-                                        </td>
+                                        {{#unless this.delivered}}
+                                            <td>{{sum @index 1}}</td>
+                                            <td>{{this.customer}}</td>
+                                            <td>{{this.phonenumber}}</td>
+                                            <td>{{this.address}}</td>
+                                            <td>
+                                                {{#each this.products}}
+                                                    {{this.name}}
+                                                    {{#unless @last}}<br><hr> {{/unless}}
+                                                {{/each}}
+                                            </td>
+                                            <td>
+                                                {{#each this.products}}
+                                                    {{this.quantity}}
+                                                    {{#unless @last}}<br><hr> {{/unless}}
+                                                {{/each}}
+                                            </td>
+                                            <td>{{this.totalcost}} VND</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-id="{{this._id}}" data-target="#delete-course-modal">Finish delivering</button>
+                                            </td>
+                                        {{/unless}}
                                     </tr>
                                     {{/each}}
                                     <tr></tr>
@@ -192,8 +194,16 @@
 
             btnDeleteCourse.onclick = function()
             {
-                deleteForm.action = '/employees/customers/' + courseID + '?_method=DELETE'
-                deleteForm.submit()
+                $.ajax({
+                    url: '/employees/orders/' + courseID + '?_method=PUT',
+                    method: 'PUT',
+                    success: function() {
+                        location.reload();
+                    },
+                    error: function(error) {
+                        console.error(error);
+                    }
+                })
             }
         })
         </script>
