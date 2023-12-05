@@ -61,7 +61,7 @@ app.engine('hbs', Handlebars.engine({
       let totalRow = 0;
 
       orders.forEach(order => {
-        if (order && order.declined) { // Check if order is defined and declined is false
+        if (order && !order.declined && !order.delivered) { // Check if order is defined and declined is false
           totalRow += 1 || 0;
         }
       });
