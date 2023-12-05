@@ -26,7 +26,7 @@ app.engine('handlebars', Handlebars.engine())
 app.set('view engine', 'handlebars')
 
 // Templates in 'view' folder
-app.set('views', path.join(__dirname, 'resources\\views'))
+app.set('views', path.join(__dirname, 'resources/views'))
 
 // Static files
 app.use(express.static(path.join(__dirname, 'public')))
