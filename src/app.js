@@ -76,7 +76,7 @@ app.set('view engine', 'hbs')
 
 // Homepage
 app.get('/', function (req, res) {
-  res.render('home')
+  res.redirect('/home')
 })
 
 // Routes
