@@ -3,6 +3,7 @@ $color-purple-0: #4e2a84;
 $color-pink-0: #ff0e83;
 $color-pink-1: #ed6498;
 $color-white-0: white;
+$color-white-1: rgba(255,255,255,0.9);
 $color-black-0: #212529;
 $color-black-1: black;
 $color-black-2: #222;
@@ -10,9 +11,10 @@ $color-black-3: rgba(0, 0, 0, 0.61);
 $color-gray-0: #c1c1c1;
 $color-gray-1: #a9a8a8;
 $color-gray-2: rgba(255, 255, 255, 0.5);
+$color-gray-3: rgba(0,0,0,0.1);
 $color-overlay: rgba(48, 132, 163, 0.199);
 $color-blue-0: #2cbeff;
-
+$color-yellow-0: #d6b161;
 
 //letter-spacing
 $ls-0:1px;
@@ -27,12 +29,15 @@ $fs-4: 2.3rem;
 $fs-5: 3.5rem;
 $fs-6: 1.1rem;
 $fs-7: 1.5rem;
+$fs-8: 35px;
 
 //font weight
 $fw-0: 700;
 $fw-1: bold;
 $fw-2: 600;
 $fw-3: 500;
+$fw-4: 400;
+$fw-5: 300;
 
 //margin
 $mg-0: 3rem;
@@ -41,6 +46,7 @@ $mg-2: 17px;
 $mg-3: 50px;
 $mg-4: 8px;
 $mg-5: 24px;
+$mg-6: 70px;
 
 //padding
 $pd-0: 13px;
@@ -60,3 +66,4 @@ $bd-0: 5px;
 //line height
 $lh-0: 28px;
 $lh-1: 40px;
+$lh-2: 1.5;

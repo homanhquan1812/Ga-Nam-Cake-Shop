@@ -21,6 +21,7 @@
 @import './Layouts/contact';
 @import './Layouts/footer';
 @import './Layouts/backtotop';
+@import './Layouts/login';
 
 //Components
 @import './Components/button';
@@ -28,4 +29,8 @@
 
 //Pages
 @import './Pages/home';
-
+@import './Pages/About';
+@import './Pages/gallery';
+@import './Pages/contact';
+@import './Pages/Service';
+@import './Pages/ShoppingCart';

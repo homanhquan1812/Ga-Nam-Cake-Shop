@@ -5,7 +5,7 @@
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
-    "watch": "node-sass --watch src/resources/scss/app.scss --output src/public/css/",
+    "watch": "node-sass src/sass/main.scss --output src/public/css/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

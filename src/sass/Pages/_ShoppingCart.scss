@@ -1,0 +1,224 @@
+body{
+    background: rgb(245,245,245);
+}
+.cart{
+    display: flex;
+    flex-direction: column;
+    color: rgba(0,0,0,.8);
+    padding-top: 20px;
+    .cart_menu{
+        display: flex;
+        align-items: center;
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+        overflow: hidden;
+        border-radius: 3px;
+        height: 55px;
+        font-size: 14px;
+        background: #fff;
+        margin-bottom: 12px;
+        color: #888;
+        margin-top: 120px;
+        padding: 0 20px;
+        .sp{
+            color: rgba(0,0,0,.8);
+            width: 46.27949%;
+        }
+        .dg{
+            text-align: center;
+            width: 15.88022%;
+        }
+        .sl{
+            width: 15.4265%;
+            text-align: center;
+        }
+        .st{
+            width: 10.43557%;
+            text-align: center;
+        }
+        .tt{
+            width: 12.70417%;
+            text-align: center;
+        }
+    }
+    .cart_content{
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+        border-radius: 0.125rem;
+        overflow: hidden;
+        background: #fff;
+        overflow: visible;
+        .cart_item{
+            position: relative;
+            padding-bottom: 1px;
+            .product_name{
+                &:first-child{
+                    padding-top: 15px;
+                }
+                &:last-child{
+                    padding-bottom: 20px;
+                }
+                text-decoration: none;
+                color: rgba(0,0,0,.87);
+                display: block;
+                padding: 0 20px 15px;
+                margin-top: 15px;
+                .sanPham{
+                    display: flex;
+                    align-items: center;
+                    .ten_hinh{
+                        display: flex;
+                        width: 46.27949%;
+                        box-sizing: border-box;
+                        position: relative;
+                        flex-direction: column;
+                        .ten_hinh_item{
+                            display: flex;
+                            .ten_hinh_img{
+                                width: 80px;
+                                height: 80px;
+                                object-fit: cover;
+                            }
+                            .ten_hinh_text{
+                                display: flex;
+                                flex: 1;
+                                flex-direction: column;
+                                padding: 5px 20px 0 10px;
+                                font-size: 19px;
+                                text-decoration: none;
+                                a{
+                                    text-decoration: none;
+                                    color: rgba(0,0,0,.87);
+                                    display: block;
+                                    margin-bottom: 5px;
+                                    max-height: 32px;
+                                    text-overflow: ellipsis;
+                                    word-break: break-all;
+                                    display: -webkit-box;
+                                    -webkit-box-orient: vertical;
+                                    -webkit-line-clamp: 2;
+                                }
+                            }
+                        }
+                    }
+                    .content_donGia{
+                        flex-direction: column;
+                        width: 15.88022%;
+                        display: flex;
+                        align-items: center;
+                        div{
+                            display: block;
+                            .donGia_text{
+                                margin-right: 10px;
+                                &:last-child{
+                                    margin: 0;
+                                }
+                            }
+                        }
+                    }
+                    .content_soLuong{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-direction: column;
+                        width: 15.4265%;
+                        .add_minus{
+                            display: flex;
+                            align-items: center;
+                            .EOdsa-{
+                                outline: none;
+                                cursor: pointer;
+                                border: 0;
+                                font-size: .875rem;
+                                font-weight: 300;
+                                line-height: 1;
+                                letter-spacing: 0;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                transition: background-color .1s cubic-bezier(.4,0,.6,1);
+                                border: 1px solid rgba(0,0,0,.09);
+                                border-radius: 2px;
+                                background: transparent;
+                                color: rgba(0,0,0,.8);
+                                width: 32px;
+                                height: 32px;
+                            }
+                            .v3H4Zf{
+                                width: 50px;
+                                height: 32px;
+                                border-left: 0;
+                                border-right: 0;
+                                font-size: 16px;
+                                font-weight: 400;
+                                box-sizing: border-box;
+                                text-align: center;
+                                cursor: text;
+                                border-radius: 0;
+                                -webkit-appearance: none;
+                            }
+                        }
+                    }
+                    .content_soTien{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 10.43557%;
+                        color: rgb(78,42,132)
+                    }
+                    .content_thaoTac{
+                        width: 12.70417%;
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+    }
+    .cart_total{
+        display: grid;
+        grid-template-columns: 1fr 20.3125rem 11.875rem;
+        align-items: center;
+        box-sizing: border-box;
+        background: #fff;
+        width: 100%;
+        flex: 1;
+        font-size: 1rem;
+        position: relative;
+        margin-top: 0.75rem;
+        .s1Gxkq{
+            padding: 12px 0;
+            grid-column-start: 10;
+            padding-right: 50px;
+            -ms-grid-column-span: 3;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            width: 100%;
+            .UQv8V6{
+                display: flex;
+                flex-direction: column;
+                padding-right: 1content_donGia5px;
+                .fyYBP1{
+                    display: flex;
+                    justify-content: flex-end;
+                    .aiyQAr{
+                        margin-left: 20px;
+                        display: flex;
+                        align-items: center;
+                        .A-CcKC{
+                            font-size: 16px;
+                            color: #222;
+                            line-height: 19px;
+                        }
+                        .total{
+                            font-size: 24px;
+                            line-height: 28px;
+                            margin-left: 5px;
+                            color: rgb(78,42,132);
+                            padding-right: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

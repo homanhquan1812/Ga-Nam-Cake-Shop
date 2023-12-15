@@ -1,5 +1,6 @@
 .contact{
     padding: $pd-5 0;
+    padding-top: 150px;
     .contact__form{
         form{
             width: 70%;
@@ -51,6 +52,7 @@
     .contact__info{
         margin-top: $mg-3;
         .contact__item{
+            text-align: center;
             i{
                 font-size: $fs-7 + 0.5;
                 color: $color-purple-0;

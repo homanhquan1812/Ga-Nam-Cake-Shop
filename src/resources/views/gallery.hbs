@@ -1,0 +1,399 @@
+<!-- HEADER  -->
+  <header class="contact_header">
+    <nav class="navbar navbar-expand-lg navbarGaNam">
+        <div class="container header__content">
+            <a class="navbar-brand logo" href="#">GÀ NẤM</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#GaNamNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse navigation" id="GaNamNav">
+                <ul class="navbar-nav ms-auto ">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="home">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services">SERVICES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery">GALLERY</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact">CONTACT</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btnLogin-popup" onclick="window.location.href='login'">LOGIN</button>
+                    </li>
+                    <li class="nav-item">
+                      
+                        <a href="shoppingcart">
+                          <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                      </i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+    <!-- LOGIN -->
+    <div class="wrapper container d-flex">
+        <span class="icon-close">
+          <ion-icon name="close"></ion-icon>
+        </span>
+    
+        <div class="form-box login">
+          <h2>Login</h2>
+          <form action="#">
+            <div class="input-box">
+              <span class="icon"><ion-icon name="mail"></ion-icon></span>
+              <input type="email" required>
+              <label>Email</label>
+            </div>
+    
+            <div class="input-box">
+              <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+              <input type="password" required>
+              <label>Password</label>
+            </div>
+    
+            <div class="remember-forgot">
+              <label><input type="checkbox">Remember me</label>
+              <a href="#">Forgot Password?</a>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="login-register">
+              <p>Don't have an account? <a href="#" class="register-link">Register</a></p>
+            </div>
+          </form>
+        </div>
+    
+        <div class="form-box register">
+          <h2>Registration</h2>
+          <form action="#">
+            <div class="input-box">
+              <span class="icon"><ion-icon name="person"></ion-icon></span>
+              <input type="text" required>
+              <label>Username</label>
+            </div>
+            <div class="input-box">
+              <span class="icon"><ion-icon name="mail"></ion-icon></span>
+              <input type="email" required>
+              <label>Email</label>
+            </div>
+    
+            <div class="input-box">
+              <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+              <input type="password" required>
+              <label>Password</label>
+            </div>
+    
+            <div class="remember-forgot">
+              <label><input type="checkbox">I agree to the terms & conditions</label>
+            </div>
+            <button type="submit" class="btn">Register</button>
+            <div class="login-register">
+              <p>Already have an account? <a href="#" class="login-link">Login</a></p>
+            </div>
+          </form>
+        </div>
+    </div>
+    <!-- FILLTER -->
+    <section class="showcase section-padding page_Gallery">
+        <div class="container">
+            <div class="section-info">
+                <h2>CREATIVE SHOWCASE</h2>
+                <p>We are a team of multi-skilled and curious digital specialists who are always up for a challenge and
+                    learning
+                    as fast as digital is changing. We are a team of multi-skilled and curious digital specialists who
+                    are always
+                    up for a challenge.</p>
+            </div>
+        </div>
+        <div class="filters-button-group">
+            <button class="button is-checked active" data-filter="*">ALL</button>
+            <button class="button" data-filter=".PRINTING">PRINTING</button>
+            <button class="button" data-filter=".WEB">WEB</button>
+            <button class="button" data-filter=".ILLUSTRATION">ILLUSTRATION</button>
+            <button class="button" data-filter=".MEDIA">MEDIA</button>
+            <button class="button" data-filter=".CRAFTS">CRAFTS</button>
+        </div>
+        <div class="showcase__content row">
+            <div class=" showcase__item PRINTING ILLUSTRATION" data-category="transition">
+                <div class="showcase__photo">
+                    <img src="./img/showcase-1.jpeg" alt="">
+                    <div class="showcase__info">
+                        <div class="showcase__btn">
+                            <a href="#" target="_blank">
+                                <i class="icon-basic_link"></i>
+                            </a>
+                        </div>
+                        <div class="showcase__des">
+                            <h4>
+                                <a href="./product_detail.html" target="_blank">EXTERNAL LINK</a>
+                            </h4>
+                            <p>
+                                <a href="#">CATEGORY 1 , </a>
+                                <a href="#">CATEGORY 2</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" showcase__item WEB MEDIA " data-category="metalloid">
+                <div class="showcase__photo">
+                    <img src="./img/showcase-2.jpeg" alt="">
+                    <div class="showcase__info">
+                        <div class="showcase__btn">
+                            <a href="#" target="_blank">
+                                <i class="icon-basic_link"></i>
+                            </a>
+                        </div>
+                        <div class="showcase__des">
+                            <h4>
+                                <a href="#" target="_blank">EXTERNAL LINK</a>
+                            </h4>
+                            <p>
+                                <a href="#">CATEGORY 1 , </a>
+                                <a href="#">CATEGORY 2</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" showcase__item PRINTING WEB " data-category="post-transition">
+                <div class="showcase__photo">
+                    <img src="./img/showcase-3.jpeg" alt="">
+                    <div class="showcase__info">
+                        <div class="showcase__btn">
+                            <a href="#" target="_blank">
+                                <i class="icon-basic_link"></i>
+                            </a>
+                        </div>
+                        <div class="showcase__des">
+                            <h4>
+                                <a href="#" target="_blank">EXTERNAL LINK</a>
+                            </h4>
+                            <p>
+                                <a href="#">CATEGORY 1 , </a>
+                                <a href="#">CATEGORY 2</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" showcase__item PRINTING MEDIA " data-category="post-transition">
+                <div class="showcase__photo">
+                    <img src="./img/showcase-4.jpeg" alt="">
+                    <div class="showcase__info">
+                        <div class="showcase__btn">
+                            <a href="#" target="_blank">
+                                <i class="icon-basic_link"></i>
+                            </a>
+                        </div>
+                        <div class="showcase__des">
+                            <h4>
+                                <a href="#" target="_blank">EXTERNAL LINK</a>
+                            </h4>
+                            <p>
+                                <a href="#">CATEGORY 1 , </a>
+                                <a href="#">CATEGORY 2</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" showcase__item WEB MEDIA " data-category="transition">
+                <div class="showcase__photo">
+                    <img src="./img/showcase-5.jpeg" alt="">
+                    <div class="showcase__info">
+                        <div class="showcase__btn">
+                            <a href="#" target="_blank">
+                                <i class="icon-basic_link"></i>
+                            </a>
+                        </div>
+                        <div class="showcase__des">
+                            <h4>
+                                <a href="#" target="_blank">EXTERNAL LINK</a>
+                            </h4>
+                            <p>
+                                <a href="#">CATEGORY 1 , </a>
+                                <a href="#">CATEGORY 2</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" showcase__item ILLUSTRATION " data-category="alkali">
+                <div class="showcase__photo">
+                    <img src="./img/showcase-6.jpeg" alt="">
+                    <div class="showcase__info">
+                        <div class="showcase__btn">
+                            <a href="#" target="_blank">
+                                <i class="icon-basic_link"></i>
+                            </a>
+                        </div>
+                        <div class="showcase__des">
+                            <h4>
+                                <a href="#" target="_blank">EXTERNAL LINK</a>
+                            </h4>
+                            <p>
+                                <a href="#">CATEGORY 1 , </a>
+                                <a href="#">CATEGORY 2</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" showcase__item WEB CRAFTS " data-category="alkali">
+                <div class="showcase__photo">
+                    <img src="./img/showcase-7.jpeg" alt="">
+                    <div class="showcase__info">
+                        <div class="showcase__btn">
+                            <a href="#" target="_blank">
+                                <i class="icon-basic_link"></i>
+                            </a>
+                        </div>
+                        <div class="showcase__des">
+                            <h4>
+                                <a href="#" target="_blank">EXTERNAL LINK</a>
+                            </h4>
+                            <p>
+                                <a href="#">CATEGORY 1 , </a>
+                                <a href="#">CATEGORY 2</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" showcase__item PRINTING MEDIA ILLUSTRATION CRAFTS" data-category="transition">
+                <div class="showcase__photo">
+                    <img src="./img/showcase-8.jpeg" alt="">
+                    <div class="showcase__info">
+                        <div class="showcase__btn">
+                            <a href="#" target="_blank">
+                                <i class="icon-basic_link"></i>
+                            </a>
+                        </div>
+                        <div class="showcase__des">
+                            <h4>
+                                <a href="#" target="_blank">EXTERNAL LINK</a>
+                            </h4>
+                            <p>
+                                <a href="#">CATEGORY 1 , </a>
+                                <a href="#">CATEGORY 2</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FOOTER  -->
+    <footer>
+        <div class="footer__main row">
+            <div class="footer__item col-3">
+                <h3>Anout Us</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente harum corporis repellat dolore nisi
+                    quidem.</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto, laudantium.</p>
+                <div class="footer__social">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-google-plus-g"></i>
+                    <i class="fab fa-twitter"></i>
+                </div>
+
+            </div>
+            <div class="footer__item col-3">
+                <h3>Working Time</h3>
+                <div class="footer__time">
+                    <p>Monday</p>
+                    <p>9h30 - 18h30</p>
+                </div>
+                <div class="footer__time">
+                    <p>Tuesday</p>
+                    <p>9h30 - 18h30</p>
+                </div>
+                <div class="footer__time">
+                    <p>Wednesday</p>
+                    <p>9h30 - 18h30</p>
+                </div>
+                <div class="footer__time">
+                    <p>Thursday</p>
+                    <p>9h30 - 18h30</p>
+                </div>
+                <div class="footer__time">
+                    <p>Friday</p>
+                    <p>9h30 - 18h30</p>
+                </div>
+                <div class="footer__time">
+                    <p>Saturday</p>
+                    <p>9h30 - 18h30</p>
+                </div>
+                <div class="footer__time">
+                    <p>Sunday</p>
+                    <p>9h30 - 18h30</p>
+                </div>
+            </div>
+            <div class="footer__item col-3">
+                <h3>Twitter Us</h3>
+                <p>Lorem ipsum dolor sit amet consectetur.</p>
+                <p>Lorem ipsum dolor sit amet consectetur.</p>
+                <p>Lorem ipsum dolor sit amet consectetur.</p>
+                <p>Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+            <div class="footer__item col-3">
+                <h3>SUBSCRIBE US</h3>
+                <form class="footer__sub">
+                    <input type="email" name="" id="" placeholder="name@example">
+                    <button class="button-pink" type="submit">Send</button>
+                </form>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, ipsa.</p>
+            </div>
+        </div>
+        <div class="footer__copyright">
+            <p> &copy; 2020 Lorem ipsum dolor sit amet. | Design by <span>Panda</span> </p>
+        </div>
+    </footer>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous">
+        </script>
+    <!-- Jquery Waypoint  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+    <!-- BS5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+        </script>
+
+    <!-- CountUP JS  -->
+
+    <script>
+        $('.counter').countUp();
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: false,
+            autoplay: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 1
+                },
+                1000: {
+                    items: 1
+                }
+            }
+        })
+    </script>
