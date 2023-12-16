@@ -85,20 +85,22 @@
                                 <div class="middle">
                                     <div class="left">
                                         <button type="button" class="btn btn-primary" id="addInfoBtn">Add more members</button>
-                                        <button style="margin-left: 10px;" type="button" class="btn btn-warning" id="changeInfoBtn">Change member's information</button>
-                                        <button style="margin-left: 10px;" type="submit" class="btn btn-success" id="saveInfoBtn" form="selectPositionForm" disabled>Save all changes</button>
+                                        <button style="margin-left: 10px;" type="button" class="btn btn-warning" id="changeInfoBtn">Change member's information</button>                                  
+                                        <button style="margin-left: 10px;" type="submit" class="btn btn-success" id="saveInfoBtn">Save all changes</button>                           
                                         <button style="margin-left: 10px;" type="button" class="btn btn-danger" id="discardInfoBtn" onclick="window.location.href='/managers/staffs'">Discard all changes</button>
                                         <button style="margin-left: 10px;" type="submit" class="btn btn-success" id="saveAddedInfoBtn" form="addInfoForm">Save this member</button>
                                         <button style="margin-left: 10px;" type="button" class="btn btn-danger" id="discardAddedInfoBtn" onclick="window.location.href='/managers/staffs'">Discard</button>
                                     </div>       
                                 </div>
-
+                                
+                                <!--
                                 <div id="warning" style="margin-top: 10px; font-size: 15px; display: none;">
                                     <div style="color: red; font-weight: bold;">Notes: </div>
                                     - "<b>Save all changes</b>" is temporarily disabled.
                                     <br>
                                     - Click <b>Enter</b> in every cell of information you want to save.
-                                    </ul></div>
+                                </div>
+                                -->
                                 <div class="add-data">
                                     <form method="POST" id="addInfoForm" action="/managers/store">
                                         <input type="type" id="csw_name" name="csw_name" placeholder="Name" required>
@@ -135,53 +137,50 @@
                                             <td>{{this.csw_phonenumber}}</td>
                                             <td>{{this.csw_username}}</td>
                                             <td>{{this.csw_emailaddress}}</td>
-                                            <!-- <td>{{this.csw_password}}</td> -->
-                                            <td>             
-                                                <div class="currentPosition">
-                                                    {{this.csw_position}}
-                                                </div>                           
-                                                <div class="changeCurrentPosition">
-                                                    <form method="POST" action="/managers/{{this._id}}?_method=PUT">
-                                                        <input type="type" class="form-control" value="{{this.csw_position}}" id="csw_position" name="csw_position">
-                                                        <!--
-                                                        <select name="selectposition" id="selectposition">
-                                                            <optgroup label="Select position">
-                                                                <option {{#if (eq this.csw_position 'Manager')}} selected {{/if}}>Manager</option>
-                                                                <option {{#unless (eq this.csw_position 'Manager')}} selected {{/unless}}>Employee</option>
-                                                            </optgroup>
-                                                        </select>
-                                                        -->
-                                                        <!-- <input style="margin-top: 5px; background-color: yellow; padding: 2px;"  type="submit" value="Submit" /> -->
-                                                    </form>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="currentDepartment">
-                                                    {{this.csw_department}}
-                                                </div>                           
-                                                <div class="changeCurrentDepartment">
-                                                    <form method="POST" action="/managers/{{this._id}}?_method=PUT">
-                                                        <input type="type" class="form-control" value="{{this.csw_department}}" id="csw_department" name="csw_department">
-                                                        <!--
-                                                        <select name="selectdepartment" id="selectdepartment">
-                                                            <optgroup label="Select Department">
-                                                                <option {{#if (eq this.csw_department 'Cake Cook')}} selected="selected"{{/if}}>Cake Cook</option>
-                                                                <option {{#if (eq this.csw_department 'Cupcake Creations')}} selected="selected"{{/if}}>Cupcake Creations</option>
-                                                                <option {{#if (eq this.csw_department 'Chocolate Delights')}} selected="selected"{{/if}}>Chocolate Delights</option>
-                                                                <option {{#if (eq this.csw_department 'Frosty Treats')}} selected="selected"{{/if}}>Frosty Treats</option>
-                                                                <option {{#if (eq this.csw_department 'Sweet Innovations')}} selected="selected"{{/if}}>Sweet Innovations</option>
-                                                                <option {{#if (eq this.csw_department 'Tasty Tarts')}} selected="selected"{{/if}}>Tasty Tarts</option>
-                                                                <option {{#if (eq this.csw_department 'Creamy Confections')}} selected="selected"{{/if}}>Creamy Confections</option>
-                                                                <option {{#if (eq this.csw_department 'Fruity Delights')}} selected="selected"{{/if}}>Fruity Delights</option>
-                                                                <option {{#if (eq this.csw_department 'Velvet Vanilla')}} selected="selected"{{/if}}>Velvet Vanilla</option>
-                                                                <option {{#if (eq this.csw_department 'Divine Desserts')}} selected="selected"{{/if}}>Divine Desserts</option>
-                                                            </optgroup>
-                                                        </select>
-                                                        -->
-                                                        <!-- <input style="margin-top: 5px; background-color: yellow; padding: 2px;"  type="submit" value="Submit" /> -->
-                                                    </form>
-                                                </div>
-                                            </td>
+                                            <form method="POST" class="allforms" id="updateForm{{@index}}" name="updateForm{{@index}}" action="/managers/{{this._id}}?_method=PUT">
+                                                <td>             
+                                                    <div class="currentPosition">
+                                                        {{this.csw_position}}
+                                                    </div>                           
+                                                    <div class="changeCurrentPosition"> 
+                                                            <input type="type" class="form-control" value="{{this.csw_position}}" id="csw_position" name="csw_position">
+                                                            <!--
+                                                            <select name="selectposition" id="selectposition">
+                                                                <optgroup label="Select position">
+                                                                    <option {{#if (eq this.csw_position 'Manager')}} selected {{/if}}>Manager</option>
+                                                                    <option {{#unless (eq this.csw_position 'Manager')}} selected {{/unless}}>Employee</option>
+                                                                </optgroup>
+                                                            </select>
+                                                            -->
+                                                            <!-- <input style="margin-top: 5px; background-color: yellow; padding: 2px;"  type="submit" value="Submit" /> -->
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="currentDepartment">
+                                                        {{this.csw_department}}
+                                                    </div>                           
+                                                    <div class="changeCurrentDepartment">
+                                                            <input type="type" class="form-control" value="{{this.csw_department}}" id="csw_department" name="csw_department">
+                                                            <!--
+                                                            <select name="selectdepartment" id="selectdepartment">
+                                                                <optgroup label="Select Department">
+                                                                    <option {{#if (eq this.csw_department 'Cake Cook')}} selected="selected"{{/if}}>Cake Cook</option>
+                                                                    <option {{#if (eq this.csw_department 'Cupcake Creations')}} selected="selected"{{/if}}>Cupcake Creations</option>
+                                                                    <option {{#if (eq this.csw_department 'Chocolate Delights')}} selected="selected"{{/if}}>Chocolate Delights</option>
+                                                                    <option {{#if (eq this.csw_department 'Frosty Treats')}} selected="selected"{{/if}}>Frosty Treats</option>
+                                                                    <option {{#if (eq this.csw_department 'Sweet Innovations')}} selected="selected"{{/if}}>Sweet Innovations</option>
+                                                                    <option {{#if (eq this.csw_department 'Tasty Tarts')}} selected="selected"{{/if}}>Tasty Tarts</option>
+                                                                    <option {{#if (eq this.csw_department 'Creamy Confections')}} selected="selected"{{/if}}>Creamy Confections</option>
+                                                                    <option {{#if (eq this.csw_department 'Fruity Delights')}} selected="selected"{{/if}}>Fruity Delights</option>
+                                                                    <option {{#if (eq this.csw_department 'Velvet Vanilla')}} selected="selected"{{/if}}>Velvet Vanilla</option>
+                                                                    <option {{#if (eq this.csw_department 'Divine Desserts')}} selected="selected"{{/if}}>Divine Desserts</option>
+                                                                </optgroup>
+                                                            </select>
+                                                            -->
+                                                            <!-- <input style="margin-top: 5px; background-color: yellow; padding: 2px;"  type="submit" value="Submit" /> -->
+                                                    </div>
+                                                </td>
+                                            </form>
                                             <td>
                                                 {{#unless (eq this.csw_position "Manager")}}
                                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-id="{{this._id}}" data-target="#delete-course-modal">Remove</button>
@@ -230,6 +229,10 @@
                 <div class="top"></div>
             </div>
         </div>
+        
+        <div id="savedNumber" style="display: none;">
+            {{csw_info.length}}
+        </div>
 
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
@@ -238,7 +241,7 @@
             var courseID
             var deleteForm = document.forms['delete-course-form']
             var btnDeleteCourse = document.getElementById('btn-delete-course')
-            var saveInfoBtn = $('#saveInfoBtn')
+            var saveInfoBtn = document.getElementById('saveInfoBtn')
 
             $('#delete-course-modal').on('show.bs.modal', function (event) {
                 var button = $(event.relatedTarget)
@@ -250,5 +253,27 @@
                 deleteForm.action = '/managers/staffs/' + courseID + '?_method=DELETE'
                 deleteForm.submit()
             }
+
+            var savedNumberElement = document.getElementById('savedNumber');
+            // Retrieve the number as a string
+            var savedNumberString = savedNumberElement.textContent || savedNumberElement.innerText;
+            // Convert the string to a number (if needed)
+            var savedNumber = parseInt(savedNumberString, 10);
+            var baseFormId = 'updateForm'
+
+            // Bug: Can only save the last form
+            saveInfoBtn.onclick = function()
+            {
+                for (var i = 0; i < savedNumber; i++)
+                {
+                    var formId = baseFormId + i;
+                    if (formId)
+                    {
+                        var submitThisForm = document.forms[formId]
+                        console.log(submitThisForm)
+                        submitThisForm.submit()
+                    }                
+                }
+            }    
         })
         </script>
