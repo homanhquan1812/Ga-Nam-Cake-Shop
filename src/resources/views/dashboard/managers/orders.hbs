@@ -55,9 +55,15 @@
                     <a href="/managers/orders" class="active">
                         <span class="material-symbols-outlined"> list_alt </span>
                         <h3>New Orders</h3>
-                        <span class="message-count">
-                            {{countRow orders}}
-                        </span>
+                        {{#if (eq (countRow orders) 0)}}
+                            <span class="message-count" style="display: none;">
+                                {{countRow orders}}
+                            </span>
+                        {{else}}
+                            <span class="message-count">
+                                {{countRow orders}}
+                            </span>
+                        {{/if}}    
                     </a>
                     <a href="/managers/staffs">
                         <span class="material-symbols-outlined">groups</span>
@@ -116,32 +122,32 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{#each orders}}
-                                    <tr>
-                                        {{#unless this.delivered}}
-                                            <td>{{sum @index 1}}</td>
-                                            <td>{{this.customer}}</td>
-                                            <td>{{this.phonenumber}}</td>
-                                            <td>{{this.address}}</td>
-                                            <td>
-                                                {{#each this.products}}
-                                                    {{this.name}}
-                                                    {{#unless @last}}<br><hr> {{/unless}}
-                                                {{/each}}
-                                            </td>
-                                            <td>
-                                                {{#each this.products}}
-                                                    {{this.quantity}}
-                                                    {{#unless @last}}<br><hr> {{/unless}}
-                                                {{/each}}
-                                            </td>
-                                            <td>{{this.totalcost}} VND</td>
-                                            <td>
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-id="{{this._id}}" data-target="#delete-course-modal">Decline</button>
-                                            </td>
-                                        {{/unless}}
-                                    </tr>
-                                    {{/each}}
+                                        {{#each orders}}
+                                        <tr>
+                                            {{#unless this.delivered}}
+                                                <td>{{sum @index 1}}</td>
+                                                <td>{{this.customer}}</td>
+                                                <td>{{this.phonenumber}}</td>
+                                                <td>{{this.address}}</td>
+                                                <td>
+                                                    {{#each this.products}}
+                                                        {{this.name}}
+                                                        {{#unless @last}}<br><hr> {{/unless}}
+                                                    {{/each}}
+                                                </td>
+                                                <td>
+                                                    {{#each this.products}}
+                                                        {{this.quantity}}
+                                                        {{#unless @last}}<br><hr> {{/unless}}
+                                                    {{/each}}
+                                                </td>
+                                                <td>{{this.totalcost}} VND</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-id="{{this._id}}" data-target="#delete-course-modal">Decline</button>
+                                                </td>
+                                            {{/unless}}
+                                        </tr>
+                                        {{/each}}
                                     <tr></tr>
                                 </tbody>
                             </table>

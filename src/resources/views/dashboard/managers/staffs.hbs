@@ -49,7 +49,15 @@
                     <a href="/managers/orders">
                         <span class="material-symbols-outlined"> list_alt </span>
                         <h3>New Orders</h3>
-                        <span class="message-count">{{countRow orders}}</span>
+                        {{#if (eq (countRow orders) 0)}}
+                            <span class="message-count" style="display: none;">
+                                {{countRow orders}}
+                            </span>
+                        {{else}}
+                            <span class="message-count">
+                                {{countRow orders}}
+                            </span>
+                        {{/if}} 
                     </a>
                     <a href="/managers/staffs"  class="active">
                         <span class="material-symbols-outlined">groups</span>
@@ -137,7 +145,7 @@
                                             <td>{{this.csw_phonenumber}}</td>
                                             <td>{{this.csw_username}}</td>
                                             <td>{{this.csw_emailaddress}}</td>
-                                            <form method="POST" class="allforms" id="updateForm{{@index}}" name="updateForm{{@index}}" action="/managers/{{this._id}}?_method=PUT">
+                                            <form method="POST" id="updateForm{{@index}}" name="updateForm{{@index}}" action="/managers/{{this._id}}?_method=PUT">
                                                 <td>             
                                                     <div class="currentPosition">
                                                         {{this.csw_position}}
@@ -235,6 +243,7 @@
         </div>
 
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         <script>
             document.addEventListener('DOMContentLoaded', function() {
@@ -242,6 +251,7 @@
             var deleteForm = document.forms['delete-course-form']
             var btnDeleteCourse = document.getElementById('btn-delete-course')
             var saveInfoBtn = document.getElementById('saveInfoBtn')
+            var allforms = document.getElementsByClassName('allforms')
 
             $('#delete-course-modal').on('show.bs.modal', function (event) {
                 var button = $(event.relatedTarget)
@@ -261,19 +271,33 @@
             var savedNumber = parseInt(savedNumberString, 10);
             var baseFormId = 'updateForm'
 
-            // Bugs: Can only save the last form
-            saveInfoBtn.onclick = function()
-            {
-                for (var i = 0; i < savedNumber; i++)
-                {
+            saveInfoBtn.onclick = function () {
+                var submitForm = function (formId) {
+                    var submitThisForm = document.forms[formId];
+                    console.log(submitThisForm);
+
+                    // Use AJAX for asynchronous form submission
+                    $.ajax({
+                        type: 'POST',
+                        url: submitThisForm.action,
+                        data: $(submitThisForm).serialize(), // Serialize form data
+                        success: function (data) {
+                            console.log('Form submitted successfully:', data);
+                            // Reload the page after successful form submission
+                            location.reload();
+                        },
+                        error: function (error) {
+                            console.error('Error submitting form:', error);
+                        }
+                    });
+                };
+
+                for (var i = 0; i < savedNumber; i++) {
                     var formId = baseFormId + i;
-                    if (formId)
-                    {
-                        var submitThisForm = document.forms[formId]
-                        console.log(submitThisForm)
-                        submitThisForm.submit()
-                    }                
+                    if (formId) {
+                        submitForm(formId);
+                    }
                 }
-            }    
+            };
         })
         </script>

@@ -55,7 +55,15 @@
                     <a href="/employees/orders">
                         <span class="material-symbols-outlined"> list_alt </span>
                         <h3>New Orders</h3>
-                        <span class="message-count">{{countRow orders}}</span>
+                        {{#if (eq (countRow orders) 0)}}
+                            <span class="message-count" style="display: none;">
+                                {{countRow orders}}
+                            </span>
+                        {{else}}
+                            <span class="message-count">
+                                {{countRow orders}}
+                            </span>
+                        {{/if}} 
                     </a>
                     <a href="/employees/notes"  class="active">
                         <span class="material-symbols-outlined"> format_list_bulleted_add </span>
