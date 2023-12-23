@@ -42,7 +42,7 @@
         <div class="form-box register">
             <div class="form-value">
                 <h2>Registration</h2>
-                <form action="#">
+                <form action="#" method="POST">
                     <!-- Left Section -->
                     <div class="left-section">
                         <div class="inputbox">
@@ -104,7 +104,7 @@
                     -->
 
                     <div class="remember-forgot">
-                        <label><input type="checkbox">I agree to the Terms and Conditions.</label>
+                        <label><input type="checkbox" id="termsCheckbox">I agree to the Terms and Conditions.</label>
                     </div>
 
                     <button type="submit" class="submit" onclick="validateForm()">Register</button>
@@ -154,13 +154,18 @@
             var genderValue = document.getElementById('gender').value.trim();
 
             // Check if the value is either "Male" or "Female"
-            if (genderValue !== 'Male' || genderValue !== 'Female') {
+            if (genderValue !== 'Male' && genderValue !== 'Female') {
                 // If not valid, show an alert and prevent form submission
                 alert('Please enter a valid gender (Male or Female).');
                 event.preventDefault(); // Added line to prevent submission
             } else {
-                // If valid, submit the form
-                document.getElementById('myForm').submit();
+                var termsCheckbox = document.getElementById('termsCheckbox');
+                if (termsCheckbox.checked) {
+                    document.getElementById('myForm').submit();
+                } else {
+                    alert('Please agree to the Terms and Conditions.');
+                    event.preventDefault();
+                }
             }
         }
     </script>
