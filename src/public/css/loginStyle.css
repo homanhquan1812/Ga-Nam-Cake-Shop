@@ -260,3 +260,14 @@ button{
     height: 20px;
 }
 */
+
+input::placeholder {
+    /* Initially hide the placeholder */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+input:focus::placeholder {
+    /* Show the placeholder on focus */
+    opacity: 1;
+}
