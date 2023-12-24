@@ -4,7 +4,7 @@ const dashboardController = require('../app/controllers/DashboardController');
 const employeesRouter = express.Router();
 const managersRouter = express.Router();
 
-// Staff routes
+// Employee routes
 employeesRouter.get('/', dashboardController.employees_overview)
 employeesRouter.get('/overview', dashboardController.employees_overview);
 employeesRouter.get('/dashboard', dashboardController.employees_dashboard);
