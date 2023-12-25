@@ -44,6 +44,7 @@
             $('#discardNoteBtn').hide();
             $('#discardProductBtn').hide();
             $('#saveProductBtn').hide();
+            $('#saveNoteBtn').hide();
 
             $(document).ready(function () {
                 $("#changeInfoBtn").click(function () {     
@@ -62,13 +63,6 @@
                     document.getElementById('warning').style.display = '';
                 });
 
-                $('#discardInfoBtn').click(function () {
-                    $("#discardInfoBtn, #saveInfoBtn").hide();
-                    $("#changeInfoBtn, #addInfoBtn").show();
-                    $("#positionCell").html(`Test`);
-                    document.getElementById('warning').style.display = 'none'; 
-                });
-
                 $('#addInfoBtn').click(function() {
                     $("#discardInfoBtn, #saveInfoBtn, #changeInfoBtn, #addInfoBtn").hide();
                     $("#discardAddedInfoBtn, #saveAddedInfoBtn").show();
@@ -81,7 +75,10 @@
                     $('#addNoteBtn').hide();
                     $(".add-data").show();
                     $('#discardNoteBtn').show();
-                    document.getElementById('warning2').style.display = '';
+                    $('#saveNoteBtn').show();
+                    /* document.getElementById('warning2').style.display = ''; */
+                    var element = document.getElementById('saveNoteBtn');
+                    element.style.margin = null;
                 })
 
                 $('#addProductBtn').click(function() {
@@ -90,13 +87,6 @@
                     $('#discardProductBtn').show();
                     $('#saveProductBtn').show();
                     document.getElementById('warning3').style.display = '';
-                })
-
-                $('#discardNoteBtn').click(function() {
-                    document.getElementById('warning2').style.display = 'none';
-                    $('#discardNoteBtn').hide();
-                    $(".add-data").hide();
-                    $('#addNoteBtn').show();
                 })
 
                 $('#discardProductBtn').click(function() {

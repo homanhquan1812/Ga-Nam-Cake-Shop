@@ -104,7 +104,8 @@
                             <div class="middle">
                                 <div class="left">
                                     <button type="button" class="btn btn-primary" id="addNoteBtn">Add more notes</button>
-                                    <button style="margin-left: 0px;" type="button" class="btn btn-danger" id="discardNoteBtn" onclick="window.location.href='/managers/notes'">Discard this note</button>
+                                    <button type="submit" style="margin-left: 10px;" class="btn btn-success" form="addNoteForm" id="saveNoteBtn">Save this note</button>
+                                    <button style="margin-left: 10px;" type="button" class="btn btn-danger" id="discardNoteBtn" onclick="window.location.href='/managers/notes'">Discard this note</button>
                                 </div>
                             </div>
                             <div id="warning2" style="margin-top: 10px; font-size: 15px; display: none;">
@@ -113,7 +114,7 @@
                                     </ul></div>
                             <div class="add-data">
                                     <form method="POST" id="addNoteForm" action="/managers/storenotes">
-                                        <input type="type" id="csw_notes" name="csw_notes" placeholder="Note" required>
+                                        <input type="type" id="csw_notes" name="csw_notes" placeholder="Write a note here." required>
                                     </form>
                                 </div>
                             <table style="margin-top: 20px;">
