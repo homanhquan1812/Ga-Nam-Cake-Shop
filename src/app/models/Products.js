@@ -11,8 +11,9 @@ const Products = new Schema({
     csw_products: { type: String, maxLength: 255, required: true },
     createdAt: { type: Date, default: Date.now },
     type: { type: String, maxLength: 255, required: true },
-    description: { type: String, maxLength: 255, required: true },
+    description: { type: String },
     price: { type: Number, maxLength: 255, required: true },
+    photo: [{type: String, required: true }]
     // slug: { type: String, slug: 'name', unique: true }
 }, { timestamps: true });
 

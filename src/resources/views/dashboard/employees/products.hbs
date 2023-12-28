@@ -95,11 +95,13 @@
                         <div class="sales">
                             <div class="middle">
                             </div>
-                            <table style="margin-top: 20px;">
+                            <input type="text" id="product-searchbar" onkeyup="myFunction()" placeholder="Search for types (Bread, Pastries, Cake Slice, Cheesecake, Drinks, Others).">
+                            <table style="margin-top: 20px;" id="myTable">
                                 <thead>
                                     <tr>
                                         <th style="width: 5%;">No</th>
                                         <th style="width: 15%;">Product</th>
+                                        <th>Photo</th>
                                         <th style="width: 15%;">Date added</th>
                                         <th style="width: 10%;">Type</th>
                                         <th style="width: 50%;">Description</th>
@@ -111,10 +113,17 @@
                                     <tr>
                                         <td>{{sum @index 1}}</td>
                                         <td>{{this.csw_products}}</td>
+                                        <td><img src="{{this.photo}}" alt="{{this.csw_products}}" class="photo"></td>
                                         <td>{{this.createdAt}}</td>
                                         <td>{{this.type}}</td>
                                         <td>{{this.description}}</td>
                                         <td>{{this.price}} VND</td>
+                                    </tr>
+                                    {{else}}
+                                    <tr>
+                                        <td colspan="7" class="text-center">
+                                        No products added here yet.
+                                        </td>
                                     </tr>
                                     {{/each}}
                                     <tr></tr>

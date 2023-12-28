@@ -108,6 +108,7 @@
                                     <button style="margin-left: 10px;" type="button" class="btn btn-danger" id="discardProductBtn" onclick="window.location.href='/managers/products'">Discard this product</button>
                                 </div>
                             </div>
+                            <input type="text" id="product-searchbar" onkeyup="myFunction()" placeholder="Search for types (Bread, Pastries, Cake Slice, Cheesecake, Drinks, Others).">
                             <!--
                             <div id="warning3" style="margin-top: 10px; font-size: 15px; display: none;">
                                     <div style="color: red; font-weight: bold;">Notes: </div>
@@ -116,20 +117,24 @@
                             -->
                             <div class="add-data">
                                     <form method="POST" id="addProductForm" action="/managers/storeproducts">
-                                        <input type="type" id="csw_products" name="csw_products" placeholder="Products" required>
+                                        <input type="type" id="csw_products" name="csw_products" placeholder="Product Name" required>
                                         <input type="type" id="type" name="type" placeholder="Type" required>
-                                        <input type="type" id="description" name="description" placeholder="Description" required>
                                         <input type="type" id="price" name="price" placeholder="Price" required>
+                                        <input type="type" id="photo" name="photo" placeholder="Image Link" required>
+                                        <div class="description-input">
+                                            <input type="type" id="description" name="description" placeholder="Description">
+                                        </div>         
                                     </form>
                                 </div>
-                            <table style="margin-top: 20px;">
+                            <table style="margin-top: 20px;" id="myTable">
                                 <thead>
                                     <tr>
                                         <th style="width: 5%;">No</th>
                                         <th style="width: 15%;">Product</th>
+                                        <th>Photo</th>
                                         <th style="width: 15%;">Date added</th>
                                         <th style="width: 10%;">Type</th>
-                                        <th style="width: 45%;">Description</th>
+                                        <th style="width: 45%;">Description</th>                                       
                                         <th style="width: 5%;">Price</th>
                                         <th style="width: 5%;">Action</th>
                                     </tr>
@@ -139,11 +144,18 @@
                                     <tr>
                                         <td>{{sum @index 1}}</td>
                                         <td>{{this.csw_products}}</td>
+                                        <td><img src="{{this.photo}}" alt="{{this.csw_products}}" class="photo"></td>
                                         <td>{{this.createdAt}}</td>
                                         <td>{{this.type}}</td>
                                         <td>{{this.description}}</td>
                                         <td>{{this.price}} VND</td>
                                         <td><button type="button" class="btn btn-danger"  data-toggle="modal" data-id="{{this._id}}" data-target="#delete-course-modal">Remove</button></td>
+                                    </tr>
+                                    {{else}}
+                                    <tr>
+                                        <td colspan="8" class="text-center">
+                                        No products added here yet.
+                                        </td>
                                     </tr>
                                     {{/each}}
                                     <tr></tr>
