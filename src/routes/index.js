@@ -1,5 +1,6 @@
 const dashboardRouter = require('./dashboard');
 const loginRouter = require('./login');
+const logoutRouter = require('./logout');
 const homeRouter = require('./home')
 const aboutRouter = require('./about')
 const contactRouter = require('./contact')
@@ -16,6 +17,7 @@ function route(app) {
     app.use('/gallery', galleryRouter)
     app.use('/services', servicesRouter)
     app.use('/shoppingcart', shoppingcartRouter)
+    app.use('/logout', logoutRouter)
 }
 
 module.exports = route;

@@ -2,7 +2,10 @@ class GalleryController
 {
     index(req, res)
     {
+        const csw_name = req.session.username
         res.render('gallery', {
+            isLoggedIn: req.session.username ? true : false,
+            username: req.session.username,
             styles: [
                 '/css/lightbox.min.css',
                 '/css/owl.carousel.min.css',
@@ -18,7 +21,8 @@ class GalleryController
                 '/js/main-backtotop.js',
                 '/js/main.js',
                 'js/script.js'
-            ]
+            ],
+            csw_name
         })
     }
 }

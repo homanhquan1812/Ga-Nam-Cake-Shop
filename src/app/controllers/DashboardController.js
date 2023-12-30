@@ -15,11 +15,18 @@ class DashboardController
             Orders.find({}),
             Notes.find({})
         ])
-            .then(([orders, notes]) => res.render('dashboard/employees/overview', {
-                styles: ['/css/overview.css'],
-                orders: multipleMongooseToObject(orders),
-                notes: multipleMongooseToObject(notes)
-            }))
+            .then(([orders, notes]) => {
+                const csw_name = req.session.csw_name;
+                const csw_position = req.session.csw_position;
+
+                res.render('dashboard/employees/overview', {
+                    styles: ['/css/overview.css'],
+                    orders: multipleMongooseToObject(orders),
+                    notes: multipleMongooseToObject(notes),
+                    csw_name,
+                    csw_position
+                })
+            })
             .catch(next);        
     }
 
@@ -27,10 +34,17 @@ class DashboardController
     employees_dashboard(req, res, next)
     {
         Promise.all([Orders.find({})])
-            .then(([orders]) => res.render('dashboard/employees/dashboard', {
-                styles: ['/css/dashboard.css'],
-                orders: multipleMongooseToObject(orders)
-            }))
+            .then(([orders]) => {
+                const csw_name = req.session.csw_name;
+                const csw_position = req.session.csw_position;
+
+                res.render('dashboard/employees/dashboard', {
+                    styles: ['/css/dashboard.css'],
+                    orders: multipleMongooseToObject(orders),
+                    csw_name,
+                    csw_position
+                })
+            })
             .catch(next)
     }
 
@@ -38,20 +52,34 @@ class DashboardController
     employees_orders(req, res, next)
     {
         Promise.all([Orders.find({})])
-            .then(([orders]) => res.render('dashboard/employees/orders', {
-                styles: ['/css/orders.css'],
-                orders: multipleMongooseToObject(orders)
-            }))
+            .then(([orders]) => {
+                const csw_name = req.session.csw_name;
+                const csw_position = req.session.csw_position;
+
+                res.render('dashboard/employees/orders', {
+                    styles: ['/css/orders.css'],
+                    orders: multipleMongooseToObject(orders),
+                    csw_name,
+                    csw_position
+                })
+            })
             .catch(next)
     }
 
     employees_ordersdelivered(req, res, next)
     {
         Orders.findByIdAndUpdate(req.params.id, { delivered: true })
-            .then(orders => res.render('dashboard/employees/orders', {
-                styles: ['/css/orders.css'],
-                orders: mongooseToObject(orders)
-            }))
+            .then(orders => {
+                const csw_name = req.session.csw_name;
+                const csw_position = req.session.csw_position;
+
+                res.render('dashboard/employees/orders', {
+                    styles: ['/css/orders.css'],
+                    orders: mongooseToObject(orders),
+                    csw_name,
+                    csw_position
+                })
+            })
             .catch(next)
     }
 
@@ -59,11 +87,18 @@ class DashboardController
     employees_notes(req, res, next)
     {
         Promise.all([Notes.find({}), Orders.find({})])
-            .then(([notes, orders]) => res.render('dashboard/employees/notes', {
-                styles: ['/css/notes.css'],
-                notes: multipleMongooseToObject(notes),
-                orders: multipleMongooseToObject(orders)
-            }))
+            .then(([notes, orders]) => {
+                const csw_name = req.session.csw_name;
+                const csw_position = req.session.csw_position;
+
+                res.render('dashboard/employees/notes', {
+                    styles: ['/css/notes.css'],
+                    notes: multipleMongooseToObject(notes),
+                    orders: multipleMongooseToObject(orders),
+                    csw_name,
+                    csw_position
+                })
+            })
             .catch(next)
     }
 
@@ -71,11 +106,18 @@ class DashboardController
     employees_products(req, res, next)
     {
         Promise.all([Products.find({}), Orders.find({})])
-            .then(([products, orders]) => res.render('dashboard/employees/products', {
-                styles: ['/css/products.css'],
-                products: multipleMongooseToObject(products),
-                orders: multipleMongooseToObject(orders)
-            }))
+            .then(([products, orders]) => {
+                const csw_name = req.session.csw_name;
+                const csw_position = req.session.csw_position;
+
+                res.render('dashboard/employees/products', {
+                    styles: ['/css/products.css'],
+                    products: multipleMongooseToObject(products),
+                    orders: multipleMongooseToObject(orders),
+                    csw_name,
+                    csw_position
+                })
+            })
             .catch(next)
     }
 
@@ -83,10 +125,17 @@ class DashboardController
     employees_settings(req, res, next)
     {
         Promise.all([Orders.find({})])
-            .then(([orders]) => res.render('dashboard/employees/settings', {
-                styles: ['/css/settings.css'],
-                orders: multipleMongooseToObject(orders)
-            }))
+            .then(([orders]) => {
+                const csw_name = req.session.csw_name;
+                const csw_position = req.session.csw_position;
+
+                res.render('dashboard/employees/settings', {
+                    styles: ['/css/settings.css'],
+                    orders: multipleMongooseToObject(orders),
+                    csw_name,
+                    csw_position
+                })
+            })
             .catch(next)
     }
 
@@ -98,32 +147,53 @@ class DashboardController
             Orders.find({}),
             Notes.find({})
         ])
-            .then(([orders, notes]) => res.render('dashboard/managers/overview', {
-                styles: ['/css/overview.css'],
-                orders: multipleMongooseToObject(orders),
-                notes: multipleMongooseToObject(notes)
-            }))
-            .catch(next); 
+            .then(([orders, notes]) => {
+                const csw_name = req.session.csw_name;
+                const csw_position = req.session.csw_position;
+
+                res.render('dashboard/managers/overview', {
+                    styles: ['/css/overview.css'],
+                    orders: multipleMongooseToObject(orders),
+                    notes: multipleMongooseToObject(notes),
+                    csw_name,
+                    csw_position
+                })
+            })
+            .catch(next);
     }
 
     // Dashboard
     managers_dashboard(req, res, next)
     {
         Promise.all([Orders.find({})])
-            .then(([orders]) => res.render('dashboard/managers/dashboard', {
-                styles: ['/css/dashboard.css'],
-                orders: multipleMongooseToObject(orders)
-            }))
+            .then(([orders]) => {
+                const csw_name = req.session.csw_name;
+                const csw_position = req.session.csw_position;
+
+                res.render('dashboard/managers/dashboard', {
+                    styles: ['/css/dashboard.css'],
+                    orders: multipleMongooseToObject(orders),
+                    csw_name,
+                    csw_position
+                })
+            })
             .catch(next)
     }
 
     managers_orders(req, res, next)
     {
         Promise.all([Orders.find({})])
-            .then(([orders]) => res.render('dashboard/managers/orders', {
-                styles: ['/css/orders.css'],
-                orders: multipleMongooseToObject(orders)
-            }))
+            .then(([orders]) => {
+                const csw_name = req.session.csw_name;
+                const csw_position = req.session.csw_position;
+
+                res.render('dashboard/managers/orders', {
+                    styles: ['/css/orders.css'],
+                    orders: multipleMongooseToObject(orders),
+                    csw_name,
+                    csw_position
+                })
+            })
             .catch(next)
     }
 
@@ -141,11 +211,18 @@ class DashboardController
     managers_staffs(req, res, next)
     {
         Promise.all([DatabaseInfo.find({}), Orders.find({})])
-            .then(([csw_info, orders]) => res.render('dashboard/managers/staffs', {
-                styles: ['/css/staffs.css'],
-                orders: multipleMongooseToObject(orders),
-                csw_info: multipleMongooseToObject(csw_info)
-            }))
+            .then(([csw_info, orders]) => {
+                const csw_name = req.session.csw_name;
+                const csw_position = req.session.csw_position;
+
+                res.render('dashboard/managers/staffs', {
+                    styles: ['/css/staffs.css'],
+                    orders: multipleMongooseToObject(orders),
+                    csw_info: multipleMongooseToObject(csw_info),
+                    csw_name,
+                    csw_position
+                })
+            })
             .catch(next)
     }
 
@@ -153,11 +230,18 @@ class DashboardController
     managers_customers(req, res, next)
     {
         Promise.all([DatabaseInfo2.find({}), Orders.find({})])
-            .then(([csw_info2, orders]) => res.render('dashboard/managers/customers', {
-                styles: ['/css/customers.css'],
-                orders: multipleMongooseToObject(orders),
-                csw_info2: multipleMongooseToObject(csw_info2)
-            }))
+            .then(([csw_info2, orders]) => {
+                const csw_name = req.session.csw_name;
+                const csw_position = req.session.csw_position;
+
+                res.render('dashboard/managers/customers', {
+                    styles: ['/css/customers.css'],
+                    orders: multipleMongooseToObject(orders),
+                    csw_info2: multipleMongooseToObject(csw_info2),
+                    csw_name,
+                    csw_position
+                })
+            })
             .catch(next)
     }
 
@@ -165,11 +249,18 @@ class DashboardController
     managers_notes(req, res, next)
     {
         Promise.all([Notes.find({}), Orders.find({})])
-            .then(([notes, orders]) => res.render('dashboard/managers/notes', {
-                styles: ['/css/notes.css'],
-                orders: multipleMongooseToObject(orders),
-                notes: multipleMongooseToObject(notes)
-            }))
+            .then(([notes, orders]) => {
+                const csw_name = req.session.csw_name;
+                const csw_position = req.session.csw_position;
+
+                res.render('dashboard/managers/notes', {
+                    styles: ['/css/notes.css'],
+                    orders: multipleMongooseToObject(orders),
+                    notes: multipleMongooseToObject(notes),
+                    csw_name,
+                    csw_position
+                })
+            })
             .catch(next)
     }
 
@@ -177,11 +268,18 @@ class DashboardController
     managers_products(req, res, next)
     {
         Promise.all([Products.find({}), Orders.find({})])
-            .then(([products, orders]) => res.render('dashboard/managers/products', {
-                styles: ['/css/products.css'],
-                orders: multipleMongooseToObject(orders),
-                products: multipleMongooseToObject(products)
-            }))
+            .then(([products, orders]) => {
+                const csw_name = req.session.csw_name;
+                const csw_position = req.session.csw_position;
+
+                res.render('dashboard/managers/products', {
+                    styles: ['/css/products.css'],
+                    orders: multipleMongooseToObject(orders),
+                    products: multipleMongooseToObject(products),
+                    csw_name,
+                    csw_position
+                })
+            })
             .catch(next)
     }
 
@@ -189,10 +287,17 @@ class DashboardController
     managers_settings(req, res, next)
     {
         Promise.all([Orders.find({})])
-            .then(([orders]) => res.render('dashboard/managers/settings', {
-                styles: ['/css/settings.css'],
-                orders: multipleMongooseToObject(orders)
-            }))
+            .then(([orders]) => {
+                const csw_name = req.session.csw_name;
+                const csw_position = req.session.csw_position;
+
+                res.render('dashboard/managers/settings', {
+                    styles: ['/css/settings.css'],
+                    orders: multipleMongooseToObject(orders),
+                    csw_name,
+                    csw_position
+                })
+            })
             .catch(next)
     }
 

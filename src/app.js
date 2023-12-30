@@ -1,5 +1,6 @@
 const express = require('express')
 const morgan = require('morgan')
+const session = require('express-session')
 const Handlebars = require('express-handlebars')
 const path = require('path')
 const route = require('./routes')
@@ -10,6 +11,13 @@ const db = require('../config/db')
 
 // Delete
 app.use(methodOverride('_method'))
+
+// Session
+app.use(session({
+  secret: 'mySecretKey',
+  resave: true,
+  saveUninitialized: false
+}));
 
 // Store
 app.use(express.urlencoded({ extended: true })) 

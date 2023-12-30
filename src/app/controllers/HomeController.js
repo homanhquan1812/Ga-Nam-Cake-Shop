@@ -2,7 +2,11 @@ class HomeController
 {
     index(req, res)
     {
+        const csw_name = req.session.username
+        console.log("Session found at HomeController: " + req.session.username);
         res.render('home', {
+            isLoggedIn: req.session.username ? true : false,
+            username: req.session.username,
             styles: [
                 '/css/lightbox.min.css',
                 '/css/owl.carousel.min.css',
@@ -18,7 +22,8 @@ class HomeController
                 '/js/main-backtotop.js',
                 '/js/main.js',
                 'js/script.js'
-            ]
+            ],
+            csw_name
         })
     }
 }
