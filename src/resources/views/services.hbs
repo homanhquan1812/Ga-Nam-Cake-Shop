@@ -2,13 +2,14 @@
   <header class="contact_header">
     <nav class="navbar navbar-expand-lg navbarGaNam">
         <div class="container header__content">
-            <a class="navbar-brand logo" href="#">GÀ NẤM</a>
+            <img style="width: 50px; height: 50px; margin-right: 20px;" src="../../img/logo.png">
+            <a class="navbar-brand logo" href="home">GÀ NẤM</a> 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#GaNamNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse navigation" id="GaNamNav">
-                <ul class="navbar-nav ms-auto ">
+                <ul style="font-size: 20px;" class="navbar-nav ms-auto ">
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="home">HOME</a>
                     </li>
@@ -28,23 +29,20 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#">{{csw_name}}</a>
                     </li>
-                    <a href="/logout">
                     <li class="nav-item">
-                      <button class="btnLogin-popup" onclick="window.location.href='login'">LOGOUT</button>
-                    </li>
-                    </a>
-                    {{else}}
-                    <li class="nav-item">
-                        <button class="btnLogin-popup" onclick="window.location.href='login'">LOGIN</button>
-                    </li>
-                    {{/if}}
-                    <li class="nav-item">
-                      
                         <a href="shoppingcart">
                           <i class="fa-solid fa-cart-shopping"></i>
                         </a>
                       </i>
                     </li>
+                    <li class="nav-item">
+                      <button class="btnLogin-popup" onclick="window.location.href='/logout'">LOGOUT</button>
+                    </li>
+                    {{else}}
+                    <li class="nav-item">
+                        <button class="btnLogin-popup" onclick="window.location.href='login'">LOGIN</button>
+                    </li>
+                    {{/if}}
                 </ul>
             </div>
         </div>
@@ -125,7 +123,7 @@
             <div class="container carousel-caption">
               <h1>Order Now</h1>
               <p>Depending on the type of product, we can deliver it fresh,part-baked or frozen.</p>
-              <button class="btn"><a href="./gallery.htlm">More product</a><i class="fa fa-angle-double-right"></i></button>
+              <button class="btn"><a href="/gallery">More product</a><i class="fa fa-angle-double-right"></i></button>
             </div>
           </div>
           <div class="carousel-item">
@@ -144,54 +142,33 @@
 </section>
 <!-- TYPE  -->
 <section class="service__type">
-  <div class="service__list">
-    <div class="item__list">
-      <i class="fa fa-bread-slice"></i>
-      <p>Bread</p>
-    </div>
-    <div class="item__list">
-      <i class="fa fa-bread-slice"></i>
-      <p>Bread</p>
-    </div>
-    <div class="item__list">
-      <i class="fa fa-bread-slice"></i>
-      <p>Bread</p>
-    </div>
-    <div class="item__list">
-      <i class="fa fa-bread-slice"></i>
-      <p>Bread</p>
-    </div>
-    <div class="item__list">
-      <i class="fa fa-bread-slice"></i>
-      <p>Bread</p>
-    </div>
-  </div>
+  
   <div class="service__why">
     <h2>Why Choose Us</h2>
     <div class="row">
       <div class="col-4">
-        <i class="fa-solid fa-money-bill"></i>
-        <p>High Tech Machinery</p>
+        <i class="fa-solid fa-calendar-days"></i>
+        <p>Perfect for any occasion</p>
       </div>
       <div class="col-4">
-        <i class="fa-solid fa-money-bill"></i>
-        <p>Skilled Workforce</p>
+        <i class="fa-solid fa-utensils"></i>
+        <p>Breakfast, lunch, dinner & dessert</p>
       </div>
       <div class="col-4">
-        <i class="fa-solid fa-money-bill"></i>
-        <p>Constant investment in new machinery</p>
+        <i class="fa-solid fa-basket-shopping"></i>
+        <p>Ordering simplified</p>
       </div>
       <div class="col-4">
-        <i class="fa-solid fa-money-bill"></i>
-        <p>Effective management & training of employees</p>
+        <i class="fa-solid fa-cookie-bite"></i>
+        <p>Freshly Baked, Everyday</p>
       </div>
       <div class="col-4">
-        <i class="fa-solid fa-money-bill"></i>
-        <p>Consistent & High Quality Products</p>
+        <i class="fa-regular fa-face-grin-hearts"></i>
+        <p>Where smiles are served daily</p>
       </div>
       <div class="col-4">
-        <i class="fa-solid fa-money-bill"></i>
-        <p>Use of high quality ingredients & strict quality control</p>
+        <i class="fa-solid fa-kitchen-set"></i>
+        <p>Finest ingredients and skilled bakers</p>
       </div>
     </div>
   </div>
@@ -200,10 +177,10 @@
   <footer>
     <div class="footer__main row">
         <div class="footer__item col-3">
-            <h3>Anout Us</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente harum corporis repellat dolore nisi
-                quidem.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto, laudantium.</p>
+            <h3>About Us</h3>
+            <p>Welcome to your neighborhood bakery café.</p>
+            <p>Where smiles are served daily
+              Enjoy delicious pastries, warm breads, stunning cakes and expertly brewed drinks while feeling right at home.</p>
             <div class="footer__social">
                 <i class="fab fa-facebook-f"></i>
                 <i class="fab fa-google-plus-g"></i>
@@ -244,10 +221,10 @@
         </div>
         <div class="footer__item col-3">
             <h3>Twitter Us</h3>
-            <p>Lorem ipsum dolor sit amet consectetur.</p>
-            <p>Lorem ipsum dolor sit amet consectetur.</p>
-            <p>Lorem ipsum dolor sit amet consectetur.</p>
-            <p>Lorem ipsum dolor sit amet consectetur.</p>
+            <p>Masters at Work</p>
+            <p>Community is at our Core</p>
+            <p>Happy to see you. </p>
+            <p>Happier to serve you.</p>
         </div>
         <div class="footer__item col-3">
             <h3>SUBSCRIBE US</h3>
@@ -255,11 +232,11 @@
                 <input type="email" name="" id="" placeholder="name@example">
                 <button class="button-pink" type="submit">Send</button>
             </form>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, ipsa.</p>
+            <p>Thank you for your interest in reaching out to us! Fill out the feedback form and a member of our team will be in touch soon.</p>
         </div>
     </div>
     <div class="footer__copyright">
-        <p> &copy; 2020 Lorem ipsum dolor sit amet. | Design by <span>Panda</span> </p>
+        <p> Copyright &copy; 2023 <span>Gà Nấm Cake Shop</span>. All rights reserved.</p>
     </div>
   </footer>
   <!-- Back to top  -->
