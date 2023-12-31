@@ -84,6 +84,7 @@ class LoginController
                 csw_name: req.body.fullname,
                 csw_gender: req.body.gender,
                 csw_phonenumber: req.body.phonenumber,
+                csw_address: req.body.address,
                 csw_username: req.body.user,
                 csw_emailaddress: req.body.email,
                 csw_password: req.body.pass

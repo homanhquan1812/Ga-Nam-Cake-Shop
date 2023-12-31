@@ -11,6 +11,7 @@ const DatabaseInfo2 = new Schema({
     csw_name: { type: String, maxLength: 255, required: true },
     csw_gender: { type: String, maxLength: 255, required: true},
     csw_phonenumber: { type: String, maxLength: 255, required: true },
+    csw_address: { type: String, maxLength: 255, required: true },
     csw_username: { type: String, maxLength: 255, required: true },
     csw_emailaddress: { type: String, maxLength: 255, required: true },
     csw_password: { type: String, maxLength: 255, required: true },
