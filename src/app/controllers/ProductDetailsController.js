@@ -32,6 +32,7 @@ class ProductDetailsController
 
     show(req, res, next)
     {
+        const csw_name = req.session.username
         Products.findOne({ _id: req.params.id })
             .then(info => {
                 res.render('product_details', { 
@@ -54,7 +55,8 @@ class ProductDetailsController
                         '/js/main.js',
                         'js/script.js'
                     ],
-                    info: mongooseToObject(info)
+                    info: mongooseToObject(info),
+                    csw_name
                 })
             })
             .catch(next)
