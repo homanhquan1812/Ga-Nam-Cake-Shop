@@ -135,6 +135,11 @@
                     }       
                 }
             }
+
+            document.querySelectorAll(".demo").forEach(function(element) {
+                var x = Math.floor(Math.random() * 100) + 1;
+                element.innerHTML = x;
+            });
         </script>
         {{#if scripts}}
             {{#each scripts}}

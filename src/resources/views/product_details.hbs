@@ -1,0 +1,84 @@
+<!-- HEADER  -->
+<header class="contact_header">
+    <nav class="navbar navbar-expand-lg navbarGaNam">
+        <div class="container header__content">
+            <img style="width: 50px; height: 50px; margin-right: 20px;" src="../../img/logo.png">
+            <a class="navbar-brand logo" href="home">GÀ NẤM</a> 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#GaNamNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse navigation" id="GaNamNav">
+                <ul style="font-size: 20px;" class="navbar-nav ms-auto ">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="home">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services">SERVICES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery">GALLERY</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact">CONTACT</a>
+                    </li>
+                    {{#if isLoggedIn}}
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">{{csw_name}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="shoppingcart">
+                          <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                      </i>
+                    </li>
+                    <li class="nav-item">
+                      <button class="btnLogin-popup" onclick="window.location.href='/logout'">LOGOUT</button>
+                    </li>
+                    {{else}}
+                    <li class="nav-item">
+                        <button class="btnLogin-popup" onclick="window.location.href='login'">LOGIN</button>
+                    </li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <div class="flex-box">
+        <div class="left">
+            <div class="big-img">
+                <img src="{{info.photo}}">
+            </div>
+            <div class="images">
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="pname">{{info.csw_products}}</div>
+            <div class="ratings">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <div class="price">{{info.price}} VND</div>
+            <div class="right product-details">
+                <p>{{info.description}}</p>
+            </div>
+            
+            <div class="quantity">
+                <p>Quantity :</p>
+                <input type="number" min="1" max="10" value="1">
+            </div>
+            <div class="btn-box">
+                <button class="cart-btn">Add to Cart</button>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+    </div>

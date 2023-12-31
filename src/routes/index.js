@@ -7,6 +7,7 @@ const contactRouter = require('./contact')
 const galleryRouter = require('./gallery')
 const servicesRouter = require('./services')
 const shoppingcartRouter = require('./shoppingcart')
+const product_detailsRouter = require('./product_details')
 
 function route(app) {
     app.use('/', dashboardRouter);
@@ -18,6 +19,7 @@ function route(app) {
     app.use('/services', servicesRouter)
     app.use('/shoppingcart', shoppingcartRouter)
     app.use('/logout', logoutRouter)
+    app.use('/product_details', product_detailsRouter)
 }
 
 module.exports = route;

@@ -120,15 +120,19 @@
         </div>
         <div class="filters-button-group">
             <button class="button is-checked active" data-filter="*">ALL</button>
-            <button class="button" data-filter=".PRINTING">BREAD</button>
-            <button class="button" data-filter=".WEB">PASTRY</button>
-            <button class="button" data-filter=".ILLUSTRATION">CAKE SLICES</button>
-            <button class="button" data-filter=".MEDIA">CHEESECAKE</button>
+            <button class="button" data-filter=".BREAD">BREAD</button>
+            <button class="button" data-filter=".PASTRIES">PASTRIES</button>
+            <button class="button" data-filter=".CAKESLICES">CAKE SLICES</button>
+            <button class="button" data-filter=".CHEESECAKES">CHEESECAKES</button>
+            <button class="button" data-filter=".DRINKS">DRINKS</button>
+            <button class="button" data-filter=".ICECREAM">ICE CREAM</button>
         </div>
         <div class="showcase__content row">
-            <div class=" showcase__item PRINTING ILLUSTRATION" data-category="transition">
+            {{#each products}}
+            {{#if (eq this.type "Bread")}}
+            <div class=" showcase__item BREAD " data-category="transition">
                 <div class="showcase__photo">
-                    <img src="./img/showcase-1.jpeg" alt="">
+                    <img style="height: 400px; width: 100%;" src="{{this.photo}}" alt="">
                     <div class="showcase__info">
                         <div class="showcase__btn">
                             <a href="#" target="_blank">
@@ -137,19 +141,25 @@
                         </div>
                         <div class="showcase__des">
                             <h4>
-                                <a href="./product_detail.html" target="_blank">EXTERNAL LINK</a>
+                                <a href="/product_details/{{_id}}" target="_blank">{{this.csw_products}}</a>
                             </h4>
+                            Sold:<p class="demo"></p>
                             <p>
-                                <a href="#">CATEGORY 1 , </a>
-                                <a href="#">CATEGORY 2</a>
+                                <a href="#"><button type="button" class="btn btn-primary">{{this.price}} VND</button></a>
+                                <a href="#"><button type="button" class="btn btn-danger">More Details</button></a>
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class=" showcase__item WEB MEDIA " data-category="metalloid">
+            {{/if}}
+            {{/each}}
+
+            {{#each products}}
+            {{#if (eq this.type "Pastries")}}
+            <div class=" showcase__item PASTRIES " data-category="metalloid">
                 <div class="showcase__photo">
-                    <img src="./img/showcase-2.jpeg" alt="">
+                    <img style="height: 400px; width: 100%;" src="{{this.photo}}" alt="">
                     <div class="showcase__info">
                         <div class="showcase__btn">
                             <a href="#" target="_blank">
@@ -158,19 +168,25 @@
                         </div>
                         <div class="showcase__des">
                             <h4>
-                                <a href="#" target="_blank">EXTERNAL LINK</a>
+                                <a href="/product_details" target="_blank">{{this.csw_products}}</a>
                             </h4>
+                            Sold:<p class="demo"></p>
                             <p>
-                                <a href="#">CATEGORY 1 , </a>
-                                <a href="#">CATEGORY 2</a>
+                                <a href="#"><button type="button" class="btn btn-primary">{{this.price}} VND</button></a>
+                                <a href="#"><button type="button" class="btn btn-danger">More Details</button></a>
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class=" showcase__item PRINTING WEB " data-category="post-transition">
+            {{/if}}
+            {{/each}}
+
+            {{#each products}}
+            {{#if (eq this.type "Cake Slice")}}
+            <div class=" showcase__item CAKESLICES " data-category="post-transition">
                 <div class="showcase__photo">
-                    <img src="./img/showcase-3.jpeg" alt="">
+                    <img style="height: 400px; width: 100%;" src="{{this.photo}}" alt="">
                     <div class="showcase__info">
                         <div class="showcase__btn">
                             <a href="#" target="_blank">
@@ -179,19 +195,25 @@
                         </div>
                         <div class="showcase__des">
                             <h4>
-                                <a href="#" target="_blank">EXTERNAL LINK</a>
+                                <a href="/product_details" target="_blank">{{this.csw_products}}</a>
                             </h4>
+                            Sold:<p class="demo"></p>
                             <p>
-                                <a href="#">CATEGORY 1 , </a>
-                                <a href="#">CATEGORY 2</a>
+                                <a href="#"><button type="button" class="btn btn-primary">{{this.price}} VND</button></a>
+                                <a href="#"><button type="button" class="btn btn-danger">More Details</button></a>
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class=" showcase__item PRINTING MEDIA " data-category="post-transition">
+            {{/if}}
+            {{/each}}
+
+            {{#each products}}
+            {{#if (eq this.type "Cheesecake")}}
+            <div class=" showcase__item CHEESECAKES " data-category="post-transition">
                 <div class="showcase__photo">
-                    <img src="./img/showcase-4.jpeg" alt="">
+                    <img style="height: 400px; width: 100%;" src="{{this.photo}}" alt="">
                     <div class="showcase__info">
                         <div class="showcase__btn">
                             <a href="#" target="_blank">
@@ -200,19 +222,25 @@
                         </div>
                         <div class="showcase__des">
                             <h4>
-                                <a href="#" target="_blank">EXTERNAL LINK</a>
+                                <a href="/product_details" target="_blank">{{this.csw_products}}</a>
                             </h4>
+                            Sold:<p class="demo"></p>
                             <p>
-                                <a href="#">CATEGORY 1 , </a>
-                                <a href="#">CATEGORY 2</a>
+                                <a href="#"><button type="button" class="btn btn-primary">{{this.price}} VND</button></a>
+                                <a href="#"><button type="button" class="btn btn-danger">More Details</button></a>
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class=" showcase__item WEB MEDIA " data-category="transition">
+            {{/if}}
+            {{/each}}
+
+            {{#each products}}
+            {{#if (eq this.type "Drinks")}}
+            <div class=" showcase__item DRINKS " data-category="transition">
                 <div class="showcase__photo">
-                    <img src="./img/showcase-5.jpeg" alt="">
+                    <img style="height: 400px; width: 100%;" src="{{this.photo}}" alt="">
                     <div class="showcase__info">
                         <div class="showcase__btn">
                             <a href="#" target="_blank">
@@ -221,19 +249,25 @@
                         </div>
                         <div class="showcase__des">
                             <h4>
-                                <a href="#" target="_blank">EXTERNAL LINK</a>
+                                <a href="/product_details" target="_blank">{{this.csw_products}}</a>
                             </h4>
+                            Sold:<p class="demo"></p>
                             <p>
-                                <a href="#">CATEGORY 1 , </a>
-                                <a href="#">CATEGORY 2</a>
+                                <a href="#"><button type="button" class="btn btn-primary">{{this.price}} VND</button></a>
+                                <a href="#"><button type="button" class="btn btn-danger">More Details</button></a>
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class=" showcase__item ILLUSTRATION " data-category="alkali">
+            {{/if}}
+            {{/each}}
+
+            {{#each products}}
+            {{#if (eq this.type "Ice Cream")}}
+            <div class=" showcase__item ICECREAM " data-category="alkali">
                 <div class="showcase__photo">
-                    <img src="./img/showcase-6.jpeg" alt="">
+                    <img style="height: 400px; width: 100%;" src="{{this.photo}}" alt="">
                     <div class="showcase__info">
                         <div class="showcase__btn">
                             <a href="#" target="_blank">
@@ -242,16 +276,21 @@
                         </div>
                         <div class="showcase__des">
                             <h4>
-                                <a href="#" target="_blank">EXTERNAL LINK</a>
+                                <a href="/product_details" target="_blank">{{this.csw_products}}</a>
                             </h4>
+                            Sold:<p class="demo"></p>
                             <p>
-                                <a href="#">CATEGORY 1 , </a>
-                                <a href="#">CATEGORY 2</a>
+                                <a href="#"><button type="button" class="btn btn-primary">{{this.price}} VND</button></a>
+                                <a href="#"><button type="button" class="btn btn-danger">More Details</button></a>
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
+            {{/if}}
+            {{/each}}
+
+            <!--
             <div class=" showcase__item WEB CRAFTS " data-category="alkali">
                 <div class="showcase__photo">
                     <img src="./img/showcase-7.jpeg" alt="">
@@ -263,11 +302,12 @@
                         </div>
                         <div class="showcase__des">
                             <h4>
-                                <a href="#" target="_blank">EXTERNAL LINK</a>
+                                <a href="./product_detail.html" target="_blank">{{this.csw_products}}</a>
                             </h4>
+                            Sold:<p class="demo"></p>
                             <p>
-                                <a href="#">CATEGORY 1 , </a>
-                                <a href="#">CATEGORY 2</a>
+                                <a href="#"><button type="button" class="btn btn-primary">{{this.price}} VND</button></a>
+                                <a href="#"><button type="button" class="btn btn-danger">More Details</button></a>
                             </p>
                         </div>
                     </div>
@@ -294,6 +334,7 @@
                     </div>
                 </div>
             </div>
+            -->
         </div>
     </section>
     <!-- FOOTER  -->
