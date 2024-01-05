@@ -55,11 +55,11 @@
    <!-- CART  -->
     <div class="container cart">
         <div class="cart_menu">
-            <p class="text sp">Sản phẩm</p>
-            <p class="text dg">Đơn giá</p>
-            <p class="text sl">Số lượng</p>
-            <p class="text st">Số tiền</p>
-            <p class="text tt">Thao tác</p>
+            <p class="text sp">Product Name</p>
+            <p class="text dg">Price</p>
+            <p class="text sl">Quantity</p>
+            <p class="text st">Total Cost</p>
+            <p class="text tt">Action</p>
         </div>
         {{#each info.csw_cart.items}}
         <section class="cart_content">
@@ -94,12 +94,13 @@
                         <div class="content_thaoTac">
                             <form action="/shoppingcart/deleteFromCart" method="POST">
                                 <input type="hidden" name="id" value="{{this.productId}}">
-                                <button class="fX1Y2g button-pink">Xóa</button>
+                                <button class="fX1Y2g button-pink">Delete</button>
                             </form>
                         </div>
                     </div>
+                    <div style="margin-top: 20px;"><u>Note</u>: Press Enter after you change the quantity of a product.</div>
             </div>
-
+            
             </section>
         </section>
         {{/each}}
@@ -108,15 +109,14 @@
                 <div class="UQv8V6" role="region">
                     <div class="fyYBP1">
                         <div class="aiyQAr">
-                            <div class="A-CcKC">Tổng thanh toán:</div>
+                            <div class="A-CcKC">Total Cost:</div>
                             <div class="total">{{info.csw_cart.totalPrice}}</div>
                         </div>
                     </div>
                 </div>
                 <form action="/shoppingcart/sendToOrder" method="POST">
                     <input type="hidden" name="id" value="{{info.csw_cart}}">
-                    <button class="button-pink"><span class="TTXpRG">Mua
-                        hàng</span></button>
+                    <button class="button-pink"><span class="TTXpRG">Order</span></button>
                 </form>
             </div>
         </section>
