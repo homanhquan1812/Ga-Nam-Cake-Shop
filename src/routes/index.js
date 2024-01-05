@@ -8,6 +8,8 @@ const galleryRouter = require('./gallery')
 const servicesRouter = require('./services')
 const shoppingcartRouter = require('./shoppingcart')
 const product_detailsRouter = require('./product_details')
+const successRouter = require('./success')
+const historyRouter = require('./history')
 
 function route(app) {
     app.use('/', dashboardRouter);
@@ -20,6 +22,8 @@ function route(app) {
     app.use('/shoppingcart', shoppingcartRouter)
     app.use('/logout', logoutRouter)
     app.use('/product_details', product_detailsRouter)
+    app.use('/success', successRouter)
+    app.use('/history', historyRouter)
 }
 
 module.exports = route;

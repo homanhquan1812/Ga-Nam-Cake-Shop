@@ -1,10 +1,9 @@
-class HomeController
+class SuccessController
 {
     index(req, res)
     {
         const csw_name = req.session.username
-        console.log("Session found at HomeController: " + req.session.username);
-        res.render('home', {
+        res.render('success', {
             isLoggedIn: req.session.username ? true : false,
             username: req.session.username,
             styles: [
@@ -29,4 +28,5 @@ class HomeController
         })
     }
 }
-module.exports = new HomeController
+
+module.exports = new SuccessController

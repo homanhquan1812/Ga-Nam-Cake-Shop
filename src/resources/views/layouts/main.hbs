@@ -136,9 +136,33 @@
                 }
             }
 
+            function filterProducts() {
+                var input, filter, items, type, i, txtValue;
+                input = document.getElementById("product-searchbar123");
+                filter = input.value.toUpperCase();
+                items = document.getElementsByClassName("showcase__item");
+
+                for (i = 0; i < items.length; i++) {
+                    type = items[i].getAttribute("data-category").toUpperCase();
+                    txtValue = items[i].innerText || items[i].textContent;
+
+                    if (type.indexOf(filter) > -1 || txtValue.toUpperCase().indexOf(filter) > -1) {
+                        items[i].removeAttribute("style");
+                    } else {
+                        items[i].style.display = "none";
+                    }
+                }
+            }
+
             document.querySelectorAll(".demo").forEach(function(element) {
                 var x = Math.floor(Math.random() * 100) + 1;
                 element.innerHTML = x;
+            });
+
+            document.querySelectorAll(".addToCartForm").forEach(function(form) {
+                form.addEventListener("submit", function(event) {
+                    alert("Item added to cart successfully!");
+                });
             });
         </script>
         {{#if scripts}}

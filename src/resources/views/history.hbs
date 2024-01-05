@@ -50,132 +50,61 @@
         </div>
     </nav>
 </header>
-<!-- LOGIN -->
-<div class="wrapper container d-flex">
-    <span class="icon-close">
-      <ion-icon name="close"></ion-icon>
-    </span>
 
-    <div class="form-box login">
-      <h2>Login</h2>
-      <form action="#">
-        <div class="input-box">
-          <span class="icon"><ion-icon name="mail"></ion-icon></span>
-          <input type="email" required>
-          <label>Email</label>
-        </div>
-
-        <div class="input-box">
-          <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-          <input type="password" required>
-          <label>Password</label>
-        </div>
-
-        <div class="remember-forgot">
-          <label><input type="checkbox">Remember me</label>
-          <a href="#">Forgot Password?</a>
-        </div>
-        <button type="submit" class="btn">Login</button>
-        <div class="login-register">
-          <p>Don't have an account? <a href="#" class="register-link">Register</a></p>
-        </div>
-      </form>
-    </div>
-
-    <div class="form-box register">
-      <h2>Registration</h2>
-      <form action="#">
-        <div class="input-box">
-          <span class="icon"><ion-icon name="person"></ion-icon></span>
-          <input type="text" required>
-          <label>Username</label>
-        </div>
-        <div class="input-box">
-          <span class="icon"><ion-icon name="mail"></ion-icon></span>
-          <input type="email" required>
-          <label>Email</label>
-        </div>
-
-        <div class="input-box">
-          <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-          <input type="password" required>
-          <label>Password</label>
-        </div>
-
-        <div class="remember-forgot">
-          <label><input type="checkbox">I agree to the terms & conditions</label>
-        </div>
-        <button type="submit" class="btn">Register</button>
-        <div class="login-register">
-          <p>Already have an account? <a href="#" class="login-link">Login</a></p>
-        </div>
-      </form>
-    </div>
-</div>
-  <!-- CAROUSEL  -->
-  <section class="service__carousel">
-    <div id="carouselCyber" class="carousel slide">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselCyber" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselCyber" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="./img/368393066_2092635904435757_2978394674549760427_n.jpg" class="d-block w-100 " alt="...">
-            <div class="container carousel-caption">
-              <h1>Order Now</h1>
-              <p>Depending on the type of product, we can deliver it fresh,part-baked or frozen.</p>
-              <button class="btn"><a href="/gallery">More product</a><i class="fa fa-angle-double-right"></i></button>
+<div id="container" style="margin-top: 200px;">
+          <div class="printing-history-box">
+            <h2 style="color: red;"><center>Purchase History</center></h2>
+            <div class="table-container">
+              <table class="content-table">
+                <thead>
+                  <tr>
+                    <th>Order Date</th>
+                                        <th>Product</th>
+                                        <th>Quantity</th>
+                                        
+                                        <th>Total cost</th>
+                                        <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                                    {{#each orders}}
+                                        {{#if (eq this.csw_username ../csw_name)}}
+                                        <tr>
+                                            <td>{{this.createdAt}}</td>
+                                            <td>
+                                                {{#each this.products}}
+                                                    {{this.name}}
+                                                    {{#unless @last}}<br><hr> {{/unless}}
+                                                {{/each}}
+                                            </td>
+                                            <td>
+                                                {{#each this.products}}
+                                                    {{this.qty}}
+                                                    {{#unless @last}}<br><hr> {{/unless}}
+                                                {{/each}}
+                                            </td>
+                                            
+                                            <td>{{this.totalcost}}</td>
+                                            <td>
+                                                {{#if (isBool this.declined true)}}
+                                                    <button type="button" class="btn btn-danger">Declined</button>
+                                                {{else}}
+                                                    {{#if (isBool this.delivered true)}}
+                                                    <button type="button" class="btn btn-success">Delivered</button>
+                                                    {{else}}
+                                                    <button type="button" class="btn btn-warning">Processing</button>
+                                                    {{/if}}
+                                                {{/if}}
+                                            </td>
+                                        </tr>
+                                        {{/if}}
+                                    {{/each}}
+                                    <tr></tr>
+                                </tbody>
+              </table>
             </div>
           </div>
-          <div class="carousel-item">
-            <img src="./img/371537875_646770300861892_8602497452080053974_n.jpg" class="d-block w-100" alt="...">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselCyber" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselCyber" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-</section>
-<!-- TYPE  -->
-<section class="service__type">
-  
-  <div class="service__why">
-    <h2>Why Choose Us</h2>
-    <div class="row">
-      <div class="col-4">
-        <i class="fa-solid fa-calendar-days"></i>
-        <p>Perfect for any occasion</p>
-      </div>
-      <div class="col-4">
-        <i class="fa-solid fa-utensils"></i>
-        <p>Breakfast, lunch, dinner & dessert</p>
-      </div>
-      <div class="col-4">
-        <i class="fa-solid fa-basket-shopping"></i>
-        <p>Ordering simplified</p>
-      </div>
-      <div class="col-4">
-        <i class="fa-solid fa-cookie-bite"></i>
-        <p>Freshly Baked, Everyday</p>
-      </div>
-      <div class="col-4">
-        <i class="fa-regular fa-face-grin-hearts"></i>
-        <p>Where smiles are served daily</p>
-      </div>
-      <div class="col-4">
-        <i class="fa-solid fa-kitchen-set"></i>
-        <p>Finest ingredients and skilled bakers</p>
-      </div>
-    </div>
-  </div>
-</section>
-  <!-- FOOTER  -->
+<!-- FOOTER  -->
   <footer>
     <div class="footer__main row">
         <div class="footer__item col-3">
@@ -257,7 +186,16 @@
   integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
   </script>
 
-<!-- CountUP JS  -->
+<script src="/js/jquery.countup.min.js"></script>
+        <script src="/js/lightbox.min.js"></script>
+        <script src="/js/isotope.pkgd.min.js"></script>
+        <script src="/js/owl.carousel.min.js"></script>
+        <script src="/js/util.js"></script>
+        <script src="/js/main-backtotop.js"></script>
+        <script src="/js/main.js"></script>
+        <script src="/js/script.js"></script>
+
+<!-- CountUP JS  --> 
 <script>
   $('.counter').countUp();
 </script>
@@ -284,3 +222,4 @@
       }
   })
 </script>
+<!-- Back to top JS  -->

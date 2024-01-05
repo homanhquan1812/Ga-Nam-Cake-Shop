@@ -20,7 +20,7 @@ class LoginController
 
     async login(req, res) 
     {
-        const {username, password} = req.body;
+        const {username, password, fullname} = req.body;
 
         try {
             const customer = await Customers.findOne({csw_username: username});

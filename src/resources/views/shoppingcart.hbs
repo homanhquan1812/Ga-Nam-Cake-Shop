@@ -13,19 +13,21 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="home">HOME</a>
                     </li>
+                    <!--
                     <li class="nav-item">
                         <a class="nav-link" href="about">ABOUT</a>
                     </li>
+                    -->
                     <li class="nav-item">
-                        <a class="nav-link" href="services">SERVICES</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="gallery">GALLERY</a>
+                        <a class="nav-link" href="gallery">MENU</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact">CONTACT</a>
                     </li>
                     {{#if isLoggedIn}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="history">HISTORY</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#">{{csw_name}}</a>
                     </li>
@@ -50,6 +52,7 @@
 </header>
 
     <!-- CART  -->
+   <!-- CART  -->
     <div class="container cart">
         <div class="cart_menu">
             <p class="text sp">Sản phẩm</p>
@@ -58,92 +61,67 @@
             <p class="text st">Số tiền</p>
             <p class="text tt">Thao tác</p>
         </div>
+        {{#each info.csw_cart.items}}
         <section class="cart_content">
             <section class="cart_item" role="list">
-                <div class="product_name" role="listitem">
+            <div class="product_name" role="listitem">
                     <div class="sanPham">
                         <div class="ten_hinh">
-                            <div class="ten_hinh_item"><a title="Dior Ốp Điện Thoại"
-                                    href="/Dior-Ốp-Điện-Thoại-Cho-iphone-15-pro-max-14-pro-max-i14-plus-13-pro-max-i13-13pro-11-pro-max-i11-x-xr-xs-max-7-plus-8-plus-12-pro-max-i.539626931.25301924501?xptdk=2fb5dd8a-80b1-401b-bb14-bb82ac2caa89"><img
-                                        class="ten_hinh_img"
-                                        src="https://down-vn.img.susercontent.com/file/cn-11134207-7r98o-loicu8573dcq33"
-                                        alt="product image"></a>
+                            <div class="ten_hinh_item"><a title="hinh_san_pham"><img style="height: 85px; width: 100px;" src="{{this.photo}}"></a>
                                 <div class="ten_hinh_text">
                                     <a class=""
-                                        title="Dior Ốp Điện Thoại Cho iphone 15 pro max 14 pro max i14 plus 13 pro max i13 13pro 11 pro max i11 x xr xs max 7 plus 8 plus 12 pro max"
-                                        href="/Dior-Ốp-Điện-Thoại-Cho-iphone-15-pro-max-14-pro-max-i14-plus-13-pro-max-i13-13pro-11-pro-max-i11-x-xr-xs-max-7-plus-8-plus-12-pro-max-i.539626931.25301924501?xptdk=2fb5dd8a-80b1-401b-bb14-bb82ac2caa89">Dior
-                                        Ốp Điện Thoại</a>
-                                    
+                                        title="description_hinh ">{{this.name}}</a>
                                 </div>
                             </div>
                         </div>
                         <div class="content_donGia">
                             <div>
-                                <span class="donGia_text">₫36.080</span>
+                                <span class="donGia_text">{{this.price}}</span>
                             </div>
                         </div>
                         <div class="content_soLuong">
-                            <div class="add_minus">
-                                <input class="EOdsa- v3H4Zf" type="text" role="spinbutton" aria-valuenow="1" value="1">
-                            </div>
-                        </div>
-                        <div class="content_soTien">
-                            <span>₫36.080</span>
-                        </div>
-                        <div class="content_thaoTac">
-                            <button class="fX1Y2g button-pink">Xóa</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="product_name" role="listitem">
-                    <div class="sanPham">
-                        <div class="ten_hinh">
-                            <div class="ten_hinh_item"><a title="Dior Ốp Điện Thoại"
-                                    href="/Dior-Ốp-Điện-Thoại-Cho-iphone-15-pro-max-14-pro-max-i14-plus-13-pro-max-i13-13pro-11-pro-max-i11-x-xr-xs-max-7-plus-8-plus-12-pro-max-i.539626931.25301924501?xptdk=dff2d190-ae3b-472e-9c7a-520ee267eae7"><img
-                                        class="ten_hinh_img"
-                                        src="https://down-vn.img.susercontent.com/file/cn-11134207-7r98o-loicu8573dcq33"
-                                        alt="product image"></a>
-                                <div class="ten_hinh_text">
-                                    <a class="" title="Dior Ốp Điện Thoại"
-                                        href="/Dior-Ốp-Điện-Thoại-Cho-iphone-15-pro-max-14-pro-max-i14-plus-13-pro-max-i13-13pro-11-pro-max-i11-x-xr-xs-max-7-plus-8-plus-12-pro-max-i.539626931.25301924501?xptdk=dff2d190-ae3b-472e-9c7a-520ee267eae7">Dior
-                                        Ốp Điện Thoại</a>
-                                    
+                            <form action="/shoppingcart/changeQuantity" method="POST">
+                                <div class="add_minus">
+                                    <input class="EOdsa- v3H4Zf" type="text" role="spinbutton" aria-valuenow="1" name="quantity" value="{{this.qty}}" required>
+                                    <input type="hidden" name="id" value="{{this.productId}}">
+                                    <input type="submit" hidden />
                                 </div>
-                            </div>
-                        </div>
-                        <div class="content_donGia">
-                            <div>
-                                <span class="donGia_text">₫36.080</span></div>
-                        </div>
-                        <div class="content_soLuong">
-                            <div class="add_minus">
-                                <input class="EOdsa- v3H4Zf" type="text" role="spinbutton" aria-valuenow="1" value="1">
-                            </div>
+                            </form>
                         </div>
                         <div class="content_soTien">
-                            <span>₫36.080</span>
+                            <span>{{this.totalCost}}</span>
                         </div>
                         <div class="content_thaoTac">
-                            <button class="fX1Y2g button-pink">Xóa</button>
+                            <form action="/shoppingcart/deleteFromCart" method="POST">
+                                <input type="hidden" name="id" value="{{this.productId}}">
+                                <button class="fX1Y2g button-pink">Xóa</button>
+                            </form>
                         </div>
                     </div>
-                </div>
+            </div>
+
             </section>
         </section>
+        {{/each}}
         <section class="cart_total">
             <div class="s1Gxkq">
                 <div class="UQv8V6" role="region">
                     <div class="fyYBP1">
                         <div class="aiyQAr">
-                            <div class="A-CcKC">Tổng thanh toán (2 Sản phẩm):</div>
-                            <div class="total">₫72.160</div>
+                            <div class="A-CcKC">Tổng thanh toán:</div>
+                            <div class="total">{{info.csw_cart.totalPrice}}</div>
                         </div>
                     </div>
-                </div><button class="button-pink"><span class="TTXpRG">Mua
+                </div>
+                <form action="/shoppingcart/sendToOrder" method="POST">
+                    <input type="hidden" name="id" value="{{info.csw_cart}}">
+                    <button class="button-pink"><span class="TTXpRG">Mua
                         hàng</span></button>
+                </form>
             </div>
         </section>
     </div>
+
     <!-- FOOTER  -->
     <footer>
         <div class="footer__main row">
@@ -210,6 +188,4 @@
             <p> Copyright &copy; 2023 <span>Gà Nấm Cake Shop</span>. All rights reserved.</p>
         </div>
       </footer>
-</body>
 
-</html>

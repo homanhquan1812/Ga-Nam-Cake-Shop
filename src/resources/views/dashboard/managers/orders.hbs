@@ -111,7 +111,6 @@
                             <table style="margin-top: 20px;">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
                                         <th>Customer</th>
                                         <th>Phone number</th>
                                         <th>Address</th>
@@ -125,7 +124,6 @@
                                         {{#each orders}}
                                         <tr>
                                             {{#unless this.delivered}}
-                                                <td>{{sum @index 1}}</td>
                                                 <td>{{this.customer}}</td>
                                                 <td>{{this.phonenumber}}</td>
                                                 <td>{{this.address}}</td>
@@ -137,7 +135,9 @@
                                                 </td>
                                                 <td>
                                                     {{#each this.products}}
-                                                        {{this.quantity}}
+                                                        {{this.qty}}
+                                                        <!-- It should be {{this.quantity}} -->
+                                                        <!-- Check customer "Ho Manh Quan" -->
                                                         {{#unless @last}}<br><hr> {{/unless}}
                                                     {{/each}}
                                                 </td>
