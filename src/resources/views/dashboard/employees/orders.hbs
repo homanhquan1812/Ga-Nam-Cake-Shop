@@ -7,15 +7,16 @@
                     </form>
                 </div>
 
-                <div class="title" style="padding-left: 50px;">
-                    <h1>NEW ORDERS</h1>
-                </div>
                 <!--
                 <div class="text-end">
                     <button type="button" class="btn btn-outline-light me-2">Login</button>
                     <button type="button" class="btn btn-warning">Sign-up</button>
                 </div>
                 -->
+
+                <div class="title" style="padding-left: 50px;">
+                    <h1>OVERVIEW</h1>
+                </div>
 
                 <div class="right">
                     <div class="top">
@@ -31,7 +32,7 @@
                 </div>
             </div>
         </header>
-    
+
         <!-- Content -->
         <div class="container">
             <aside>
@@ -44,7 +45,7 @@
                     </div>
                 </div>
                 <div class="sidebar" id="sidebar">
-                    <a href="/employees/overview">
+                    <a href="/employees/overview" class="active">
                         <span class="material-symbols-outlined"> overview </span>
                         <h3>Overview</h3>
                     </a>
@@ -52,7 +53,7 @@
                         <span class="material-icons-sharp">grid_view</span>
                         <h3>Dashboard</h3>
                     </a>
-                    <a href="/employees/orders" class="active">
+                    <a href="/employees/orders">
                         <span class="material-symbols-outlined"> list_alt </span>
                         <h3>New Orders</h3>
                         {{#if (eq (countRow orders) 0)}}
@@ -75,6 +76,10 @@
                     <a href="/employees/products">
                         <span class="material-icons-sharp">inventory</span>
                         <h3>Products</h3>
+                    </a>
+                    <a href="/employees/feedback">
+                        <span class="material-icons-sharp">feedback</span>
+                        <h3>Feedback</h3>
                     </a>
                     <a href="/employees/settings">
                         <span class="material-icons-sharp">settings</span>

@@ -84,6 +84,10 @@
                         <span class="material-icons-sharp">inventory</span>
                         <h3>Products</h3>
                     </a>
+                    <a href="/managers/feedback">
+                        <span class="material-icons-sharp">feedback</span>
+                        <h3>Feedback</h3>
+                    </a>
                     <a href="/managers/settings">
                         <span class="material-icons-sharp">settings</span>
                         <h3>Settings</h3>
@@ -183,22 +187,23 @@
 
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-            var courseID
-            var deleteForm = document.forms['delete-course-form']
-            var btnDeleteCourse = document.getElementById('btn-delete-course')
-            var saveInfoBtn = $('#saveInfoBtn')
+                var courseID
+                var deleteForm = document.forms['delete-course-form']
+                var btnDeleteCourse = document.getElementById('btn-delete-course')
+                var saveInfoBtn = $('#saveInfoBtn')
 
-            $('#delete-course-modal').on('show.bs.modal', function (event) {
-                var button = $(event.relatedTarget)
-                courseID = button.data('id') 
+                $('#delete-course-modal').on('show.bs.modal', function (event) {
+                    var button = $(event.relatedTarget)
+                    courseID = button.data('id') 
+                    console.log(courseID)
+                })
+
+                btnDeleteCourse.onclick = function()
+                {
+                    deleteForm.action = '/managers/customers/' + courseID + '?_method=DELETE'
+                    deleteForm.submit()
+                }
             })
-
-            btnDeleteCourse.onclick = function()
-            {
-                deleteForm.action = '/managers/customers/' + courseID + '?_method=DELETE'
-                deleteForm.submit()
-            }
-        })
         </script>
 
         

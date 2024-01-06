@@ -12,7 +12,11 @@ employeesRouter.get('/notes', dashboardController.employees_notes);
 employeesRouter.get('/products', dashboardController.employees_products);
 employeesRouter.get('/settings', dashboardController.employees_settings);
 employeesRouter.get('/orders', dashboardController.employees_orders);
+employeesRouter.get('/changeinfo', dashboardController.employees_changeinfo)
+employeesRouter.get('/feedback', dashboardController.employees_feedback)
 employeesRouter.put('/orders/:id', dashboardController.employees_ordersdelivered)
+employeesRouter.get('/changeinfo/:id', dashboardController.employees_editinfo)
+employeesRouter.put('/changeinfo/:id', dashboardController.employees_updateinfo)
 
 // Manager routes
 managersRouter.get('/', dashboardController.managers_overview)
@@ -29,13 +33,14 @@ managersRouter.delete('/customers/:id', dashboardController.managers_deletecusto
 managersRouter.delete('/products/:id', dashboardController.managers_deleteproducts)
 managersRouter.delete('/notes/:id', dashboardController.managers_deletenotes)
 managersRouter.put('/orders/:id', dashboardController.managers_ordersdeclined)
-managersRouter.post('/handle-form-actions', dashboardController.handleFormActions)
 managersRouter.post('/store', dashboardController.managers_store)
 managersRouter.post('/storenotes', dashboardController.managers_storenotes)
 managersRouter.post('/storeproducts', dashboardController.managers_storeproducts)
+managersRouter.get('/changeinfo/:id', dashboardController.managers_editinfo)
+managersRouter.put('/changeinfo/:id', dashboardController.managers_updateinfo)
+managersRouter.get('/feedback', dashboardController.managers_feedback)
 managersRouter.get('/:id', dashboardController.managers_editstaffs)
 managersRouter.put('/:id', dashboardController.managers_updatestaffs)
-
 // Use the nested routers
 router.use('/employees', employeesRouter);
 router.use('/managers', managersRouter);

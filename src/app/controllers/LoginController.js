@@ -20,7 +20,7 @@ class LoginController
 
     async login(req, res) 
     {
-        const {username, password, fullname} = req.body;
+        const {username, password} = req.body;
 
         try {
             const customer = await Customers.findOne({csw_username: username});
@@ -53,6 +53,8 @@ class LoginController
                     console.log("Username = " + staff.csw_username + "\nPassword = " + staff.csw_password);
                     req.session.csw_name = staff.csw_name;
                     req.session.csw_position = staff.csw_position;
+                    req.session.csw_username = staff.csw_username;
+                    req.session.userID = staff._id;
                     return res.redirect('/managers');           
                 }
 
@@ -61,6 +63,8 @@ class LoginController
                     console.log("Username = " + staff.csw_username + "\nPassword = " + staff.csw_password);
                     req.session.csw_name = staff.csw_name;
                     req.session.csw_position = staff.csw_position;
+                    req.session.csw_username = staff.csw_username;
+                    req.session.userID = staff._id;
                     return res.redirect('/employees');
                 }
             }
@@ -76,7 +80,8 @@ class LoginController
     async register(req, res) {
         try {
             const userCheck = await Customers.findOne({csw_username: req.body.user});
-            if (userCheck) {
+            const staffCheck = await Staffs.findOne({csw_username: req.body.user});
+            if (userCheck || staffCheck) {
                 //username already exists in database
                 return res.redirect('/login?error=reg')
             }

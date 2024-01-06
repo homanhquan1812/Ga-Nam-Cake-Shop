@@ -1,3 +1,5 @@
+const Feedbacks = require('../models/Feedbacks')
+
 class ContactController
 {
     index(req, res)
@@ -26,6 +28,15 @@ class ContactController
             ],
             csw_name
         })
+    }
+
+    store(req, res, next)
+    {
+        const formData = req.body      
+        const newInfo = new Feedbacks(formData)
+        newInfo.save()
+            .then(() => res.redirect('/home'))
+            .catch(next)
     }
 }
 

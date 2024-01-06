@@ -84,6 +84,10 @@
                         <span class="material-icons-sharp">inventory</span>
                         <h3>Products</h3>
                     </a>
+                    <a href="/managers/feedback">
+                        <span class="material-icons-sharp">feedback</span>
+                        <h3>Feedback</h3>
+                    </a>
                     <a href="/managers/settings">
                         <span class="material-icons-sharp">settings</span>
                         <h3>Settings</h3>
@@ -119,7 +123,6 @@
                                         <th>Home address</th>
                                         <th>Product Name</th>
                                         <th>Quantity</th>
-                                        <th>Payment Method</th>
                                         <th>Time</th>
                                         <th>Total Cost</th>
                                         <th>Status</th>
@@ -144,7 +147,6 @@
                                                 {{#unless @last}}<br><hr> {{/unless}}
                                             {{/each}}
                                         </td>
-                                        <td>{{this.payment}}</td>
                                         <td>{{this.createdAt}}</td>
                                         <td>{{this.totalcost}}</td>
                                         <td>

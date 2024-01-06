@@ -4,6 +4,7 @@ const DatabaseInfo2 = require('../models/Customers')
 const Notes = require('../models/Notes')
 const Products = require('../models/Products')
 const Orders = require('../models/Orders')
+const Feedbacks = require('../models/Feedbacks')
 
 class DashboardController
 {
@@ -28,6 +29,54 @@ class DashboardController
                 })
             })
             .catch(next);        
+    }
+
+    async employees_editinfo(req, res, next)
+    {
+        var csw_name = await req.session.csw_name;
+        var csw_position = await req.session.csw_position;
+
+        var info = await DatabaseInfo.findOne({ _id: req.params.id })
+        var orders = await Orders.find({})
+
+        info = mongooseToObject(info)
+        orders = multipleMongooseToObject(orders)
+
+        console.log(info)
+        
+            res.render('dashboard/employees/changeinfo', {
+                styles: ['/css/dashboard.css'],
+                info,
+                orders,
+                csw_name,
+                csw_position
+            })
+            
+    }
+
+    employees_updateinfo(req, res, next)
+    {
+        DatabaseInfo.updateOne({_id: req.params.id}, req.body)
+            .then(() => res.redirect('/employees/settings'))
+            .catch(next)
+    }
+
+    employees_feedback(req, res, next)
+    {
+        Promise.all([Orders.find({}), Feedbacks.find({})])
+            .then(([orders, feedbacks]) => {
+                const csw_name = req.session.csw_name;
+                const csw_position = req.session.csw_position;
+
+                res.render('dashboard/employees/feedback', {
+                    styles: ['/css/dashboard.css'],
+                    orders: multipleMongooseToObject(orders),
+                    feedbacks: multipleMongooseToObject(feedbacks),
+                    csw_name,
+                    csw_position
+                })
+            })
+            .catch(next)
     }
 
     // Dashboard
@@ -121,17 +170,47 @@ class DashboardController
             .catch(next)
     }
 
-    // Settings
-    employees_settings(req, res, next)
+    employees_changeinfo(req, res, next)
     {
-        Promise.all([Orders.find({})])
-            .then(([orders]) => {
+        res.render('dashboard/employees/changeinfo')
+    }
+
+    // Settings
+    async employees_settings(req, res, next)
+    {
+        var csw_name = await req.session.csw_name;
+        var csw_position = await req.session.csw_position;
+        var userID = await req.session.userID;
+
+        var info = await DatabaseInfo.findOne({})
+        var orders = await Orders.find({})
+
+        info = mongooseToObject(info)
+        orders = multipleMongooseToObject(orders)
+
+        console.log(info)
+        
+            res.render('dashboard/employees/settings', {
+                styles: ['/css/settings.css'],
+                info,
+                orders,
+                csw_name,
+                csw_position,
+                userID
+            })
+    }
+
+    employees_feedback(req, res, next)
+    {
+        Promise.all([Orders.find({}), Feedbacks.find({})])
+            .then(([orders, feedbacks]) => {
                 const csw_name = req.session.csw_name;
                 const csw_position = req.session.csw_position;
 
-                res.render('dashboard/employees/settings', {
-                    styles: ['/css/settings.css'],
+                res.render('dashboard/employees/feedback', {
+                    styles: ['/css/dashboard.css'],
                     orders: multipleMongooseToObject(orders),
+                    feedbacks: multipleMongooseToObject(feedbacks),
                     csw_name,
                     csw_position
                 })
@@ -284,21 +363,28 @@ class DashboardController
     }
 
     // Settings
-    managers_settings(req, res, next)
+    async managers_settings(req, res, next)
     {
-        Promise.all([Orders.find({})])
-            .then(([orders]) => {
-                const csw_name = req.session.csw_name;
-                const csw_position = req.session.csw_position;
+        var csw_name = await req.session.csw_name;
+        var csw_position = await req.session.csw_position;
+        var userID = await req.session.userID;
 
-                res.render('dashboard/managers/settings', {
-                    styles: ['/css/settings.css'],
-                    orders: multipleMongooseToObject(orders),
-                    csw_name,
-                    csw_position
-                })
+        var info = await DatabaseInfo.findOne({})
+        var orders = await Orders.find({})
+
+        info = mongooseToObject(info)
+        orders = multipleMongooseToObject(orders)
+
+        console.log(info)
+        
+            res.render('dashboard/managers/settings', {
+                styles: ['/css/settings.css'],
+                info,
+                orders,
+                csw_name,
+                csw_position,
+                userID
             })
-            .catch(next)
     }
 
     // Delete
@@ -328,21 +414,6 @@ class DashboardController
         Notes.delete({_id: req.params.id}, req.body)
             .then(() => res.redirect('back'))
             .catch(next)
-    }
-
-    // [POST] handle-form-actions
-    handleFormActions(req, res, next)
-    {
-        switch(req.body.action)
-        {
-            case 'delete':
-                DatabaseInfo.deleteOne({_id: { $in: req.body.memberID }})
-                    .then(() => res.redirect('back'))
-                    .catch(next)
-                break
-            default:
-                res.json({message: 'Action is invalid.'})
-        }
     }
 
     managers_store(req, res, next)
@@ -388,10 +459,52 @@ class DashboardController
             .catch(next)
     }
 
-    // [GET] /:slug
-    show(req, res)
+    async managers_editinfo(req, res, next)
     {
-        res.send('Test this dashboard');
+        var csw_name = await req.session.csw_name;
+        var csw_position = await req.session.csw_position;
+
+        var info = await DatabaseInfo.findOne({ _id: req.params.id })
+        var orders = await Orders.find({})
+
+        info = mongooseToObject(info)
+        orders = multipleMongooseToObject(orders)
+
+        console.log(info)
+        
+            res.render('dashboard/managers/changeinfo', {
+                styles: ['/css/dashboard.css'],
+                info,
+                orders,
+                csw_name,
+                csw_position
+            })
+            
+    }
+
+    managers_updateinfo(req, res, next)
+    {
+        DatabaseInfo.updateOne({_id: req.params.id}, req.body)
+            .then(() => res.redirect('/managers/settings'))
+            .catch(next)
+    }
+
+    managers_feedback(req, res, next)
+    {
+        Promise.all([Orders.find({}), Feedbacks.find({})])
+            .then(([orders, feedbacks]) => {
+                const csw_name = req.session.csw_name;
+                const csw_position = req.session.csw_position;
+
+                res.render('dashboard/managers/feedback', {
+                    styles: ['/css/dashboard.css'],
+                    orders: multipleMongooseToObject(orders),
+                    feedbacks: multipleMongooseToObject(feedbacks),
+                    csw_name,
+                    csw_position
+                })
+            })
+            .catch(next)
     }
 }
 
