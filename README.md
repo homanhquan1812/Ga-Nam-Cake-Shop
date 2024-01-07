@@ -5,7 +5,7 @@ The purpose of this website is to help people order products from our cake shop 
 https://ganam-cakeshop.onrender.com/
 
 # Technologies used to build this website
-1. Front-end: HTML, CSS, SCSS, Javascript.
+1. Front-end: <b>HTML, CSS, SCSS, Javascript</b>.
 2. Back-end: NodeJS and ExpressJS
 3. NoSQL Database: MongoDB.
 4. Cloud Database: MongoDB Atlas.
