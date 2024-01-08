@@ -4,7 +4,7 @@ mongoose.set('strictQuery', false)
 async function connect()
 {
     try {
-        await mongoose.connect('mongodb+srv://hcmutcakeshop:hcmut_cakeshop0110@cluster0.4oihz3u.mongodb.net/cakeshopDatabase')
+        await mongoose.connect('mongodb+srv://homanhquan:homanhquan@cluster0.ap9zdrs.mongodb.net/cakeshopDatabase')
         console.log('Connected successfully.')
     } catch (error) {
         console.log('Failed to connect.')
