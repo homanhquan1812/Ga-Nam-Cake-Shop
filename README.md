@@ -2,7 +2,7 @@
 The purpose of this website is to help people order products from our cake shop online, then we will deliver their orders as soon as possible.
 
 # Website
-https://ganam-cakeshop.onrender.com/
+https://ganamcakeshop.onrender.com/
 
 # Technologies used to build this website
 1. Front-end: <b>HTML, CSS, SCSS, Javascript</b>.
