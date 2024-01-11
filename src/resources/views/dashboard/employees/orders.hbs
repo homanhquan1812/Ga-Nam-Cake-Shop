@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="sidebar" id="sidebar">
-                    <a href="/employees/overview" class="active">
+                    <a href="/employees/overview">
                         <span class="material-symbols-outlined"> overview </span>
                         <h3>Overview</h3>
                     </a>
@@ -53,7 +53,7 @@
                         <span class="material-icons-sharp">grid_view</span>
                         <h3>Dashboard</h3>
                     </a>
-                    <a href="/employees/orders">
+                    <a href="/employees/orders" class="active">
                         <span class="material-symbols-outlined"> list_alt </span>
                         <h3>New Orders</h3>
                         {{#if (eq (countRow orders) 0)}}
