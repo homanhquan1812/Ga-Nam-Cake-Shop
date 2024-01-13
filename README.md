@@ -13,7 +13,7 @@ https://ganamcakeshop.onrender.com/
 
 Basically, hosting a website that people can access can't rely on an offline database. That's why our team uses MongoDB Atlas to let it connect to Render, so that the website can work perfectly.
 
-# What's Working
+# What's working
 Almost everything.
 
 # Known Bugs
