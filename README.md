@@ -18,6 +18,7 @@ Almost everything.
 
 # Known Bugs:
 1. Managers can't remove any member in Members section.
+2. Both "Remember me" and "Forgot password?" in Login page hasn't been implemented.
 
 # Project Timeline:
 https://docs.google.com/spreadsheets/d/10YIpqoWZtsAFPXDOYmM08bw-Ub3iOyo8QE83OZZkFvg/edit?usp=sharing
