@@ -17,7 +17,7 @@ Basically, hosting a website that people can access can't rely on an offline dat
 Almost everything.
 
 # Known Bugs:
-1. Managers can't remove any member in Members Section.
+1. Managers can't remove any member in Members section.
 
 # Project Timeline:
 https://docs.google.com/spreadsheets/d/10YIpqoWZtsAFPXDOYmM08bw-Ub3iOyo8QE83OZZkFvg/edit?usp=sharing
