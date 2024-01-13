@@ -1,10 +1,10 @@
-# Introducing Gà Nấm Cake Shop
+# Introducing Gà Nấm Cake Shop.
 The purpose of this website is to help people order products from our cake shop online, then we will deliver their orders as soon as possible.
 
-# Website
+# Website:
 https://ganamcakeshop.onrender.com/
 
-# Technologies used to build this website
+# Technologies used to build this website:
 1. Front-end: <b>HTML, CSS, SCSS, Javascript</b>.
 2. Back-end: <b>NodeJS and ExpressJS</b>
 3. NoSQL Database: <b>MongoDB</b>
@@ -16,13 +16,13 @@ Basically, hosting a website that people can access can't rely on an offline dat
 # What's working?
 Almost everything.
 
-# Known Bugs
+# Known Bugs:
 1. Managers can't remove any member in Members Section.
 
-# Project Timeline
+# Project Timeline:
 https://docs.google.com/spreadsheets/d/10YIpqoWZtsAFPXDOYmM08bw-Ub3iOyo8QE83OZZkFvg/edit?usp=sharing
 
-# Credits
+# Credits:
 1. <b>Front-end:</b>
   - Lê Ngọc Duyên (1952941)
   - Trần Xuân Trúc (1953061)
