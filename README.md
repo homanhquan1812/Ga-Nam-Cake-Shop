@@ -20,6 +20,9 @@ Almost everything.
 1. Managers can't remove any member in Members section.
 2. Both "Remember me" and "Forgot password?" in Login page haven't been implemented.
 
+# Features that need to be added:
+1. Middleware.
+
 # Project Timeline:
 https://docs.google.com/spreadsheets/d/10YIpqoWZtsAFPXDOYmM08bw-Ub3iOyo8QE83OZZkFvg/edit?usp=sharing
 
