@@ -41,8 +41,6 @@ class DashboardController
 
         info = mongooseToObject(info)
         orders = multipleMongooseToObject(orders)
-
-        console.log(info)
         
             res.render('dashboard/employees/changeinfo', {
                 styles: ['/css/dashboard.css'],
@@ -57,7 +55,7 @@ class DashboardController
     employees_updateinfo(req, res, next)
     {
         DatabaseInfo.updateOne({_id: req.params.id}, req.body)
-            .then(() => res.redirect('/employees/settings'))
+            .then(() => res.redirect(`/employees/changeinfo/${req.params.id}`))
             .catch(next)
     }
 
@@ -187,8 +185,6 @@ class DashboardController
 
         info = mongooseToObject(info)
         orders = multipleMongooseToObject(orders)
-
-        console.log(info)
         
             res.render('dashboard/employees/settings', {
                 styles: ['/css/settings.css'],
@@ -485,7 +481,7 @@ class DashboardController
     managers_updateinfo(req, res, next)
     {
         DatabaseInfo.updateOne({_id: req.params.id}, req.body)
-            .then(() => res.redirect('/managers/settings'))
+            .then(() => res.redirect(`/managers/changeinfo/${req.params.id}`))
             .catch(next)
     }
 
