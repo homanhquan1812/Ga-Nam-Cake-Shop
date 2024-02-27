@@ -23,6 +23,9 @@ Almost everything.
 # Features that need to be added:
 1. Middleware.
 
+# Development Status:
+End of support.
+
 # Project Timeline:
 https://docs.google.com/spreadsheets/d/10YIpqoWZtsAFPXDOYmM08bw-Ub3iOyo8QE83OZZkFvg/edit?usp=sharing
 
