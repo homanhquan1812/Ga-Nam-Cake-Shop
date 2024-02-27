@@ -25,7 +25,6 @@ Almost everything.
 
 # Development Status:
 End of support.
-https://www.shutterstock.com/image-vector/eol-end-line-acronym-technology-260nw-1772962562.jpg
 
 # Project Timeline:
 https://docs.google.com/spreadsheets/d/10YIpqoWZtsAFPXDOYmM08bw-Ub3iOyo8QE83OZZkFvg/edit?usp=sharing
