@@ -11,7 +11,7 @@ https://ganamcakeshop.onrender.com/
 4. Cloud Database: <b>MongoDB Atlas</b>.
 5. Hosting: <b>Render</b> (free).
 
-Basically, hosting a website that people can access can't rely on an offline database. That's why our team uses MongoDB Atlas to let it connect to Render, so that the website can work perfectly.
+Basically, hosting a website that people can access can't depend on an offline database. That's why our team uses MongoDB Atlas to let it connect to Render, so that the website can work perfectly.
 
 # What's working?
 Almost everything.
