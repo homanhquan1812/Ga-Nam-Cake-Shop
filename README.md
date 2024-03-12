@@ -1,5 +1,5 @@
 # Gà Nấm Cake Shop Website.
-The purpose of this website is to help people order products from our cake shop online, then we will deliver their orders as soon as possible.
+This website is designed to facilitate convenient online ordering from our cake shop, ensuring prompt delivery of your selected products at your doorstep.
 
 # Website:
 > https://ganamcakeshop.onrender.com/
