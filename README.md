@@ -14,7 +14,7 @@ The purpose of this website is to help people order products from our cake shop 
 > Basically, hosting a website that people can access can't depend on an offline database. That's why our team uses MongoDB Atlas to let it connect to Render, so that the website can work perfectly.
 
 # What's working?
-> Almost everything.
+Almost everything.
 
 # Known Bugs:
 1. Managers can't remove any member in Members section.
