@@ -37,7 +37,7 @@ Almost everything.
   - Trần Xuân Trúc (1953061)
   - Nguyễn Anh Tuấn (1953070)
 2. <b>Back-end:</b>
-  - Hồ Mạnh Quân (1952941) => <b>Leader</b>
+  - Hồ Mạnh Quân (1952941) > Leader
   - Trương Toàn Khiêm (1852465)
   - Trương Quang Nhã (2152822)
   - Nguyễn Phan Nhật Minh (2152767)
