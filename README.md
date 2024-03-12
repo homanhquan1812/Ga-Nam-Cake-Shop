@@ -1,7 +1,7 @@
 # Gà Nấm Cake Shop Website.
 This website is designed to facilitate convenient online ordering from our cake shop, ensuring prompt delivery of your selected products at your doorstep.
 
-# Website:
+# Website address:
 > https://ganamcakeshop.onrender.com/
 
 # Technologies used to build this website:
