@@ -1,4 +1,4 @@
-# Introducing Gà Nấm Cake Shop.
+# Gà Nấm Cake Shop Website.
 The purpose of this website is to help people order products from our cake shop online, then we will deliver their orders as soon as possible.
 
 # Website:
