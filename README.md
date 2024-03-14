@@ -41,6 +41,3 @@ Almost everything.
   - Trương Toàn Khiêm (1852465)
   - Trương Quang Nhã (2152822)
   - Nguyễn Phan Nhật Minh (2152767)
-
-# Contacts:
-> homanhquan1812@gmail.com
