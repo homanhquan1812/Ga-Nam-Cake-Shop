@@ -34,6 +34,7 @@ Almost everything.
 
 # Features that need to be added:
 1. Middleware.
+2. Responsive Design.
 
 # Development Status:
 > Finished + End of support.
