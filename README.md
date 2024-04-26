@@ -8,11 +8,6 @@ This website is designed to facilitate convenient online ordering from our cake 
 > https://ganamcakeshop.onrender.com/
 
 # Technologies used to build this website:
-
-<div align="center">
-  <img src="https://www.boardinfinity.com/blog/content/images/2023/01/Mern.png" alt="YOLOHOME Logo" width="600" style="">
-</div>
-
 1. Front-end: <b>HTML, CSS, SCSS, Javascript</b>.
 2. Back-end: <b>NodeJS and ExpressJS</b>
 3. NoSQL Database: <b>MongoDB</b>.
