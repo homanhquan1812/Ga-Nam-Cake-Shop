@@ -1,4 +1,5 @@
 # Gà Nấm Cake Shop Website
+![Gà Nấm Cake Shop Logo](https://ganamcakeshop.onrender.com/img/logo.png)
 This website is designed to facilitate convenient online ordering from our cake shop, ensuring prompt delivery of your selected products at your doorstep.
 
 # Website address:
