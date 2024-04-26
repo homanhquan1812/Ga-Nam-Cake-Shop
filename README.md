@@ -13,6 +13,16 @@ This website is designed to facilitate convenient online ordering from our cake 
 
 > Basically, hosting a website that people can access can't depend on an offline database. That's why our team uses MongoDB Atlas to let it connect to Render, so that the website can work perfectly.
 
+# How to use?
+1. Download and install <b>Node</b> and <b>MongoDB</b>.
+2. Extract <b>JSON Data.zip</b> and insert all JSON files into your MongoDB database.
+3. Open Terminal for the exact project that contains files.
+4. Run:
+```
+npm start
+```
+4. To terminate batch job, use <b>Ctrl + C</B>.
+
 # What's working?
 Almost everything.
 
