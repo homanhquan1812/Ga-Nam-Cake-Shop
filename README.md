@@ -1,6 +1,6 @@
 # Gà Nấm Cake Shop Website
 <div align="center">
-  <img src="https://ganamcakeshop.onrender.com/img/logo.png" alt="YOLOHOME Logo" width="300" style="">
+  <img src="https://blob-hcmut.web.app/en/icon/favicon.ico" alt="Gà Nấm Cake Shop Logo" width="300" style="">
 </div>
 This website is designed to facilitate convenient online ordering from our cake shop, ensuring prompt delivery of your selected products at your doorstep.
 
