@@ -36,7 +36,7 @@ Almost everything.
 1. Middleware.
 
 # Development Status:
-> End of support.
+> Finished + End of support.
 
 # Project Timeline:
 > https://docs.google.com/spreadsheets/d/10YIpqoWZtsAFPXDOYmM08bw-Ub3iOyo8QE83OZZkFvg/edit?usp=sharing
