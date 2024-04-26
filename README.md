@@ -1,11 +1,16 @@
 # Gà Nấm Cake Shop Website
-<img src="https://ganamcakeshop.onrender.com/img/logo.png" alt="YOLOHOME Logo" width="300">
+<div align="center">
+<img src="https://ganamcakeshop.onrender.com/img/logo.png" alt="YOLOHOME Logo" width="500" style="">
+</div>
 This website is designed to facilitate convenient online ordering from our cake shop, ensuring prompt delivery of your selected products at your doorstep.
 
 # Website address:
 > https://ganamcakeshop.onrender.com/
 
 # Technologies used to build this website:
+<div align="center">
+<img src="https://www.boardinfinity.com/blog/content/images/2023/01/Mern.png" alt="YOLOHOME Logo" width="900" style="">
+</div>
 1. Front-end: <b>HTML, CSS, SCSS, Javascript</b>.
 2. Back-end: <b>NodeJS and ExpressJS</b>
 3. NoSQL Database: <b>MongoDB</b>.
