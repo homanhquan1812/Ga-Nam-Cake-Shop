@@ -16,6 +16,9 @@ This website is designed to facilitate convenient online ordering from our cake 
 
 > Basically, hosting a website that people can access can't depend on an offline database. That's why our team uses MongoDB Atlas to let it connect to Render, so that the website can work perfectly.
 
+# Development Status:
+> Finished.
+
 # How to use?
 1. Download and install <b>Node</b> and <b>MongoDB</b>.
 2. Extract <b>JSON Data.zip</b> and insert all JSON files into your MongoDB database.
@@ -33,9 +36,6 @@ npm start
 # Features that need to be added:
 1. Middleware.
 2. Responsive Design.
-
-# Development Status:
-> Finished.
 
 # Project Timeline:
 > https://docs.google.com/spreadsheets/d/10YIpqoWZtsAFPXDOYmM08bw-Ub3iOyo8QE83OZZkFvg/edit?usp=sharing
