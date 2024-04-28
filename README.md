@@ -26,9 +26,6 @@ npm start
 ```
 4. To terminate batch job, use <b>Ctrl + C</B>.
 
-# What's working?
-Almost everything.
-
 # Known Bugs:
 1. Managers can't remove any member in Members section.
 2. Both "Remember me" and "Forgot password?" in Login page haven't been implemented.
