@@ -1,4 +1,4 @@
-# Gà Nấm Cake Shop Website
+# Gà Nấm Cake Shop
 <div align="center">
   <img src="https://ganamcakeshop.onrender.com/img/logo.png" alt="Gà Nấm Cake Shop Logo" width="300">
 </div>
