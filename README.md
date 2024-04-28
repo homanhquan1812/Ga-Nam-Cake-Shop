@@ -4,10 +4,10 @@
 </div>
 This website is designed to facilitate convenient online ordering from our cake shop, ensuring prompt delivery of your selected products at your doorstep.
 
-# Website address:
+# Website address
 > https://ganamcakeshop.onrender.com/
 
-# Technologies used to build this website:
+# Technologies used to build this website
 1. Front-end: <b>HTML, CSS, SCSS, Javascript</b>.
 2. Back-end: <b>NodeJS and ExpressJS</b>
 3. NoSQL Database: <b>MongoDB</b>.
@@ -16,7 +16,7 @@ This website is designed to facilitate convenient online ordering from our cake 
 
 > Basically, hosting a website that people can access can't depend on an offline database. That's why our team uses MongoDB Atlas to let it connect to Render, so that the website can work perfectly.
 
-# Development Status:
+# Development status
 > Finished.
 
 # How to use?
@@ -29,7 +29,7 @@ npm start
 ```
 4. To terminate batch job, use <b>Ctrl + C</B>.
 
-# Known Bugs:
+# Known bugs
 1. Managers can't remove any member in Members section.
 2. Both "Remember me" and "Forgot password?" in Login page haven't been implemented.
 
@@ -37,16 +37,16 @@ npm start
 1. Middleware.
 2. Responsive Design.
 
-# Project Timeline:
+# Project Timeline
 > https://docs.google.com/spreadsheets/d/10YIpqoWZtsAFPXDOYmM08bw-Ub3iOyo8QE83OZZkFvg/edit?usp=sharing
 
-# Credits:
+# Credits
 1. <b>Front-end:</b>
   - Lê Ngọc Duyên (1952941)
   - Trần Xuân Trúc (1953061)
   - Nguyễn Anh Tuấn (1953070)
 2. <b>Back-end:</b>
-  - Hồ Mạnh Quân (1952941) - <b>Leader</b>
+  - Hồ Mạnh Quân (1952941) => <b>Leader</b>
   - Trương Toàn Khiêm (1852465)
   - Trương Quang Nhã (2152822)
   - Nguyễn Phan Nhật Minh (2152767)
