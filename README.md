@@ -19,7 +19,7 @@ This website is designed to facilitate convenient online ordering from our cake 
 # Development status
 > Finished.
 
-# How to use?
+# How to use
 1. Download and install <b>Node</b> and <b>MongoDB</b>.
 2. Extract <b>JSON Data.zip</b> and insert all JSON files into your MongoDB database.
 3. Open Terminal for the exact project folder that contains files.
@@ -33,7 +33,7 @@ npm start
 1. Managers can't remove any member in Members section.
 2. Both "Remember me" and "Forgot password?" in Login page haven't been implemented.
 
-# Features that need to be added:
+# Features that need to be added
 1. Middleware.
 2. Responsive Design.
 
