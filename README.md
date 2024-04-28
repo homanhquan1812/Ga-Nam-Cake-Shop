@@ -35,7 +35,7 @@ npm start
 2. Responsive Design.
 
 # Development Status:
-> Finished + End of support.
+> Finished.
 
 # Project Timeline:
 > https://docs.google.com/spreadsheets/d/10YIpqoWZtsAFPXDOYmM08bw-Ub3iOyo8QE83OZZkFvg/edit?usp=sharing
