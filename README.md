@@ -19,7 +19,7 @@ This website is designed to facilitate convenient online ordering from our cake 
 # How to use?
 1. Download and install <b>Node</b> and <b>MongoDB</b>.
 2. Extract <b>JSON Data.zip</b> and insert all JSON files into your MongoDB database.
-3. Open Terminal for the exact project that contains files.
+3. Open Terminal for the exact project folder that contains files.
 4. Run:
 ```
 npm start
