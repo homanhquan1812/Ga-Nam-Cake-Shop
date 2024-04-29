@@ -27,7 +27,11 @@ This website is designed to facilitate convenient online ordering from our cake 
 ```
 npm start
 ```
-4. To terminate batch job, use <b>Ctrl + C</B>.
+5. Use these accounts to log in to the website:
+   - <b>Customer</b>: maimai456 - Mai@456#1990
+   - <b>Employee</b>: nguyenanhthao123 - Thao#123@2022
+   - <b>Manager</b>: tranvanan321 - An#321@1985
+7. To terminate batch job, use <b>Ctrl + C</B>.
 
 # Known bugs
 1. Managers can't remove any member in Members section.
