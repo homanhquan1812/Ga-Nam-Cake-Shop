@@ -21,9 +21,12 @@ This website is designed to facilitate convenient online ordering from our cake 
 
 # How to use
 1. Download and install <b>Node</b> and <b>MongoDB</b>.
-2. Extract <b>JSON Data.zip</b> and insert all JSON files into your MongoDB database.
-3. Open Terminal for the exact project folder that contains files.
-4. Run:
+2. Extract <b>JSON Data.zip</b> and insert all JSON files into your MongoDB database like this:
+   
+   ![image](https://github.com/homanhquan1812/Ga-Nam-Cake-Shop/assets/130955957/b9b4f253-405e-489e-9a2e-b6bbb159cfbf)
+
+4. Open Terminal for the exact project folder that contains files.
+5. Run:
 ```
 npm start
 ```
@@ -31,7 +34,7 @@ npm start
    - <b>Customer</b>: maimai456 - Mai@456#1990
    - <b>Employee</b>: nguyenanhthao123 - Thao#123@2022
    - <b>Manager</b>: tranvanan321 - An#321@1985
-7. To terminate batch job, use <b>Ctrl + C</B>.
+6. To terminate batch job, use <b>Ctrl + C</B>.
 
 # Known bugs
 1. Managers can't remove any member(s) in <b>Members</b> section.
