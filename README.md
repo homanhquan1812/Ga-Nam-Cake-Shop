@@ -1,6 +1,7 @@
 # Gà Nấm Cake Shop
 <div align="center">
-  <img src="https://ganamcakeshop.onrender.com/img/logo.png" alt="Gà Nấm Cake Shop Logo" width="300">
+  <img src="![logo](https://github.com/homanhquan1812/Ga-Nam-Cake-Shop/assets/130955957/e66ddf6d-b5b4-4b4b-bda0-5cbe98533575)
+" alt="Gà Nấm Cake Shop Logo" width="300">
 </div>
 This website is designed to facilitate convenient online ordering from our cake shop, ensuring prompt delivery of your selected products at your doorstep.
 
