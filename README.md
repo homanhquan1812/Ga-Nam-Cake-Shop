@@ -16,6 +16,14 @@ This website is designed to facilitate convenient online ordering from our cake 
 
 > Basically, hosting a website that people can access can't depend on an offline database. That's why our team uses MongoDB Atlas to let it connect to Render, so that the website can work perfectly.
 
+# Known bugs
+1. Managers can't remove any member(s) in <b>Members</b> section.
+2. Both <b>Remember me</b> and <b>Forgot password</b> in Login page haven't been implemented.
+
+# Features that need to be added
+1. Middleware.
+2. Responsive Design.
+
 # Development status
 > Finished.
 
@@ -35,14 +43,6 @@ npm start
    - <b>Employee</b>: nguyenanhthao123 - Thao#123@2022
    - <b>Manager</b>: tranvanan321 - An#321@1985
 6. To terminate batch job, use <b>Ctrl + C</B>.
-
-# Known bugs
-1. Managers can't remove any member(s) in <b>Members</b> section.
-2. Both <b>Remember me</b> and <b>Forgot password</b> in Login page haven't been implemented.
-
-# Features that need to be added
-1. Middleware.
-2. Responsive Design.
 
 # Screenshots
 ### Customers
