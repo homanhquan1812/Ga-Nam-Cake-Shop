@@ -33,16 +33,18 @@ This website is designed to facilitate convenient online ordering from our cake 
    
    ![image](https://github.com/homanhquan1812/Ga-Nam-Cake-Shop/assets/130955957/b9b4f253-405e-489e-9a2e-b6bbb159cfbf)
 
+You may need to replace current MongoDB connection string with yours. Open <b>config/db.js</b> to do that.
+
 4. Open Terminal for the exact project folder that contains files.
 5. Run:
 ```
 npm start
 ```
-5. Use these accounts to log in to the website:
+5. Use these accounts to log in to the website, or create one yourself:
    - <b>Customer</b>: maimai456 - Mai@456#1990
    - <b>Employee</b>: nguyenanhthao123 - Thao#123@2022
    - <b>Manager</b>: tranvanan321 - An#321@1985
-6. To terminate batch job, use <b>Ctrl + C</B>.
+6. To terminate batch job, use <b>Ctrl + C</b>.
 
 # Screenshots
 ### Customers
@@ -66,11 +68,11 @@ npm start
 > https://docs.google.com/spreadsheets/d/10YIpqoWZtsAFPXDOYmM08bw-Ub3iOyo8QE83OZZkFvg/edit?usp=sharing
 
 # Credits
-1. <b>Front-end:</b>
+1. <b>Frontend Developers:</b>
   - Lê Ngọc Duyên (1952941)
   - Trần Xuân Trúc (1953061)
   - Nguyễn Anh Tuấn (1953070)
-2. <b>Back-end:</b>
+2. <b>Backend Developers:</b>
   - Hồ Mạnh Quân (1952941) => <b>Leader</b>
   - Trương Toàn Khiêm (1852465)
   - Trương Quang Nhã (2152822)
