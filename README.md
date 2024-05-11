@@ -64,9 +64,6 @@ npm start
 ![Untitled10](https://github.com/homanhquan1812/Ga-Nam-Cake-Shop/assets/130955957/ebd08c63-8cfb-4d0a-9dce-a69232d627cf)
 ![Untitled11](https://github.com/homanhquan1812/Ga-Nam-Cake-Shop/assets/130955957/45894c41-72b9-4687-b2df-5752187d6ed0)
 
-# Project Timeline
-> https://docs.google.com/spreadsheets/d/10YIpqoWZtsAFPXDOYmM08bw-Ub3iOyo8QE83OZZkFvg/edit?usp=sharing
-
 # Credits
 1. <b>Frontend Developers:</b>
   - Lê Ngọc Duyên (1952941)
