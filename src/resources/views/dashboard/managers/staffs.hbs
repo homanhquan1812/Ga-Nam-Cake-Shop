@@ -155,7 +155,7 @@
                                                         {{this.csw_position}}
                                                     </div>                           
                                                     <div class="changeCurrentPosition"> 
-                                                            <input type="type" class="form-control" value="{{this.csw_position}}" id="csw_position" name="csw_position">
+                                                            <input type="type" class="form-control" value="{{this.csw_position}}" name="csw_position">
                                                             <!--
                                                             <select name="selectposition" id="selectposition">
                                                                 <optgroup label="Select position">
@@ -172,7 +172,7 @@
                                                         {{this.csw_department}}
                                                     </div>                           
                                                     <div class="changeCurrentDepartment">
-                                                            <input type="type" class="form-control" value="{{this.csw_department}}" id="csw_department" name="csw_department">
+                                                            <input type="type" class="form-control" value="{{this.csw_department}}" name="csw_department">
                                                             <!--
                                                             <select name="selectdepartment" id="selectdepartment">
                                                                 <optgroup label="Select Department">
@@ -260,6 +260,7 @@
             $('#delete-course-modal').on('show.bs.modal', function (event) {
                 var button = $(event.relatedTarget)
                 courseID = button.data('id') 
+                console.log(courseID)
             })
 
             btnDeleteCourse.onclick = function()
