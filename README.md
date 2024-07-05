@@ -16,13 +16,11 @@ This website is designed to facilitate convenient online ordering from our cake 
 
 > Basically, hosting a website that people can access can't depend on an offline database. That's why our team uses MongoDB Atlas to let it connect to Render, so that the website can work perfectly.
 
-# Known bugs
+# Known issues
 1. Managers can't remove any member(s) in <b>Members</b> section.
 2. Both <b>Remember me</b> and <b>Forgot password</b> in Login page haven't been implemented.
-
-# Features that need to be added
-1. Middleware.
-2. Responsive Design.
+3. No middleware.
+4. No responsive design.
 
 # Development status
 > Finished.
