@@ -1,0 +1,225 @@
+<!-- HEADER  -->
+  <header class="contact_header">
+    <nav class="navbar navbar-expand-lg navbarGaNam">
+        <div class="container header__content">
+            <img style="width: 50px; height: 50px; margin-right: 20px;" src="../../img/logo.png">
+            <a class="navbar-brand logo" href="home">GÀ NẤM</a> 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#GaNamNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse navigation" id="GaNamNav">
+                <ul style="font-size: 20px;" class="navbar-nav ms-auto ">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="home">HOME</a>
+                    </li>
+                    <!--
+                    <li class="nav-item">
+                        <a class="nav-link" href="about">ABOUT</a>
+                    </li>
+                    -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery">MENU</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact">CONTACT</a>
+                    </li>
+                    {{#if isLoggedIn}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="history">HISTORY</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">{{csw_name}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="shoppingcart">
+                          <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                      </i>
+                    </li>
+                    <li class="nav-item">
+                      <button class="btnLogin-popup" onclick="window.location.href='/logout'">LOGOUT</button>
+                    </li>
+                    {{else}}
+                    <li class="nav-item">
+                        <button class="btnLogin-popup" onclick="window.location.href='login'">LOGIN</button>
+                    </li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div id="container" style="margin-top: 200px;">
+          <div class="printing-history-box">
+            <h2 style="color: red;"><center>Purchase History</center></h2>
+            <div class="table-container">
+              <table class="content-table">
+                <thead>
+                  <tr>
+                    <th>Order Date</th>
+                                        <th>Product</th>
+                                        <th>Quantity</th>
+                                        
+                                        <th>Total cost</th>
+                                        <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                                    {{#each orders}}
+                                        {{#if (eq this.csw_username ../csw_name)}}
+                                        <tr>
+                                            <td>{{this.createdAt}}</td>
+                                            <td>
+                                                {{#each this.products}}
+                                                    {{this.name}}
+                                                    {{#unless @last}}<br><hr> {{/unless}}
+                                                {{/each}}
+                                            </td>
+                                            <td>
+                                                {{#each this.products}}
+                                                    {{this.qty}}
+                                                    {{#unless @last}}<br><hr> {{/unless}}
+                                                {{/each}}
+                                            </td>
+                                            
+                                            <td>{{this.totalcost}}</td>
+                                            <td>
+                                                {{#if (isBool this.declined true)}}
+                                                    <button type="button" class="btn btn-danger">Declined</button>
+                                                {{else}}
+                                                    {{#if (isBool this.delivered true)}}
+                                                    <button type="button" class="btn btn-success">Delivered</button>
+                                                    {{else}}
+                                                    <button type="button" class="btn btn-warning">Processing</button>
+                                                    {{/if}}
+                                                {{/if}}
+                                            </td>
+                                        </tr>
+                                        {{/if}}
+                                    {{/each}}
+                                    <tr></tr>
+                                </tbody>
+              </table>
+            </div>
+          </div>
+<!-- FOOTER  -->
+  <footer>
+    <div class="footer__main row">
+        <div class="footer__item col-3">
+            <h3>About Us</h3>
+            <p>Welcome to your neighborhood bakery café.</p>
+            <p>Where smiles are served daily
+              Enjoy delicious pastries, warm breads, stunning cakes and expertly brewed drinks while feeling right at home.</p>
+            <div class="footer__social">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-google-plus-g"></i>
+                <i class="fab fa-twitter"></i>
+            </div>
+
+        </div>
+        <div class="footer__item col-3">
+            <h3>Working Time</h3>
+            <div class="footer__time">
+                <p>Monday</p>
+                <p>9h30 - 18h30</p>
+            </div>
+            <div class="footer__time">
+                <p>Tuesday</p>
+                <p>9h30 - 18h30</p>
+            </div>
+            <div class="footer__time">
+                <p>Wednesday</p>
+                <p>9h30 - 18h30</p>
+            </div>
+            <div class="footer__time">
+                <p>Thursday</p>
+                <p>9h30 - 18h30</p>
+            </div>
+            <div class="footer__time">
+                <p>Friday</p>
+                <p>9h30 - 18h30</p>
+            </div>
+            <div class="footer__time">
+                <p>Saturday</p>
+                <p>9h30 - 18h30</p>
+            </div>
+            <div class="footer__time">
+                <p>Sunday</p>
+                <p>9h30 - 18h30</p>
+            </div>
+        </div>
+        <div class="footer__item col-3">
+            <h3>Twitter Us</h3>
+            <p>Masters at Work</p>
+            <p>Community is at our Core</p>
+            <p>Happy to see you. </p>
+            <p>Happier to serve you.</p>
+        </div>
+        <div class="footer__item col-3">
+            <h3>SUBSCRIBE US</h3>
+            <form class="footer__sub">
+                <input type="email" name="" id="" placeholder="name@example">
+                <button class="button-pink" type="submit">Send</button>
+            </form>
+            <p>Thank you for your interest in reaching out to us! Fill out the feedback form and a member of our team will be in touch soon.</p>
+        </div>
+    </div>
+    <div class="footer__copyright">
+        <p> Copyright &copy; 2023 <span>Gà Nấm Cake Shop</span>. All rights reserved.</p>
+    </div>
+  </footer>
+  <!-- Back to top  -->
+  <a href="#" class="backtotop cd-top text-replace js-cd-top" >
+    <i class="fa fa-angle-up"></i>
+  </a>
+
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+  integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous">
+  </script>
+<!-- Jquery Waypoint  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+<!-- BS5 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+  </script>
+
+<script src="/js/jquery.countup.min.js"></script>
+        <script src="/js/lightbox.min.js"></script>
+        <script src="/js/isotope.pkgd.min.js"></script>
+        <script src="/js/owl.carousel.min.js"></script>
+        <script src="/js/util.js"></script>
+        <script src="/js/main-backtotop.js"></script>
+        <script src="/js/main.js"></script>
+        <script src="/js/script.js"></script>
+
+<!-- CountUP JS  --> 
+<script>
+  $('.counter').countUp();
+</script>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<script>
+  $('.owl-carousel').owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: false,
+      autoplay: true,
+      responsive: {
+          0: {
+              items: 1
+          },
+          600: {
+              items: 1
+          },
+          1000: {
+              items: 1
+          }
+      }
+  })
+</script>
+<!-- Back to top JS  -->

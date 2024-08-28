@@ -1,0 +1,66 @@
+.contact{
+    padding: $pd-5 0;
+    padding-top: 150px;
+    .contact__form{
+        form{
+            width: 70%;
+            margin: 0 auto;
+            textarea , button{
+                padding: $pd-0 + 2;
+                font-weight: $fw-2;
+                font-size: $fs-0;
+            }
+            textarea{
+                border: 1px solid black;
+                resize: none;
+                &:focus{
+                    outline: none;
+                    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+                }
+                &::placeholder{
+                    color: black;
+                }
+            }
+            button{
+                border-radius: 0px;
+                color: black;
+                &:hover{
+                    background-color: $color-black-1;
+                    color: $color-white-0;
+                    border-color: $color-black-1;
+                }
+            }
+            input{
+                padding: $pd-0 + 2;
+                border-radius: 5px;
+                font-size: $fs-0;
+                font-weight: $fw-2;
+                border: 1px solid black;
+                &:focus{
+                    outline: none;
+                    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+
+                }
+            }
+        }
+    }
+    .contact__map{
+        iframe{
+            margin-top: $pd-5;
+        }
+    }
+    .contact__info{
+        margin-top: $mg-3;
+        .contact__item{
+            text-align: center;
+            i{
+                font-size: $fs-7 + 0.5;
+                color: $color-purple-0;
+            }
+            p{
+                font-size: $fs-3 + 0.05;
+                margin: $mg-4 + 2 0;
+            }
+        }
+    }
+}

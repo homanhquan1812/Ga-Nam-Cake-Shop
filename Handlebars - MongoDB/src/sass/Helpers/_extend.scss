@@ -1,0 +1,12 @@
+%hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 20px solid $color-gray-3;
+    background-color: $color-white-1;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.3s; 
+}

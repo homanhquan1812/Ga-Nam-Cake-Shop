@@ -1,0 +1,140 @@
+        <!-- Header -->
+        <header class="p-3 bg-dark text-white">
+            <div class="header-container">
+                <div class="search-box">
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                        <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+                    </form>
+                </div>
+
+                <div class="title" style="padding-left: 50px;">
+                    <h1>SETTINGS</h1>
+                </div>
+                <!--
+                <div class="text-end">
+                    <button type="button" class="btn btn-outline-light me-2">Login</button>
+                    <button type="button" class="btn btn-warning">Sign-up</button>
+                </div>
+                -->
+
+                <div class="right">
+                    <div class="top">
+                        <div class="profile">
+                            <div class="info">
+                                <p style="color: white;">Welcome back, <b style="color: yellow;">{{csw_name}}</b>.</p>
+                                <p style="color: white;">Position: <b style="color: cyan;">{{csw_position}}</b></p>
+                            </div>                                <div class="profile-photo">
+                                <img src="../../img/avatar.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+        <!-- Content -->
+        <div class="container">
+            <aside>
+                <div class="top">
+                    <div class="logo">
+                        <img src="../../img/logo.png">
+                    </div>
+                    <div class="close">
+                        <span class="material-icons-sharp">close</span>
+                    </div>
+                </div>
+                <div class="sidebar" id="sidebar">
+                    <a href="/managers/overview">
+                        <span class="material-symbols-outlined"> overview </span>
+                        <h3>Overview</h3>
+                    </a>
+                    <a href="/managers/dashboard">
+                        <span class="material-icons-sharp">grid_view</span>
+                        <h3>Dashboard</h3>
+                    </a>
+                    <a href="/managers/orders">
+                        <span class="material-symbols-outlined"> list_alt </span>
+                        <h3>New Orders</h3>
+                        {{#if (eq (countRow orders) 0)}}
+                            <span class="message-count" style="display: none;">
+                                {{countRow orders}}
+                            </span>
+                        {{else}}
+                            <span class="message-count">
+                                {{countRow orders}}
+                            </span>
+                        {{/if}} 
+                    </a>
+                    <a href="/managers/staffs">
+                        <span class="material-symbols-outlined">groups</span>
+                        <h3>Members</h3>
+                    </a>
+                    <a href="/managers/customers">
+                        <span class="material-icons-sharp">person_outline</span>
+                        <h3>Customers</h3>
+                    </a>
+                    <a href="/managers/notes">
+                        <span class="material-symbols-outlined"> format_list_bulleted_add </span>
+                        <h3>To-Do Lists</h3>
+                        <!--
+                        <span class="message-count">23</span>
+                        -->
+                    </a>
+                    <a href="/managers/products">
+                        <span class="material-icons-sharp">inventory</span>
+                        <h3>Products</h3>
+                    </a>
+                    <a href="/managers/feedback">
+                        <span class="material-icons-sharp">feedback</span>
+                        <h3>Feedbacks</h3>
+                    </a>
+                    <a href="/managers/settings" class="active">
+                        <span class="material-icons-sharp">settings</span>
+                        <h3>Settings</h3>
+                    </a>
+                </div>
+            </aside>
+
+            <main id="dynamic-content">
+                <!--
+                <div class="date">
+                    <input type="date">
+                </div>
+                -->
+
+                <div class="mt-4">
+                    <div class="insights">
+                        <div class="expenses">
+                            <span class="material-symbols-outlined"> manage_accounts </span>
+                            <div class="middle">
+                                <div class="left">
+                                    <h1 style="margin-top: 10px;">Change information</h1>
+                                    <h3 style="font-size: 5px;">Click this button to change your information:</h3>
+                                    <a href="/managers/changeinfo/{{userID}}">
+                                        <button style="margin-top: 10px;" type="button" class="btn btn-primary">Click here</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="income" style="height: 220px;">
+                            <span class="material-symbols-outlined"> logout </span>
+                            <div class="middle">
+                                <div class="left">
+                                    <h1 style="margin-top: 10px;">Sign out</h1>
+                                    <h3>Click this button to sign out:</h3>
+                                    <a href="/logout">
+                                        <button  style="margin-top: 10px;" type="button" class="btn btn-primary">Click here</button>
+                                    </a>
+                                </div>
+                            </div>        
+                        </div>
+                    </div>
+                </div>
+            </main>
+            
+            <div class="right">
+                <div class="top">
+                </div>
+            </div>
+        </div>

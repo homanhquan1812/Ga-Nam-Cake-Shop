@@ -1,0 +1,76 @@
+footer{
+    padding: $pd-8;
+    background-color: $color-black-1;
+    color: $color-white-0;
+    .footer__main{
+        width: 70%;
+        margin: 0 auto;
+        padding-bottom: $pd-8;
+        .footer__item{
+            padding: 0 $pd-4 - 3;
+            h3{
+                font-size: $fs-6 + 0.2;
+                color: $color-pink-0;
+                margin-bottom: $mg-1;
+            }
+            p{
+                font-size: $fs-3 + 0.05;
+                line-height: $lh-0;
+                padding-bottom: $pd-3;
+            }
+            .footer__social{
+                i{
+                    width: 35px;
+                    height: 35px;
+                    border: 1px solid $color-white-0;
+                    line-height: 35px;
+                    text-align: center;
+                    margin-right: $mg-4 + 2;
+                    transition: all 0.5s;
+                    &:hover{
+                        color: $color-pink-0;
+                        border-color: $color-pink-0;
+                    }
+                }
+            }
+            .footer__time{
+                display: flex;
+                justify-content: space-between;
+                border-bottom: 1px dotted $color-white-0;
+                p{
+                    margin: $mg-4 + 2 0;
+                    padding: 0;
+                }
+            }
+            .footer__sub{
+                input{
+                    margin-bottom: $mg-2 - 1;
+                    padding: $pd-0 - 3;
+                    border-radius: 5px;
+                    border: 1px solid $color-black-1;
+                    margin-bottom: $mg-2 - 1;
+                    &:focus{
+                        outline: none;
+                    }
+                }
+                button{
+                    padding: $pd-9 $pd-0 + 3;
+                    color: $color-black-1;
+                    border-color: $color-pink-0;
+                    font-weight: $fw-0;
+                    margin-bottom: $mg-5;
+                    &:hover{
+                        background-color: $color-white-0;
+                        border-color: $color-black-1;
+                    }
+                }
+            }
+        }
+    }
+    .footer__copyright{
+        text-align: center;
+        span{
+            color: $color-pink-0;
+        }
+    }
+}

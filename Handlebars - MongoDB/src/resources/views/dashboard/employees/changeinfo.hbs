@@ -1,0 +1,139 @@
+        <!-- Header -->
+        <header class="p-3 bg-dark text-white">
+            <div class="header-container">
+                <div class="search-box">
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                        <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+                    </form>
+                </div>
+
+                <!--
+                <div class="text-end">
+                    <button type="button" class="btn btn-outline-light me-2">Login</button>
+                    <button type="button" class="btn btn-warning">Sign-up</button>
+                </div>
+                -->
+
+                <div class="title" style="padding-left: 50px;">
+                    <h1>SETTINGS</h1>
+                </div>
+
+                <div class="right">
+                    <div class="top">
+                        <div class="profile">
+                            <div class="info">
+                                <p style="color: white;">Welcome back, <b style="color: yellow;">{{csw_name}}</b>.</p>
+                                <p style="color: white;">Position: <b style="color: cyan;">{{csw_position}}</b></p>
+                            </div>                                <div class="profile-photo">
+                                <img src="../../img/avatar.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <div class="container">
+            <aside>
+                <div class="top">
+                    <div class="logo">
+                        <img src="../../img/logo.png">
+                    </div>
+                    <div class="close">
+                        <span class="material-icons-sharp">close</span>
+                    </div>
+                </div>
+                <div class="sidebar" id="sidebar">
+                    <a href="/employees/overview">
+                        <span class="material-symbols-outlined"> overview </span>
+                        <h3>Overview</h3>
+                    </a>
+                    <a href="/employees/dashboard">
+                        <span class="material-icons-sharp">grid_view</span>
+                        <h3>Dashboard</h3>
+                    </a>
+                    <a href="/employees/orders">
+                        <span class="material-symbols-outlined"> list_alt </span>
+                        <h3>New Orders</h3>
+                        {{#if (eq (countRow orders) 0)}}
+                            <span class="message-count" style="display: none;">
+                                {{countRow orders}}
+                            </span>
+                        {{else}}
+                            <span class="message-count">
+                                {{countRow orders}}
+                            </span>
+                        {{/if}} 
+                    </a>
+                    <a href="/employees/notes">
+                        <span class="material-symbols-outlined"> format_list_bulleted_add </span>
+                        <h3>To-Do Lists</h3>
+                        <!--
+                        <span class="message-count">23</span>
+                        -->
+                    </a>
+                    <a href="/employees/products">
+                        <span class="material-icons-sharp">inventory</span>
+                        <h3>Products</h3>
+                    </a>
+                    <a href="/employees/feedback">
+                        <span class="material-icons-sharp">feedback</span>
+                        <h3>Feedbacks</h3>
+                    </a>
+                    <a href="/employees/settings" class="active">
+                        <span class="material-icons-sharp">settings</span>
+                        <h3>Settings</h3>
+                    </a>
+                </div>
+            </aside>
+
+            <main id="dynamic-content">
+                <!--
+                <div class="date">
+                    <input type="date">
+                </div>
+                -->
+
+                <div class="mt-4">
+                    <div class="insights">
+                        <div class="sales">
+                            <h1>Change your information here:</h1>
+                            <form method="POST" action="/employees/changeinfo/{{info._id}}?_method=PUT">
+                            <div class="form-group">
+                                    <label for="name">Full Name</label>
+                                    <input type="type" class="form-control" value="{{info.csw_name}}" id="csw_name" name="csw_name">
+                                    </div>
+                                    <div class="form-group">
+                                    <label for="description">Gender</label>
+                                    <input type="type" class="form-control" value="{{info.csw_gender}}" id="csw_gender" name="csw_gender" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                    <label for="description">Phone Number</label>
+                                    <input type="type" class="form-control" value="{{info.csw_phonenumber}}" id="csw_phonenumber" name="csw_phonenumber">
+                                    </div>
+                                    <div class="form-group">
+                                    <label for="csw_username">Username</label>
+                                    <input type="type" class="form-control" value="{{info.csw_username}}" id="csw_username" name="csw_username" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                    <label for="videoID">Password</label>
+                                    <input type="type" class="form-control" value="{{info.csw_password}}" id="csw_password" name="csw_password">
+                                    </div>
+                                    <div class="form-group">
+                                    <label for="level">Email Address</label>
+                                    <input type="type" class="form-control" value="{{info.csw_emailaddress}}" id="csw_emailaddress" name="csw_emailaddress">
+                                    </div>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            </form>
+                                    
+                        <!--
+                        <div class="showall">
+                            <a href="#">Show All</a>
+                        </div>
+                        
+                            <small class="text-muted">Last 24 Hours</small>
+                        -->
+                        </div>
+                </div>
+            </main>
