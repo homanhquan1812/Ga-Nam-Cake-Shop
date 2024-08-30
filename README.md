@@ -8,6 +8,9 @@ This website is designed to facilitate convenient online ordering from our cake 
 > https://ganamcakeshop.onrender.com/
 
 # Technologies used to build this website
+## MERN Stack
+## PERN Stack
+## Handlebars - MongoDB
 1. Frontend: <b>HTML, CSS, SCSS, Javascript</b>.
 2. Backend: <b>NodeJS and ExpressJS</b>
 3. NoSQL Database: <b>MongoDB</b>.
