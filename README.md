@@ -8,27 +8,6 @@ This website is designed to facilitate convenient online ordering from our cake 
 > https://ganamcakeshop.onrender.com/
 
 # Version information
-## MERN Stack
-
-## PERN Stack
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/175a57dc-d00b-4857-a181-96097b535e7f" alt="NodeJS + ExpressJS Logo" width="600">
-</div>
-
-### Technologies used to build this website
-1. Frontend: <b>ReactJS</b>.
-2. Backend: <b>NodeJS and ExpressJS</b>
-3. SQL Database: <b>PostgreSQL</b>.
-4. Cloud Database: <b>?</b>.
-5. Hosting: <b>Render</b> (free).
-
-### Known issues
-1. CSS files loading is a bit slow.
-2. **Error** page may show up when login successful.
-
-### Development status
-> Finished.
-
 ## Handlebars - MongoDB
 <div align="center">
   <img src="https://github.com/user-attachments/assets/a91e185f-1b6a-48f6-bdc8-baa638873cb7" alt="NodeJS + ExpressJS Logo" width="600">
@@ -46,6 +25,35 @@ This website is designed to facilitate convenient online ordering from our cake 
 2. Both <b>Remember me</b> and <b>Forgot password</b> in Login page haven't been implemented.
 3. No middleware.
 4. No responsive design.
+
+### Development status
+> Finished.
+
+## MERN Stack
+
+## PERN Stack
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/175a57dc-d00b-4857-a181-96097b535e7f" alt="NodeJS + ExpressJS Logo" width="600">
+</div>
+
+### Technologies used to build this website
+1. Frontend: <b>ReactJS</b>.
+2. Backend: <b>NodeJS and ExpressJS</b>
+3. SQL Database: <b>PostgreSQL</b>.
+4. Cloud Database: <b>?</b>.
+5. Hosting: <b>Render</b> (free).
+
+### What's new
+1. Removed adding new staff(s) from **Manager's Staffs page**.
+2. Fixed a bug whereby manager can't remove any member(s) in <b>Staffs</b> section.
+3. Manager can only adjust **Position** and **Role** per staff.
+4. Staff has to enter old password to update new password.
+5. Added JWTs, Bcrypt, Middleware.
+6. Improved system stability and performance.
+
+### Known issues
+1. CSS files loading is a bit slow.
+2. **Error** page may show up when login successful.
 
 ### Development status
 > Finished.
