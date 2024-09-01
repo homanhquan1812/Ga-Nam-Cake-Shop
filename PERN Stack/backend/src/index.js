@@ -5,6 +5,8 @@ const app = express()
 const port = process.env.PORT || 3000
 const morgan = require('morgan')
 const session = require('express-session')
+const pgSession = require('connect-pg-simple')(session)
+const { pool } = require('../config/db')
 const route = require('./route')
 const cors = require('cors')
 const db = require('../config/db')
@@ -27,12 +29,17 @@ app.use(express.json())
 
 // Session
 app.use(session({
+  store: new pgSession({
+    pool: pool,
+    tableName: 'session'
+  }),
   secret: process.env.SECRET_KEY,
   resave: false,
   saveUninitialized: true,
   cookie: { 
-    secure: false // Set to true if using HTTPS
-  } 
+    secure: process.env.NODE_ENV === 'production', // Set to true if using HTTPS in production
+    maxAge: 60 * 60 * 1000 // 1 hour
+  }
 }))
 
 // Route

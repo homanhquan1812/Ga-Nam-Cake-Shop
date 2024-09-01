@@ -119,3 +119,10 @@ INSERT INTO products (id, product_name, type, description, price, photo) VALUES
 (gen_random_uuid(), 'Frozen Yogurt', 'Ice Cream', 'Frozen yogurt has an array of flavors that you can enjoy.  Whether you want something indulgent or something fruity, this cold treat is a perfect choice.', 20000, 'https://insanelygoodrecipes.com/wp-content/uploads/2022/10/Soft-Serve.webp'),
 (gen_random_uuid(), 'Soft Serve', 'Ice Cream', 'It''s sometimes called "whipped ice cream," or "frozen custard." Either way, it typically features milk, ice, and flavorings churned with air.  It has a smooth, fluffy texture that pairs perfectly with sweet syrups and other toppings.  Soft serve ice cream melts in your mouth with absolute indulgence. ', 10000, 'https://insanelygoodrecipes.com/wp-content/uploads/2022/10/Ice-Popsicle.webp'),
 (gen_random_uuid(), 'Kulfi', 'Ice Cream', 'Kulfi is a traditional Indian dessert made from milk, sugar, nuts, and fruit.  It''s infused with rich flavors and spices like saffron, cardamom, and rosewater, making it unique.  The rich, creamy goodness of kulfi makes it perfect if you love indulging in a treat.  And it has a satisfying crunch from the nuts that cuts through the dense texture.', 15000, 'https://insanelygoodrecipes.com/wp-content/uploads/2022/10/Mochi-Ice-Cream.webp');
+
+-- Session Table
+CREATE TABLE session (
+  sid varchar PRIMARY KEY,
+  sess json NOT NULL,
+  expire timestamp NOT NULL
+);
