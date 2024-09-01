@@ -72,14 +72,12 @@ npm start
 
 ## PERN Stack
 1. Download and install <b>Node</b> and <b>PostgreSQL</b>.
-2. Insert data into database from **PostgreSQL Queries**.
+2. Insert data into database from **PostgreSQL Queries**. You may need to replace current PostgreSQL connection string with yours. Open <b>config/db.js</b> to do that.
 
-You may need to replace current PostgreSQL connection string with yours. Open <b>config/db.js</b> to do that.
+3. Open Terminal for **backend** folder, run: `npm start`, then `npm run dev` for **frontend** folder.
 
-4. Open Terminal for **backend** folder, run: `npm start`, then `npm run dev` for **frontend** folder.
-
-5. Sign up 3 accounts (Manager, Employee, Customer) from **Login** page. Check API_KEY from **.env**.
-6. To terminate batch job, use <b>Ctrl + C</b>.
+4. Sign up 3 accounts (Manager, Employee, Customer) from **Login** page. Check API_KEY from **.env**.
+5. To terminate batch job, use <b>Ctrl + C</b>.
 
 # Screenshots
 ### Customers
