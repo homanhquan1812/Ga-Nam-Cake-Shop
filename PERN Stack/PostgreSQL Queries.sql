@@ -52,6 +52,12 @@ CREATE TABLE feedbacks (
     message TEXT NOT NULL
 );
 
+-- Note Table
+CREATE TABLE notes (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    note TEXT NOT NULL
+);
+
 -- Product Table
 CREATE TABLE products (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -59,7 +65,8 @@ CREATE TABLE products (
     type VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
     price INTEGER NOT NULL,
-    photo TEXT NOT NULL
+    photo TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 INSERT INTO products (id, product_name, type, description, price, photo) VALUES

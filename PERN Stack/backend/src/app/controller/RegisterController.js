@@ -10,6 +10,12 @@ class RegisterController
     {
         try {
             const { name, username, password, key, email, phonenumber, gender, position, address } = req.body
+
+            // Validate input fields
+            if (!name || !username || !password || !email || !phonenumber || !gender || !address || (key === undefined)) {
+                return res.status(400).json('All required fields must be filled.')
+            }
+
             const userCheckQuery = 'SELECT 1 FROM users WHERE username = $1 UNION ALL SELECT 1 FROM admins WHERE username = $1 LIMIT 1'
             const userCheckResult = await pool.query(userCheckQuery, [username])
 

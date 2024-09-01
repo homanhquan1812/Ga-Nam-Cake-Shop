@@ -7,10 +7,9 @@ class FeedbackController
         try {
             const feedbackQuery = 'SELECT * FROM feedbacks;'
             const feedbackResult = await pool.query(feedbackQuery)
-            const feedback = feedbackResult.rows
 
             res.status(200).json({
-                feedback: feedback
+                feedback: feedbackResult.rows
             })
         } catch (error) {
             next(error)

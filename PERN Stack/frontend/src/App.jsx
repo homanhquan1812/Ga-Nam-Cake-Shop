@@ -1,40 +1,33 @@
 import { React, useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import About from './pages/About'
-import Contact from './pages/Contact'
-import Home from './pages/Home'
-import Menu from './pages/Menu'
-import History from './pages/History'
-import Cart from './pages/Cart'
-import Login from './pages/Login'
-import Details from './pages/Details'
-import Success from './pages/Success'
-import Error from './pages/Error'
-
-{/* Employees */}
-import Em_ChangeInfo from './pages/Staffs/Employees/Em_ChangeInfo'
-import Em_Dashboard from './pages/Staffs/Employees/Em_Dashboard'
-import Em_Feedbacks from './pages/Staffs/Employees/Em_Feedbacks'
-import Em_Notes from './pages/Staffs/Employees/Em_Notes'
-import Em_Orders from './pages/Staffs/Employees/Em_Orders'
-import Em_Overview from './pages/Staffs/Employees/Em_Overview'
-import Em_Products from './pages/Staffs/Employees/Em_Products'
-import Em_Settings from './pages/Staffs/Employees/Em_Settings'
-
-{/* Managers */}
-import Ma_ChangeInfo from './pages/Staffs/Managers/Ma_ChangeInfo'
-import Ma_Customers from './pages/Staffs/Managers/Ma_Customers'
-import Ma_Dashboard from './pages/Staffs/Managers/Ma_Dashboard'
-import Ma_Feedbacks from './pages/Staffs/Managers/Ma_Feedbacks'
-import Ma_Notes from './pages/Staffs/Managers/Ma_Notes'
-import Ma_Orders from './pages/Staffs/Managers/Ma_Orders'
-import Ma_Overview from './pages/Staffs/Managers/Ma_Overview'
-import Ma_Products from './pages/Staffs/Managers/Ma_Products'
-import Ma_Settings from './pages/Staffs/Managers/Ma_Settings'
-import Ma_Staffs from './pages/Staffs/Managers/Ma_Staffs'
+import { jwtDecode } from 'jwt-decode'
+// Customers' pages
+import About from './page/About'
+import Contact from './page/Contact'
+import Home from './page/Home'
+import Menu from './page/Menu'
+import History from './page/History'
+import Cart from './page/Cart'
+import Login from './page/Login'
+import Detail from './page/Detail'
+import Success from './page/Success'
+import Error from './page/Error'
+// Staffs' pages (Both Managers and Employees)
+import ChangeInfo from './page/Staff/ChangeInfo'
+import Dashboard from './page/Staff/Dashboard'
+import Feedback from './page/Staff/Feedback'
+import Note from './page/Staff/Note'
+import Order from './page/Staff/Order'
+import Overview from './page/Staff/Overview'
+import Product from './page/Staff/Product'
+import Setting from './page/Staff/Setting'
+// Managers' exclusive pages
+import Customer from './page/Staff/Managers_Exclusive_Pages/Customer'
+import Staff from './page/Staff/Managers_Exclusive_Pages/Staff'
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [role, setRole] = useState('')
   
   const isJwtExpired = (token) => {
     if (!token) return true
@@ -63,7 +56,24 @@ const App = () => {
         }
 
         checkLoginStatus()
-        const intervalId = setInterval(checkLoginStatus, 1000) // Check every second
+
+        const checkToken = () => {
+          const token = localStorage.getItem('token')
+
+          if (token) {
+              try {
+                  const decodedToken = jwtDecode(token)
+                  setRole(decodedToken.role)
+              } catch (error) {
+                  console.error('Invalid token:', error)
+              }
+          }
+      }
+
+        const intervalId = setInterval(() => {
+          checkToken()
+          checkLoginStatus()
+        }, 1000) // Check every second
 
         return () => clearInterval(intervalId)
     }, [])
@@ -77,7 +87,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/details/:id" element={<Details />} />
+        <Route path="/detail/:id" element={<Detail />} />
         <Route path="*" element={<Error />} />
       </Routes>
     )
@@ -93,32 +103,26 @@ const App = () => {
         <Route path="/history" element={<History />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/details/:id" element={<Details />} />
+        <Route path="/detail/:id" element={<Detail />} />
         <Route path="/success" element={<Success />} />
 
-        {/* Employees */}
-        <Route exact path="/employees" element={<Em_Overview />} />
-        <Route path="/employees/overview" element={<Em_Overview />} />
-        <Route path="/employees/changeinfo/:id" element={<Em_ChangeInfo />} />
-        <Route path="/employees/feedbacks" element={<Em_Feedbacks />} />
-        <Route path="/employees/notes" element={<Em_Notes />} />
-        <Route path="/employees/orders" element={<Em_Orders />} />
-        <Route path="/employees/products" element={<Em_Products />} />
-        <Route path="/employees/settings" element={<Em_Settings />} />
-        <Route path="/employees/dashboard" element={<Em_Dashboard />} />
-
-        {/* Managers */}
-        <Route exact path="/managers" element={<Ma_Overview />} />
-        <Route path="/managers/overview" element={<Ma_Overview />} />
-        <Route path="/managers/changeinfo/:id" element={<Ma_ChangeInfo />} />
-        <Route path="/managers/feedbacks" element={<Ma_Feedbacks />} />
-        <Route path="/managers/notes" element={<Ma_Notes />} />
-        <Route path="/managers/orders" element={<Ma_Orders />} />
-        <Route path="/managers/products" element={<Ma_Products />} />
-        <Route path="/managers/settings" element={<Ma_Settings />} />
-        <Route path="/managers/dashboard" element={<Ma_Dashboard />} />
-        <Route path="/managers/customers" element={<Ma_Customers />} />
-        <Route path="/managers/staffs" element={<Ma_Staffs />} />
+        {
+          (role === 'Manager' || role === 'Employee') && (
+            <>
+            <Route exact path="/staff" element={<Overview />} />
+            <Route path="/staff/overview" element={<Overview />} />
+            <Route path="/staff/changeinfo/:id" element={<ChangeInfo />} />
+            <Route path="/staff/feedback" element={<Feedback />} />
+            <Route path="/staff/note" element={<Note />} />
+            <Route path="/staff/order" element={<Order />} />
+            <Route path="/staff/product" element={<Product />} />
+            <Route path="/staff/setting" element={<Setting />} />
+            <Route path="/staff/dashboard" element={<Dashboard />} />
+            <Route path="/staff/customer" element={<Customer />} />
+            <Route path="/staff/staff" element={<Staff />} />
+            </>
+          )
+        }
 
         <Route path="*" element={<Error />} />
       </Routes>

@@ -1,23 +1,25 @@
 require('dotenv').config()
 
-const dashboardRouter = require('./dashboard')
 const loginRouter = require('./login')
 const feedbackRouter = require('./feedback')
-const historyRouter = require('./history')
 const registerRouter = require('./register')
 const productRouter = require('./product')
 const cartRouter = require('./cart')
 const orderRouter = require('./order')
+const customerRouter = require('./customer')
+const noteRouter = require('./note')
+const staffRouter = require('./staff')
 
 function route(app) {
-    app.use('/', dashboardRouter)
     app.use('/login', loginRouter)
     app.use('/register', registerRouter)
     app.use('/feedback', feedbackRouter)
-    app.use('/history', historyRouter)
     app.use('/product', productRouter)
     app.use('/cart', cartRouter)
     app.use('/order', orderRouter)
+    app.use('/customer', customerRouter)
+    app.use('/note', noteRouter)
+    app.use('/staff', staffRouter)
 
     const env = process.env.NODE_ENV
     

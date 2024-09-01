@@ -49,7 +49,9 @@ class LoginController
                 email: userLogin.email, 
                 phonenumber: userLogin.phonenumber, 
                 address: userLogin.address, 
-                role: userLogin.role
+                role: userLogin.role,
+                position: userLogin.position,
+                gender: userLogin.gender
             }, process.env.SECRET_KEY, { expiresIn: '1h' })
 
             // Store variables in session
@@ -64,10 +66,7 @@ class LoginController
                 user: {
                     id: userLogin.id,
                     username: userLogin.username,
-                    name: userLogin.name, 
-                    email: userLogin.email, 
-                    phonenumber: userLogin.phonenumber, 
-                    address: userLogin.address, 
+                    name: userLogin.name,
                     role: userLogin.role
                 }
             })
