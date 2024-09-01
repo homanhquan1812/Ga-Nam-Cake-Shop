@@ -7,28 +7,59 @@ This website is designed to facilitate convenient online ordering from our cake 
 # Website address
 > https://ganamcakeshop.onrender.com/
 
-# Technologies used to build this website
-## MERN Stack
-## PERN Stack
+# Version information
 ## Handlebars - MongoDB
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/a91e185f-1b6a-48f6-bdc8-baa638873cb7" alt="NodeJS + ExpressJS Logo" width="600">
+</div>
+
+### Technologies used to build this website
 1. Frontend: <b>HTML, CSS, SCSS, Javascript</b>.
-2. Backend: <b>NodeJS and ExpressJS</b>
+2. Backend: <b>NodeJS and ExpressJS (Handlebars)</b>
 3. NoSQL Database: <b>MongoDB</b>.
 4. Cloud Database: <b>MongoDB Atlas</b>.
 5. Hosting: <b>Render</b> (free).
 
-> Basically, hosting a website that people can access can't depend on an offline database. That's why our team uses MongoDB Atlas to let it connect to Render, so that the website can work perfectly.
-
-# Known issues
+### Known issues
 1. Managers can't remove any member(s) in <b>Members</b> section.
 2. Both <b>Remember me</b> and <b>Forgot password</b> in Login page haven't been implemented.
 3. No middleware.
 4. No responsive design.
 
-# Development status
+### Development status
+> Finished.
+
+## MERN Stack
+
+## PERN Stack
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/175a57dc-d00b-4857-a181-96097b535e7f" alt="NodeJS + ExpressJS Logo" width="600">
+</div>
+
+### Technologies used to build this website
+1. Frontend: <b>ReactJS</b>.
+2. Backend: <b>NodeJS and ExpressJS</b>
+3. SQL Database: <b>PostgreSQL</b>.
+4. Cloud Database: <b>?</b>.
+5. Hosting: <b>Render</b> (free).
+
+### What's new
+1. Removed adding new staff(s) from **Manager's Staffs page**.
+2. Fixed a bug whereby manager can't remove any member(s) in <b>Staffs</b> section.
+3. Manager can only adjust **Position** and **Role** per staff.
+4. Staff has to enter old password to update new password.
+5. Added JWTs, Bcrypt, Middleware.
+6. Improved system stability and performance.
+
+### Known issues
+1. CSS files loading is a bit slow.
+2. **Error** page may show up when login successful.
+
+### Development status
 > Finished.
 
 # How to use
+## Handlebars - MongoDB & MERN Stack
 1. Download and install <b>Node</b> and <b>MongoDB</b>.
 2. Extract <b>JSON Data.zip</b> and insert all JSON files into your MongoDB database like this:
    
@@ -46,6 +77,15 @@ npm start
    - <b>Employee</b>: nguyenanhthao123 - Thao#123@2022
    - <b>Manager</b>: tranvanan321 - An#321@1985
 6. To terminate batch job, use <b>Ctrl + C</b>.
+
+## PERN Stack
+1. Download and install <b>Node</b> and <b>PostgreSQL</b>.
+2. Insert data into database from **PostgreSQL Queries**. You may need to replace current PostgreSQL connection string with yours. Open <b>config/db.js</b> to do that.
+
+3. Open Terminal for **backend** folder, run: `npm start`, then `npm run dev` for **frontend** folder.
+
+4. Sign up 3 accounts (Manager, Employee, Customer) from **Login** page. Check API_KEY from **.env**.
+5. To terminate batch job, use <b>Ctrl + C</b>.
 
 # Screenshots
 ### Customers
@@ -66,6 +106,7 @@ npm start
 ![Untitled11](https://github.com/homanhquan1812/Ga-Nam-Cake-Shop/assets/130955957/45894c41-72b9-4687-b2df-5752187d6ed0)
 
 # Credits
+## Handlebars - MongoDB
 1. <b>Frontend Developers:</b>
   - Lê Ngọc Duyên (1952941)
   - Trần Xuân Trúc (1953061)
@@ -75,3 +116,9 @@ npm start
   - Trương Toàn Khiêm (1852465)
   - Trương Quang Nhã (2152822)
   - Nguyễn Phan Nhật Minh (2152767)
+
+## MERN Stack
+1. **Full-stack Developer**: Hồ Mạnh Quân.
+
+## PERN Stack
+1. **Full-stack Developer**: Hồ Mạnh Quân.
