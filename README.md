@@ -5,6 +5,9 @@
 This website is designed to facilitate convenient online ordering from our cake shop, ensuring prompt delivery of your selected products at your doorstep.
 
 # Website address
+
+Project used: **Handlebars - MongoDB**
+
 > https://ganamcakeshop.onrender.com/
 
 # Version information
@@ -40,7 +43,7 @@ This website is designed to facilitate convenient online ordering from our cake 
 1. Frontend: <b>ReactJS</b>.
 2. Backend: <b>NodeJS and ExpressJS</b>
 3. SQL Database: <b>PostgreSQL</b>.
-4. Cloud Database: <b>?</b>.
+4. Cloud Database: <b>Render</b>.
 5. Hosting: <b>Render</b> (free).
 
 ### What's new
