@@ -4,9 +4,9 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
 const morgan = require('morgan')
-const methodOverride = require('method-override')
 const session = require('express-session')
-const route = require('./routes')
+const MongoStore = require('connect-mongo')
+const route = require('./route')
 const cors = require('cors')
 const db = require('../config/db')
 
@@ -15,7 +15,8 @@ db.connect()
 
 // CORS
 app.use(cors({ 
-    origin: 'http://localhost:5173'
+    origin: 'http://localhost:5173',
+    credentials: true
 }))
 
 // Morgan
@@ -25,16 +26,18 @@ app.use(morgan('combined'))
 app.use(express.urlencoded({ extended: true })) 
 app.use(express.json())
 
-// Method override
-app.use(methodOverride('_method'))
-
 // Session
 app.use(session({
   secret: process.env.SECRET_KEY,
   resave: false,
   saveUninitialized: true,
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGODB_URI,
+    ttl: 24 * 60 * 60 // 1 day
+  }),
   cookie: { 
-    secure: false // Set to true if using HTTPS
+    secure: process.env.NODE_ENV === 'production', // Set to true if using HTTPS in production
+    maxAge: 24 * 60 * 60 * 1000 // 1 day
   } 
 }))
 
