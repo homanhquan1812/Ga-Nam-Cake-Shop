@@ -57,6 +57,8 @@ Project used: **Handlebars - MongoDB**
 1. CSS files loading is a bit slow.
 2. **Error** page may show up when login successful.
 
+### Development status
+> Finished.
 
 ## PERN Stack
 <div align="center">
