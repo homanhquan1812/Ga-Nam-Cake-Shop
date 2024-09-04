@@ -33,6 +33,30 @@ Project used: **Handlebars - MongoDB**
 > Finished.
 
 ## MERN Stack
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/afc65f54-728a-42da-996f-1bf16d14fef3" alt="MERN Logo" width="600" style="">
+</div>
+
+
+### Technologies used to build this website
+1. Frontend: <b>ReactJS</b>.
+2. Backend: <b>NodeJS and ExpressJS</b>
+3. SQL Database: <b>MongoDB</b>.
+4. Cloud Database: <b>Render</b>.
+5. Hosting: None.
+
+### What's new
+1. Removed adding new staff(s) from **Manager's Staffs page**.
+2. Fixed a bug whereby manager can't remove any member(s) in <b>Staffs</b> section.
+3. Manager can only adjust **Position** and **Role** per staff.
+4. Staff has to enter old password to update new password.
+5. Added JWTs, Bcrypt, Middleware.
+6. Improved system stability and performance.
+
+### Known issues
+1. CSS files loading is a bit slow.
+2. **Error** page may show up when login successful.
+
 
 ## PERN Stack
 <div align="center">
