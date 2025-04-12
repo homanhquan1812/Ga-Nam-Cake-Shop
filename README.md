@@ -137,7 +137,7 @@ npm start
 # Credits
 ## Handlebars - MongoDB
 1. <b>Frontend Developers:</b>
-  - Lê Ngọc Duyên (1952941)
+  - Lê Ngọc Duyên (1952623)
   - Trần Xuân Trúc (1953061)
   - Nguyễn Anh Tuấn (1953070)
 2. <b>Backend Developers:</b>
