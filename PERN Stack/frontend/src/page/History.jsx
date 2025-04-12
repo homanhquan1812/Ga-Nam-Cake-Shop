@@ -33,7 +33,7 @@ const History = () => {
               const response = await fetch('http://localhost:5000/order')
               if (response.status === 200) {
                 const data = await response.json()
-                const userOrders = data.orders.filter(order => order.user_id === userId)
+                const userOrders = data.order.filter(order => order.customer_id === userId)
                 setUserOrders(userOrders)
                 console.log("Got user's orders successfully.")
               }
@@ -82,11 +82,11 @@ const History = () => {
             </thead>
             <tbody>
             {
-                            userOrders.slice().reverse().map((order, index) => (
+                            userOrders && userOrders.slice().reverse().map((order, index) => (
                               (order.cart.items.length > 0) ? (
                                 <tr key={index}>
                                 <td>{index + 1}</td>
-                                <td>{order.created_at}</td>
+                                <td>{order.date_added}</td>
                                 {
                                   order.cart.items.map((item, index) => (
                                     <div key={index} style={{marginTop: '20px', marginBottom: '20px'}}>
@@ -103,7 +103,7 @@ const History = () => {
                                   ))
                                 }
                                 </td>
-                                <td>{order.cart.totalPrice}</td>
+                                <td>{order.cart.total_price}</td>
                                 <td>
                                     {order.delivered ? (
                                         <button type="button" className="btn btn-success">Delivered</button>

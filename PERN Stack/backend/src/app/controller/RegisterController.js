@@ -5,67 +5,109 @@ const { pool } = require('../../../config/db')
 
 class RegisterController
 {
-    // [POST] /register
-    async register(req, res, next)
+    // [POST] /register/customer
+    async customerRegister(req, res, next)
     {
         try {
-            const { name, username, password, key, email, phonenumber, gender, position, address } = req.body
+            const { full_name, username, password, email, phone, gender, address } = req.body
+            const brand_id = process.env.BRAND_ID
 
-            // Validate input fields
-            if (!name || !username || !password || !email || !phonenumber || !gender || !address || (key === undefined)) {
+            if (!full_name || !username || !password || !email || !phone || !gender || !address) {
                 return res.status(400).json('All required fields must be filled.')
             }
 
-            const userCheckQuery = 'SELECT 1 FROM users WHERE username = $1 UNION ALL SELECT 1 FROM admins WHERE username = $1 LIMIT 1'
+            const checkBrand_id = await pool.query(`SELECT id FROM brand WHERE id = $1`, [brand_id])
+            const convertToBoolean = checkBrand_id.rows.length > 0 // > 0 is to use true|false, not 0|1
+
+            if (!convertToBoolean) {
+                return res.status(404).json('Incorrect brand_id.')
+            }
+
+            const userCheckQuery = `SELECT 1 FROM member_information WHERE username = $1`
             const userCheckResult = await pool.query(userCheckQuery, [username])
 
-            // Account must be unique
             if (userCheckResult.rowCount > 0) {
                 return res.status(401).json('This username already exists.')
             }
-            
-            // Hashing + Salting
+   
             const saltRounds = 10
             const hashedPassword = await bcrypt.hash(password, saltRounds)
+            const memberInfoQuery = `
+                INSERT INTO member_information (full_name, username, password, role, email, phone, gender, address)
+                VALUES ($1, $2, $3, 'User', $4, $5, $6, $7)
+                RETURNING id
+            `;
+            const memberInfoValues = [full_name, username, hashedPassword, email, phone, gender, address];
+            const memberInfoResult = await pool.query(memberInfoQuery, memberInfoValues);
+            const member_information_id = memberInfoResult.rows[0].id; // Get the generated UUID
 
-            // User registration
-            if (key !== process.env.MANAGER_KEY && key !== process.env.EMPLOYEE_KEY) {
-                const cart = { totalPrice: 0, items: [] }
+            // const cart = { total_price: 0, items: [] };
+            const customerQuery = `
+                INSERT INTO customer (member_information_id, brand_id)
+                VALUES ($1, $2)
+                RETURNING id
+            `; // 'cart' removed
+            const customerValues = [member_information_id, brand_id]; // 'JSON.stringify(cart)' removed
 
-                const registerUserQuery = `
-                    INSERT INTO users (name, username, password, role, email, phonenumber, cart, gender, address)
-                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
-                    RETURNING id
-                `
-                const registerUserValues = [name, username, hashedPassword, 'User', email, phonenumber, JSON.stringify(cart), gender, address]
-                await pool.query(registerUserQuery, registerUserValues)
+            await pool.query(customerQuery, customerValues);
 
-                res.status(201).json('User registered successfully.')
-            } 
-            // Employee registration
-            else if (key === process.env.EMPLOYEE_KEY) {
-                const registerAdminQuery = `
-                    INSERT INTO admins (name, username, password, role, email, phonenumber, gender, position, address)
-                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
-                    RETURNING id
-                `
-                const registerAdminValues = [name, username, hashedPassword, 'Employee', email, phonenumber, gender, position, address]
-                await pool.query(registerAdminQuery, registerAdminValues)
+            res.status(201).json('User registered successfully.');
+        } catch (error) {
+            next(error)
+        }
+    }
 
-                res.status(201).json('Employee registered successfully.')
-            }    
-            // Manager registration
-            else if (key === process.env.MANAGER_KEY) {
-                const registerAdminQuery = `
-                    INSERT INTO admins (name, username, password, role, email, phonenumber, gender, position, address)
-                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
-                    RETURNING id
-                `
-                const registerAdminValues = [name, username, hashedPassword, 'Manager', email, phonenumber, gender, position, address]
-                await pool.query(registerAdminQuery, registerAdminValues)
+    // [POST] /register/staff
+    async staffRegister(req, res, next)
+    {
+        try {
+            const { full_name, username, password, email, phone, gender, address, role, salary, brand_id, branch_id } = req.body
 
-                res.status(201).json('Manager registered successfully.')
-            }     
+            if (!full_name || !username || !password || !email || !phone || !gender || !address || !role || !salary || !brand_id || !branch_id) {
+                return res.status(400).json('All required fields must be filled.')
+            }
+
+            const checkBrand_id = await pool.query(`SELECT id FROM brand WHERE id = $1`, [brand_id])
+            const convertToBoolean1 = checkBrand_id.rows.length > 0 // > 0 is to use true|false, not 0|1
+
+            if (!convertToBoolean1) {
+                return res.status(404).json('Incorrect brand_id.')
+            }
+
+            const checkBranch_id = await pool.query(`SELECT id FROM branch WHERE id = $1`, [branch_id])
+            const convertToBoolean2 = checkBranch_id.rows.length > 0 // > 0 is to use true|false, not 0|1
+
+            if (!convertToBoolean2) {
+                return res.status(404).json('Incorrect branch_id.')
+            }
+
+            const userCheckQuery = `SELECT 1 FROM member_information WHERE username = $1`
+            const userCheckResult = await pool.query(userCheckQuery, [username])
+
+            if (userCheckResult.rowCount > 0) {
+                return res.status(401).json('This username already exists.')
+            }
+   
+            const saltRounds = 10
+            const hashedPassword = await bcrypt.hash(password, saltRounds)
+            const memberInfoQuery = `
+                INSERT INTO member_information (full_name, username, password, role, email, phone, gender, address)
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+                RETURNING id
+            `;
+            const memberInfoValues = [full_name, username, hashedPassword, role, email, phone, gender, address];
+            const memberInfoResult = await pool.query(memberInfoQuery, memberInfoValues);
+            const member_information_id = memberInfoResult.rows[0].id;
+            const staffQuery = `
+                INSERT INTO staff (member_information_id, brand_id, branch_id, salary)
+                VALUES ($1, $2, $3, $4)
+                RETURNING id
+            `; 
+            const staffValues = [member_information_id, brand_id, branch_id, salary]; 
+
+            await pool.query(staffQuery, staffValues);
+
+            res.status(201).json('Staff registered successfully.');
         } catch (error) {
             next(error)
         }

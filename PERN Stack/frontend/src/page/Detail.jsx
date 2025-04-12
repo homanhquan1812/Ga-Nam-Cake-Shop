@@ -52,12 +52,9 @@ const Details = () => {
         }
 
         const response = await axios.post('http://localhost:5000/cart', {
-          id: decodedToken.id,
-          name: info.product_name,
-          price: info.price,
-          photo: info.photo,
+          customer_id: decodedToken.id,
           quantity: quantity,
-          productId: info.id
+          product_id: info.id
         })
         
         if (response.status == 201) {
@@ -83,12 +80,9 @@ const Details = () => {
         }
 
         const response = await axios.post('http://localhost:5000/cart', {
-          id: decodedToken.id,
-          name: info.product_name,
-          price: info.price,
-          photo: info.photo,
+          customer_id: decodedToken.id,
           quantity: 1,
-          productId: info.id
+          product_id: info.id
         });
 
         if (response.status === 201) {
@@ -169,7 +163,7 @@ const Details = () => {
               </div>
             </div>
             <div className="right">
-              <div className="pname">{info.product_name}</div>
+              <div className="pname">{info.name}</div>
               <div className="ratings">
                 <i className="fas fa-star" />
                 <i className="fas fa-star" />
@@ -205,14 +199,14 @@ const Details = () => {
                   <div className="card card-course-item" style={{width: '11rem', height: '300px', margin: '0 0 20px 10px'}}>
                     <img className="card-img-top" style={{width: '100%', height: '100px'}} src={product.photo} />
                     <div className="card-body">
-                      <h5 className="card-title">{product.product_name}</h5>
+                      <h5 className="card-title">{product.name}</h5>
                       {/*
                         <p class="card-text" style="font-size: 12px height: 80px overflow: hidden">{{this.description}}</p>
                         */}
                       <div style={{position: 'absolute', bottom: '65px', left: 0, right: 0, textAlign: 'center'}}>
                         <p className="card-text"><b>{product.price} VND</b></p>
                       </div>
-                      <a href={`/details/${product.id}`} className="btn btn-primary" style={{position: 'absolute', bottom: '20px', left: '10px', right: '10px'}}>More Details</a>
+                      <a href={`/detail/${product.id}`} className="btn btn-primary" style={{position: 'absolute', bottom: '20px', left: '10px', right: '10px'}}>More Details</a>
                     </div>  
                   </div>
                 </div>

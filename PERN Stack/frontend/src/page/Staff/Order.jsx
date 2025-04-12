@@ -16,14 +16,20 @@ const Order = () => {
     }
     const handleDeleteOrders_M = async () => {
         try {
-            await axios.put(`http://localhost:5000/order/manager/${ordersID}`)
+            const result = await axios.put(`http://localhost:5000/order/manager/${ordersID}`)
+            if (result.response === 200) {
+                console.log('Successful')
+            }
         } catch (error) {
             console.error('Error deleting course:', error) 
         }
     }
     const handleDeleteOrders_E = async () => {
         try {
-            await axios.put(`http://localhost:5000/order/employee/${ordersID}`)
+            const result = await axios.put(`http://localhost:5000/order/employee/${ordersID}`)
+            if (result.response === 200) {
+                console.log('Successful')
+            }
         } catch (error) {
             console.error('Error deleting course:', error) 
         }
@@ -34,7 +40,7 @@ const Order = () => {
           try {
             const response = await fetch('http://localhost:5000/order')
             const data = await response.json()
-            setOrders(data.orders)
+            setOrders(data.order)
           } catch (error) {
             console.error('Error fetching data:', error)
           }
@@ -108,11 +114,11 @@ const Order = () => {
                         let counter = 0
 
                         return orders && orders.slice().reverse().map((order) => (
-                            !order.deleted && !order.declined && !order.delivered && (
-                                <tr key={order._id}>
+                            order && order.status === 'Processing' && (
+                                <tr key={order.id}>
                                 <td>{++counter}</td>
-                                <td>{order.name}</td>
-                                <td>{order.phonenumber}</td>
+                                <td>{order.full_name}</td>
+                                <td>{order.phone}</td>
                                 <td>{order.address}</td>
                                 <td>
                                     {order.cart.items.map((product, index) => (
@@ -122,7 +128,7 @@ const Order = () => {
                                         </div>
                                     ))}
                                 </td>
-                                <td>{order.cart.totalPrice}</td>
+                                <td>{order.cart.total_price}</td>
                                 {
                                     role === 'Manager' ? (
                                         <td><button type="button" class="btn btn-danger"  data-toggle="modal" data-id={order.id} data-target="#delete-course-modal" onClick={() => handleDeleteModalShow(order.id)}>Decline</button></td>

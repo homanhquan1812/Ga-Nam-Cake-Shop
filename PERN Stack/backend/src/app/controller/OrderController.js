@@ -9,12 +9,11 @@ class OrderController
     // [GET] /order
     async getAllOrders(req, res, next) {
         try {
-            const ordersQuery = 'SELECT * FROM orders'
-            const ordersResult = await pool.query(ordersQuery)
-            const orders = ordersResult.rows
+            const orderQuery = `SELECT * FROM "order";`
+            const orderResult = await pool.query(orderQuery)
 
             res.status(200).json({
-                orders: orders
+                order: orderResult.rows
             })
         } catch (error) {
             next(error)
@@ -25,16 +24,25 @@ class OrderController
     async createAnOrder(req, res, next)
     {
         try {        
-            const { name, email, phonenumber, address, cart, user_id, delivered, declined } = req.body
+            const { customer_id, brand_id, branch_id, payment_method, cart } = req.body
+            const customerQuery = 'SELECT * FROM member_information INNER JOIN customer ON customer.member_information_id = member_information.id WHERE customer.id = $1;'
+            const customerResult = await pool.query(customerQuery, [customer_id])
             const insertOrderQuery = `
-                INSERT INTO orders (name, email, phonenumber, address, user_id, cart, delivered, declined)
-                VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+                INSERT INTO "order" (customer_id, full_name, email, phone, gender, address, brand_id, branch_id, status, payment_method, cart)
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
                 RETURNING *
             `
-            const orderResult = await pool.query(insertOrderQuery, [name, email, phonenumber, address, user_id, cart, delivered, declined])
+            const orderResult = await pool.query(insertOrderQuery, [
+                customer_id, 
+                customerResult.rows[0].full_name, 
+                customerResult.rows[0].email, 
+                customerResult.rows[0].phone, 
+                customerResult.rows[0].gender, 
+                customerResult.rows[0].address, 
+                brand_id, branch_id, 'Processing', payment_method, cart])
             const newOrder = orderResult.rows[0]
-            const userQuery = 'SELECT * FROM users WHERE id = $1'
-            const userResult = await pool.query(userQuery, [user_id])
+            const userQuery = `SELECT * FROM member_information INNER JOIN customer ON customer.member_information_id = member_information.id WHERE customer.id = $1;`
+            const userResult = await pool.query(userQuery, [customer_id])
 
             if (userResult.rows.length === 0) {
                 return res.status(404).json({
@@ -44,8 +52,8 @@ class OrderController
 
             const userMatch = userResult.rows[0]
             const resetCartQuery = `
-                UPDATE users
-                SET cart = '{"totalPrice": 0, "items": []}'
+                UPDATE customer
+                SET cart = '{"total_price": 0, "items": []}'
                 WHERE id = $1
             `
             await pool.query(resetCartQuery, [userMatch.id])
@@ -64,7 +72,7 @@ class OrderController
     {
         try {
             const id = req.params.id
-            const checkOrderQuery = 'SELECT * FROM orders WHERE id = $1'
+            const checkOrderQuery = 'SELECT * FROM "order" WHERE id = $1'
             const orderResult = await pool.query(checkOrderQuery, [id])
 
             if (orderResult.rows.length === 0) {
@@ -74,8 +82,8 @@ class OrderController
             }
 
             const updateOrderQuery = `
-                UPDATE orders
-                SET delivered = true
+                UPDATE "order"
+                SET status = 'Delivered'
                 WHERE id = $1
                 RETURNING *
             `;
@@ -96,7 +104,7 @@ class OrderController
     {
         try {
             const id = req.params.id
-            const checkOrderQuery = 'SELECT * FROM orders WHERE id = $1'
+            const checkOrderQuery = 'SELECT * FROM "order" WHERE id = $1'
             const orderResult = await pool.query(checkOrderQuery, [id])
 
             if (orderResult.rows.length === 0) {
@@ -106,8 +114,8 @@ class OrderController
             }
 
             const updateOrderQuery = `
-                UPDATE orders
-                SET declined = true
+                UPDATE "order"
+                SET status = 'Declined'
                 WHERE id = $1
                 RETURNING *
             `;

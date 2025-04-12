@@ -73,7 +73,7 @@ const Sidebar = () => {
                     <Link to="/staff/order" className={isActive('/staff/order')}>
                         <span className="material-symbols-outlined">list_alt</span>
                         <h3>New Orders</h3>
-                        {orders.length > 0 && (
+                        {orders && orders.length > 0 && (
                             <span className="message-count">{countRow(orders)}</span>
                         )}
                     </Link>

@@ -24,7 +24,7 @@ const Overview = () => {
             try {
               const response = await fetch('http://localhost:5000/order');
               const data = await response.json();
-              setOrders(data.orders);
+              setOrders(data.order);
             } catch (error) {
               console.error('Error fetching data:', error);
             }
@@ -42,9 +42,9 @@ const Overview = () => {
 
       const getTotal = (orders) => {
         let totalSum = 0;
-        orders.forEach(order => {
-          if (order && !order.declined && order.delivered) {
-            totalSum += order.cart.totalPrice || 0;
+        orders && orders.forEach(order => {
+          if (order && order.status === 'Delivered') {
+            totalSum += order.cart.total_price || 0;
           }
         });
         return totalSum;
@@ -80,12 +80,12 @@ const Overview = () => {
             </thead>
             <tbody>
                 {
-                    orders.slice().reverse().map((order, index) =>
+                    orders && orders.slice().reverse().map((order, index) =>
                         (
                         <tr key={order.id}>
                             <td>{index + 1}</td>
-                            <td>{order.name}</td>
-                            <td>{order.phonenumber}</td>
+                            <td>{order.full_name}</td>
+                            <td>{order.phone}</td>
                             <td>
                             {order.cart.items.map((product, index) => (
                                 <div key={index}>
@@ -95,17 +95,17 @@ const Overview = () => {
                                 ))}
                             </td>
                             <td>
-                            {order.declined && (
+                            {order.status === 'Declined' && (
                                 <button type="button" className="btn btn-danger">
                                 Declined
                                 </button>
                             )}
-                            {!order.declined && order.delivered && (
+                            {order.status === 'Delivered' && (
                                 <button type="button" className="btn btn-success">
                                 Delivered
                                 </button>
                             )}
-                            {!order.declined && !order.delivered && (
+                            {order.status === 'Processing' && (
                                 <button type="button" className="btn btn-warning">
                                 Processing
                                 </button>

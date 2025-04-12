@@ -40,7 +40,7 @@ const Menu = () => {
   
         const response = await axios.post('http://localhost:5000/cart', {
           id: decodedToken.id,
-          name: info.product_name,
+          name: info.name,
           price: info.price,
           photo: info.photo,
           quantity: 1,
@@ -183,7 +183,7 @@ const Menu = () => {
                         <div className="showcase__info">
                             <div className="showcase__des">
                             <h4>
-                                <a href={`/detail/${product.id}`}>{product.product_name}</a>
+                                <a href={`/detail/${product.id}`}>{product.name}</a>
                             </h4>
                             Sold:<p className="demo" />
                             <p>
@@ -209,7 +209,7 @@ const Menu = () => {
                     <div className="showcase__info">
                         <div className="showcase__des">
                         <h4>
-                            <a href={`/detail/${product.id}`}>{product.product_name}</a>
+                            <a href={`/detail/${product.id}`}>{product.name}</a>
                         </h4>
                         Sold:<p className="demo" />
                         <p>
@@ -236,7 +236,7 @@ const Menu = () => {
                     <div className="showcase__info">
                         <div className="showcase__des">
                         <h4>
-                            <a href={`/detail/${product.id}`}>{product.product_name}</a>
+                            <a href={`/detail/${product.id}`}>{product.name}</a>
                         </h4>
                         Sold:<p className="demo" />
                         <p>
@@ -262,7 +262,7 @@ const Menu = () => {
                     <div className="showcase__info">
                         <div className="showcase__des">
                         <h4>
-                            <a href={`/detail/${product.id}`}>{product.product_name}</a>
+                            <a href={`/detail/${product.id}`}>{product.name}</a>
                         </h4>
                         Sold:<p className="demo" />
                         <p>
@@ -288,7 +288,7 @@ const Menu = () => {
                     <div className="showcase__info">
                         <div className="showcase__des">
                         <h4>
-                            <a href={`/detail/${product.id}`}>{product.product_name}</a>
+                            <a href={`/detail/${product.id}`}>{product.name}</a>
                         </h4>
                         Sold:<p className="demo" />
                         <p>
@@ -313,7 +313,7 @@ const Menu = () => {
                     <div className="showcase__info">
                         <div className="showcase__des">
                         <h4>
-                            <a href={`/detail/${product.id}`}>{product.product_name}</a>
+                            <a href={`/detail/${product.id}`}>{product.name}</a>
                         </h4>
                         Sold:<p className="demo" />
                         <p>

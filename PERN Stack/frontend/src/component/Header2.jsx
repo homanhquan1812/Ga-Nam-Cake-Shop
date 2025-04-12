@@ -101,7 +101,7 @@ export const Header2 = () => {
                         <div className="top">
                             <div className="profile">
                                 <div className="info">
-                                    <p style={{color: 'white'}}>Welcome back, <b style={{color: 'yellow'}}>{user.name}</b>.</p>
+                                    <p style={{color: 'white'}}>Welcome back, <b style={{color: 'yellow'}}>{user.full_name}</b>.</p>
                                     <p style={{color: 'white'}}>Position: <b style={{color: 'cyan'}}>{user.position}</b>, Role: <b style={{color: 'orange'}}>{user.role}</b></p>
                                 </div>
                                 <div className="profile-photo">

@@ -9,6 +9,8 @@ const orderRouter = require('./order')
 const customerRouter = require('./customer')
 const noteRouter = require('./note')
 const staffRouter = require('./staff')
+const brandRouter = require('./brand')
+const branchRouter = require('./branch')
 
 function route(app) {
     app.use('/login', loginRouter)
@@ -20,6 +22,8 @@ function route(app) {
     app.use('/customer', customerRouter)
     app.use('/note', noteRouter)
     app.use('/staff', staffRouter)
+    app.use('/brand', brandRouter)
+    app.use('/branch', branchRouter)
 
     const env = process.env.NODE_ENV
     

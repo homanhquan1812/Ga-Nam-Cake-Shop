@@ -11,10 +11,8 @@ const Cart = () => {
     const [user, setUser] = useState([])
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [username, setUsername] = useState('')
-    const [phonenumber, setPhoneNumber] = useState('')
-    const [address, setAddress] = useState('')
     const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
+    const [brand_id, setBrandId] = useState('')
     const [cart, setCart] = useState([{
         items: [],
         totalPrice: 0
@@ -34,7 +32,7 @@ const Cart = () => {
     const orderProducts = async (id) => {
       try {
         const response = await axios.post('http://localhost:5000/order', {
-          name, email, phonenumber, address, cart, user_id: id, delivered: false, declined: false
+          customer_id: id, brand_id: brand_id, branch_id: '109db7f7-52a2-41fd-bfa6-9637df5cc248', payment_method: 'Cash', cart: cart
         })
   
         if (response.status == 201) {
@@ -56,9 +54,7 @@ const Cart = () => {
           setUserId(decodedToken.id)
           setUsername(decodedToken.username)
           setName(decodedToken.name)
-          setEmail(decodedToken.email)
-          setPhoneNumber(decodedToken.phonenumber)
-          setAddress(decodedToken.address)
+          setBrandId(decodedToken.brand_id)
         }
     
         const checkToken = () => {

@@ -12,12 +12,11 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [gender, setGender] = useState('');
-  const [phonenumber, setPhoneNumber] = useState('');
+  const [phone, setphone] = useState('');
   const [address, setAddress] = useState('');
   const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
+  const [full_name, setName] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [key, setKey] = useState('')
   const navigateTo = useNavigate()
 
   const loginSubmit = async (e) => {
@@ -50,15 +49,14 @@ const Login = () => {
     e.preventDefault()
 
     try {
-      const response = await axios.post('http://localhost:5000/register', {
-        name,
+      const response = await axios.post('http://localhost:5000/register/customer', {
+        full_name,
         gender,
-        phonenumber,
+        phone,
         address,
         username,
         email,
-        password,
-        key
+        password
       })
 
       if (response.status === 400) {
@@ -179,12 +177,12 @@ const Login = () => {
                 <div className="left-section">
                     <div className="inputbox">
                     <span className="icon"><IonIcon name="person-circle" /></span>
-                    <input type="text" id="name" name="name"  value={name} onChange={(e) => setName(e.target.value)} required />
+                    <input type="text" id="name" name="name"  value={full_name} onChange={(e) => setName(e.target.value)} required />
                     <label>Full Name</label>
                     </div>
                     <div className="inputbox">
                     <span className="icon"><IonIcon name="call" /></span>
-                    <input type="text" id="phonenumber" name="phonenumber"  value={phonenumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
+                    <input type="text" id="phone" name="phone"  value={phone} onChange={(e) => setphone(e.target.value)} required />
                     <label>Phone Number</label>
                     </div>
                     <div className="inputbox">
@@ -211,11 +209,6 @@ const Login = () => {
                     <span className="icon"><IonIcon id="changeLogo2" name="eye-off" onClick={myFunction2} /></span>
                     <input type="password" id="password" name="password"  value={password} onChange={(e) => setPassword(e.target.value)} required />
                     <label>Password</label>
-                    </div>
-                    <div className="inputbox">
-                    <span className="icon"><IonIcon name="mail" /></span>
-                    <input type="text" id="key" name="key" placeholder='Only for staffs.'  value={key} onChange={(e) => setKey(e.target.value)} required/>
-                    <label>Staff Key</label>
                     </div>
                 </div>
                 {/* Right Section

@@ -104,9 +104,9 @@ const Customer = () => {
                         return customers && customers.map((customer) => (
                             <tr key={customer.id}>
                                 <td>{++counter}</td>
-                                <td>{customer.name}</td>
+                                <td>{customer.full_name}</td>
                                 <td>{customer.gender}</td>
-                                <td>{customer.phonenumber}</td>
+                                <td>{customer.phone}</td>
                                 <td>{customer.address}</td>
                                 <td>{customer.email}</td>
                                 <td>

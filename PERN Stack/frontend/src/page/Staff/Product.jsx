@@ -29,7 +29,7 @@ const Product = () => {
         e.preventDefault()
         try {
           await axios.post('http://localhost:5000/product', {
-            product_name: csw_products,
+            name: csw_products,
             type,
             description,
             price,
@@ -144,8 +144,8 @@ const Product = () => {
                         return products && products.map((product) => (
                             <tr key={product.id}>
                                 <td>{++counter}</td>
-                                <td>{product.product_name}</td>
-                                <td><img src={product.photo} alt={product.product_name} className="photo" /></td>
+                                <td>{product.name}</td>
+                                <td><img src={product.photo} alt={product.name} className="photo" /></td>
                                 <td>{product.created_at}</td>
                                 <td>{product.type}</td>
                                 <td>{product.description}</td>

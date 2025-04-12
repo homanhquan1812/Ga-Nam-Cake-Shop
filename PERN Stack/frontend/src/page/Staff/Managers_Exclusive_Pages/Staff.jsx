@@ -63,7 +63,7 @@ const Customer = () => {
 
     const fetchStaffsData = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/staff/${import.meta.env.VITE_APP_API_KEY}`)
+            const response = await fetch(`http://localhost:5000/staff`)
             const data = await response.json()
             setStaffs(data.staff)
         } catch (error) {
@@ -111,9 +111,9 @@ const Customer = () => {
                                         {staffs.map((staff, index) => (
                                             <tr key={staff.id}>
                                                 <td>{index + 1}</td>
-                                                <td>{staff.name}</td>
+                                                <td>{staff.full_name}</td>
                                                 <td>{staff.gender}</td>
-                                                <td>{staff.phonenumber}</td>
+                                                <td>{staff.phone}</td>
                                                 <td>{staff.email}</td>
                                                 <td>
                                                     <div className="changeCurrentPosition"> 
@@ -129,16 +129,6 @@ const Customer = () => {
                                                 </td>
                                                 <td> 
                                                     <div className="changeCurrentDepartment">
-                                                        {staff.role !== 'Manager' ? (
-                                                            <input 
-                                                                style={{width: '100px'}} 
-                                                                type="text" 
-                                                                className="form-control" 
-                                                                defaultValue={staff.role} 
-                                                                onChange={(e) => handleInputChange(staff.id, 'role', e.target.value)} 
-                                                                name="role" 
-                                                            />
-                                                        ) : (
                                                             <input 
                                                                 style={{width: '100px'}} 
                                                                 type="text" 
@@ -147,7 +137,6 @@ const Customer = () => {
                                                                 name="role" 
                                                                 disabled 
                                                             />
-                                                        )}
                                                     </div>
                                                 </td>
                                                 <td>

@@ -101,7 +101,7 @@ export const Header = () => {
                         isLoggedIn && (
                             <>
                                 <li className="nav-item">
-                                    <a className="nav-link active" href="#">{user.name}</a>
+                                    <a className="nav-link active" href="#">{user.full_name}</a>
                                 </li>
                                 <li className="nav-item">
                                     <a href="/cart">
