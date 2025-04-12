@@ -38,9 +38,9 @@ const Menu = () => {
           decodedToken = jwtDecode(token);
         }
   
-        const response = await axios.post('http://localhost:5000/cart', {
+        const response = await axios.post(`${import.meta.env.VITE_APP_WEB_SERVICE}/cart`, {
           id: decodedToken.id,
-          name: info.name,
+          name: info.product_name,
           price: info.price,
           photo: info.photo,
           quantity: 1,
@@ -59,7 +59,7 @@ const Menu = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await fetch('http://localhost:5000/product');
+          const response = await fetch(`${import.meta.env.VITE_APP_WEB_SERVICE}/product`);
           const data = await response.json();
           setProducts(data.product);
         } catch (error) {
@@ -74,7 +74,7 @@ const Menu = () => {
       const fetchData2 = async () => {
         try {
           if (productId) {
-            const response = await fetch(`http://localhost:5000/product/${productId}`);
+            const response = await fetch(`${import.meta.env.VITE_APP_WEB_SERVICE}/product/${productId}`);
             const data = await response.json();
             setInfo(data.product);
           }
@@ -183,7 +183,7 @@ const Menu = () => {
                         <div className="showcase__info">
                             <div className="showcase__des">
                             <h4>
-                                <a href={`/detail/${product.id}`}>{product.name}</a>
+                                <a href={`/detail/${product.id}`}>{product.product_name}</a>
                             </h4>
                             Sold:<p className="demo" />
                             <p>
@@ -209,7 +209,7 @@ const Menu = () => {
                     <div className="showcase__info">
                         <div className="showcase__des">
                         <h4>
-                            <a href={`/detail/${product.id}`}>{product.name}</a>
+                            <a href={`/detail/${product.id}`}>{product.product_name}</a>
                         </h4>
                         Sold:<p className="demo" />
                         <p>
@@ -236,7 +236,7 @@ const Menu = () => {
                     <div className="showcase__info">
                         <div className="showcase__des">
                         <h4>
-                            <a href={`/detail/${product.id}`}>{product.name}</a>
+                            <a href={`/detail/${product.id}`}>{product.product_name}</a>
                         </h4>
                         Sold:<p className="demo" />
                         <p>
@@ -262,7 +262,7 @@ const Menu = () => {
                     <div className="showcase__info">
                         <div className="showcase__des">
                         <h4>
-                            <a href={`/detail/${product.id}`}>{product.name}</a>
+                            <a href={`/detail/${product.id}`}>{product.product_name}</a>
                         </h4>
                         Sold:<p className="demo" />
                         <p>
@@ -288,7 +288,7 @@ const Menu = () => {
                     <div className="showcase__info">
                         <div className="showcase__des">
                         <h4>
-                            <a href={`/detail/${product.id}`}>{product.name}</a>
+                            <a href={`/detail/${product.id}`}>{product.product_name}</a>
                         </h4>
                         Sold:<p className="demo" />
                         <p>
@@ -313,7 +313,7 @@ const Menu = () => {
                     <div className="showcase__info">
                         <div className="showcase__des">
                         <h4>
-                            <a href={`/detail/${product.id}`}>{product.name}</a>
+                            <a href={`/detail/${product.id}`}>{product.product_name}</a>
                         </h4>
                         Sold:<p className="demo" />
                         <p>

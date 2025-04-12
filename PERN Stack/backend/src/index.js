@@ -16,7 +16,7 @@ db.connect()
 
 // CORS
 app.use(cors({ 
-    origin: 'https://ga-nam-cake-shop-1.onrender.com',
+    origin: `${process.env.STATIC_SITE}`,
     credentials: true
 }))
 

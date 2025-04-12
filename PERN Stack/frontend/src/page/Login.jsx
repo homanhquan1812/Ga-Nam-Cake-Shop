@@ -23,7 +23,7 @@ const Login = () => {
     e.preventDefault()
   
     try {
-      const response = await axios.post('http://localhost:5000/login', {
+      const response = await axios.post(`${import.meta.env.VITE_APP_WEB_SERVICE}/login`, {
         username: loginUsername,
         password: loginPassword
       })
@@ -49,7 +49,7 @@ const Login = () => {
     e.preventDefault()
 
     try {
-      const response = await axios.post('http://localhost:5000/register/customer', {
+      const response = await axios.post(`${import.meta.env.VITE_APP_WEB_SERVICE}/register/customer`, {
         full_name,
         gender,
         phone,

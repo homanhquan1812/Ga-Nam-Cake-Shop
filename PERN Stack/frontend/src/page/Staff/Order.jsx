@@ -16,7 +16,7 @@ const Order = () => {
     }
     const handleDeleteOrders_M = async () => {
         try {
-            const result = await axios.put(`http://localhost:5000/order/manager/${ordersID}`)
+            const result = await axios.put(`${import.meta.env.VITE_APP_WEB_SERVICE}/order/manager/${ordersID}`)
             if (result.response === 200) {
                 console.log('Successful')
             }
@@ -26,7 +26,7 @@ const Order = () => {
     }
     const handleDeleteOrders_E = async () => {
         try {
-            const result = await axios.put(`http://localhost:5000/order/employee/${ordersID}`)
+            const result = await axios.put(`${import.meta.env.VITE_APP_WEB_SERVICE}/order/employee/${ordersID}`)
             if (result.response === 200) {
                 console.log('Successful')
             }
@@ -38,7 +38,7 @@ const Order = () => {
     useEffect(() => {
         const fetchOrdersData = async () => {
           try {
-            const response = await fetch('http://localhost:5000/order')
+            const response = await fetch(`${import.meta.env.VITE_APP_WEB_SERVICE}/order`)
             const data = await response.json()
             setOrders(data.order)
           } catch (error) {

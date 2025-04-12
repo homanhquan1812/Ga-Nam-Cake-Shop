@@ -13,7 +13,7 @@ const Note = () => {
     const submit = async (e) => {
         e.preventDefault()
         try {
-          await axios.post('http://localhost:5000/note', {
+          await axios.post(`${import.meta.env.VITE_APP_WEB_SERVICE}/note`, {
             note: csw_notes
           })
         } catch (error) {
@@ -27,7 +27,7 @@ const Note = () => {
 
     const handleDeleteNotes = async () => {
         try {
-          await axios.delete(`http://localhost:5000/note/${noteID}`)
+          await axios.delete(`${import.meta.env.VITE_APP_WEB_SERVICE}/note/${noteID}`)
         } catch (error) {
             console.log(error)
         }
@@ -36,7 +36,7 @@ const Note = () => {
     useEffect(() => {
         const fetchNotesData = async () => {
           try {
-            const response = await fetch('http://localhost:5000/note')
+            const response = await fetch(`${import.meta.env.VITE_APP_WEB_SERVICE}/note`)
             const data = await response.json()
             setNotes(data.note)
           } catch (error) {

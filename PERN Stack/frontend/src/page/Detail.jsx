@@ -51,7 +51,7 @@ const Details = () => {
             decodedToken = jwtDecode(token)
         }
 
-        const response = await axios.post('http://localhost:5000/cart', {
+        const response = await axios.post(`${import.meta.env.VITE_APP_WEB_SERVICE}/cart`, {
           customer_id: decodedToken.id,
           quantity: quantity,
           product_id: info.id
@@ -79,7 +79,7 @@ const Details = () => {
           decodedToken = jwtDecode(token);
         }
 
-        const response = await axios.post('http://localhost:5000/cart', {
+        const response = await axios.post(`${import.meta.env.VITE_APP_WEB_SERVICE}/cart`, {
           customer_id: decodedToken.id,
           quantity: 1,
           product_id: info.id
@@ -98,7 +98,7 @@ const Details = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/product/${id}`)
+        const response = await fetch(`${import.meta.env.VITE_APP_WEB_SERVICE}/product/${id}`)
         const data = await response.json()
         setInfo(data.product)
       } catch (error) {
@@ -108,7 +108,7 @@ const Details = () => {
 
     const fetchData2 = async () => {
       try {
-        const response = await fetch('http://localhost:5000/product')
+        const response = await fetch(`${import.meta.env.VITE_APP_WEB_SERVICE}/product`)
         const data = await response.json()
         setProducts(data.product)
       } catch (error) {
