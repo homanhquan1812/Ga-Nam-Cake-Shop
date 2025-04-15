@@ -39,12 +39,9 @@ const Menu = () => {
         }
   
         const response = await axios.post(`${import.meta.env.VITE_APP_WEB_SERVICE}/cart`, {
-          id: decodedToken.id,
-          name: info.product_name,
-          price: info.price,
-          photo: info.photo,
+          customer_id: decodedToken.id,
           quantity: 1,
-          productId: info.id
+          product_id: info.id
         });
   
         if (response.status === 201) {
@@ -183,7 +180,7 @@ const Menu = () => {
                         <div className="showcase__info">
                             <div className="showcase__des">
                             <h4>
-                                <a href={`/detail/${product.id}`}>{product.product_name}</a>
+                                <a href={`/detail/${product.id}`}>{product.name}</a>
                             </h4>
                             Sold:<p className="demo" />
                             <p>
@@ -209,7 +206,7 @@ const Menu = () => {
                     <div className="showcase__info">
                         <div className="showcase__des">
                         <h4>
-                            <a href={`/detail/${product.id}`}>{product.product_name}</a>
+                            <a href={`/detail/${product.id}`}>{product.name}</a>
                         </h4>
                         Sold:<p className="demo" />
                         <p>
@@ -236,7 +233,7 @@ const Menu = () => {
                     <div className="showcase__info">
                         <div className="showcase__des">
                         <h4>
-                            <a href={`/detail/${product.id}`}>{product.product_name}</a>
+                            <a href={`/detail/${product.id}`}>{product.name}</a>
                         </h4>
                         Sold:<p className="demo" />
                         <p>
@@ -262,7 +259,7 @@ const Menu = () => {
                     <div className="showcase__info">
                         <div className="showcase__des">
                         <h4>
-                            <a href={`/detail/${product.id}`}>{product.product_name}</a>
+                            <a href={`/detail/${product.id}`}>{product.name}</a>
                         </h4>
                         Sold:<p className="demo" />
                         <p>
@@ -288,7 +285,7 @@ const Menu = () => {
                     <div className="showcase__info">
                         <div className="showcase__des">
                         <h4>
-                            <a href={`/detail/${product.id}`}>{product.product_name}</a>
+                            <a href={`/detail/${product.id}`}>{product.name}</a>
                         </h4>
                         Sold:<p className="demo" />
                         <p>
@@ -313,7 +310,7 @@ const Menu = () => {
                     <div className="showcase__info">
                         <div className="showcase__des">
                         <h4>
-                            <a href={`/detail/${product.id}`}>{product.product_name}</a>
+                            <a href={`/detail/${product.id}`}>{product.name}</a>
                         </h4>
                         Sold:<p className="demo" />
                         <p>
