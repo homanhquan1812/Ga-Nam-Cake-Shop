@@ -15,7 +15,7 @@ const Cart = () => {
     const [brand_id, setBrandId] = useState('')
     const [cart, setCart] = useState([{
         items: [],
-        totalPrice: 0
+        total_price: 0
     }])
     const [role, setRole] = useState('')
     const [userId, setUserId] = useState('')
@@ -32,7 +32,8 @@ const Cart = () => {
     const orderProducts = async (id) => {
       try {
         const response = await axios.post(`${import.meta.env.VITE_APP_WEB_SERVICE}/order`, {
-          customer_id: id, brand_id: brand_id, branch_id: '109db7f7-52a2-41fd-bfa6-9637df5cc248', payment_method: 'Cash', cart: cart
+          customer_id: id, brand_id: brand_id, branch_id: '109db7f7-52a2-41fd-bfa6-9637df5cc248', 
+          payment_method: 'Cash', cart: cart
         })
   
         if (response.status == 201) {
@@ -163,7 +164,7 @@ const Cart = () => {
             <div className="fyYBP1">
                 <div className="aiyQAr">
                 <div className="A-CcKC">Total Cost:</div>
-                <div className="total">{cart.totalPrice}</div>
+                <div className="total">{cart.total_price}</div>
                 </div>
             </div>
             </div>
