@@ -38,11 +38,16 @@ class OrderController
             `
             const recentOrderResult = await pool.query(recentOrderQuery, [customer_id])
 
+            // Make sure cart is parsed properly
+            const newCart = typeof cart === 'string' ? JSON.parse(cart) : cart
+
             if (recentOrderResult.rows.length > 0) {
                 // Recent order exists, combine carts
                 const existingOrder = recentOrderResult.rows[0]
-                const existingCart = existingOrder.cart
-                const newCart = JSON.parse(cart)
+                // Make sure existingCart is properly parsed
+                const existingCart = typeof existingOrder.cart === 'string' ? 
+                                    JSON.parse(existingOrder.cart) : 
+                                    existingOrder.cart
                 
                 // Combine items
                 const combinedItems = [...existingCart.items]
@@ -64,6 +69,12 @@ class OrderController
                 // Calculate new total price
                 const newTotalPrice = combinedItems.reduce((sum, item) => sum + item.total_price, 0)
                 
+                // Create updated cart object
+                const updatedCart = {
+                    items: combinedItems,
+                    total_price: newTotalPrice
+                }
+                
                 // Update the existing order
                 const updateOrderQuery = `
                     UPDATE "order"
@@ -72,12 +83,8 @@ class OrderController
                     WHERE id = $2
                     RETURNING *
                 `
-                const updatedCartJson = JSON.stringify({
-                    items: combinedItems,
-                    total_price: newTotalPrice
-                })
                 
-                const updatedOrderResult = await pool.query(updateOrderQuery, [updatedCartJson, existingOrder.id])
+                const updatedOrderResult = await pool.query(updateOrderQuery, [updatedCart, existingOrder.id])
                 const updatedOrder = updatedOrderResult.rows[0]
                 
                 // Reset the customer's cart
@@ -106,7 +113,7 @@ class OrderController
                     customerResult.rows[0].phone, 
                     customerResult.rows[0].gender, 
                     customerResult.rows[0].address, 
-                    brand_id, branch_id, 'Processing', payment_method, cart])
+                    brand_id, branch_id, 'Processing', payment_method, newCart])
                 const newOrder = orderResult.rows[0]
                 
                 // Reset the customer's cart
