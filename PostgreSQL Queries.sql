@@ -45,7 +45,6 @@ CREATE TABLE customer (
 CREATE TABLE staff (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     member_information_id UUID REFERENCES member_information(id) ON DELETE CASCADE ON UPDATE CASCADE,
-    brand_id UUID REFERENCES brand(id) ON DELETE CASCADE ON UPDATE CASCADE,
     branch_id UUID REFERENCES branch(id) ON DELETE CASCADE ON UPDATE CASCADE,
     salary INTEGER NOT NULL
 );
@@ -54,23 +53,20 @@ CREATE TABLE staff (
 CREATE TABLE "order" (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     customer_id UUID REFERENCES customer(id) ON DELETE CASCADE ON UPDATE CASCADE,
-    brand_id UUID REFERENCES brand(id) ON DELETE CASCADE ON UPDATE CASCADE,
     branch_id UUID REFERENCES branch(id) ON DELETE CASCADE ON UPDATE CASCADE,
-    full_name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    phone VARCHAR(10) NOT NULL,
-    gender VARCHAR(6) NOT NULL,
-    address VARCHAR(255) NOT NULL,
     status VARCHAR(50) NOT NULL,
     payment_method VARCHAR(50) NOT NULL,
     cart JSONB DEFAULT '{"totalPrice": 0, "items": []}',
+    updated_at TIMESTAMP,
     date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Feedback Table
 CREATE TABLE feedback (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    customer_id UUID REFERENCES customer(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    full_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(10) NOT NULL,
     type VARCHAR(255) NOT NULL,
     content TEXT NOT NULL,
     date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -79,7 +75,6 @@ CREATE TABLE feedback (
 -- Product Table
 CREATE TABLE product (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    feedback_id UUID REFERENCES feedback(id) ON DELETE CASCADE ON UPDATE CASCADE,
     brand_id UUID REFERENCES brand(id) ON DELETE CASCADE ON UPDATE CASCADE,
     name VARCHAR(255) NOT NULL,
     type VARCHAR(255) NOT NULL,
@@ -92,9 +87,11 @@ CREATE TABLE product (
 -- Sale Report Table
 CREATE TABLE sale_report (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    branch_id UUID REFERENCES branch(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    brand_id UUID REFERENCES brand(id) ON DELETE CASCADE ON UPDATE CASCADE,
     total_revenue INTEGER NOT NULL,
     total_num_of_orders INTEGER NOT NULL,
+    month INTEGER NOT NULL,
+    year INTEGER NOT NULL,
     date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -113,9 +110,12 @@ CREATE TABLE reservation (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     full_name VARCHAR(255) NOT NULL,
     phone VARCHAR(255) NOT NULL,
-    branch TEXT NOT NULL,
+    branch_id UUID REFERENCES branch(id) ON DELETE CASCADE ON UPDATE CASCADE,
     reservation_time TIME NOT NULL,
-    reservation_date TIMESTAMP NOT NULL,
+    reservation_date DATE NOT NULL,
+    number_of_customer INTEGER NOT NULL,
+    status VARCHAR(50) NOT NULL,
+    place VARCHAR(50),
     date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -126,9 +126,10 @@ CREATE TABLE voucher (
     discount_percent INTEGER NOT NULL,
     code TEXT NOT NULL,
     status VARCHAR(50) NOT NULL,
-    start_date TIME NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
     type VARCHAR(50) NOT NULL,
-    end_date TIME NOT NULL,
+    discount_type VARCHAR(50) NOT NULL,
     description TEXT NOT NULL,
     brand_id UUID REFERENCES brand(id) ON DELETE CASCADE ON UPDATE CASCADE,
     date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP

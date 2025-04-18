@@ -24,22 +24,22 @@ class OrderController
     async createAnOrder(req, res, next)
     {
         try {        
-            const { customer_id, brand_id, branch_id, payment_method, cart } = req.body
-            const customerQuery = 'SELECT * FROM member_information INNER JOIN customer ON customer.member_information_id = member_information.id WHERE customer.id = $1;'
-            const customerResult = await pool.query(customerQuery, [customer_id])
+            const { customer_id, payment_method, cart } = req.body
+            const branch_ids = [
+                '109db7f7-52a2-41fd-bfa6-9637df5cc248',
+                'ff7b7703-bd86-4a78-8e87-adb745c628f9',
+                'bd574b57-9ccd-4e9a-b7c5-2e35afbc513c',
+                'a06edc09-9be1-4e68-b399-b2453c35edfe'
+            ]
+            const branch_id = branch_ids[Math.floor(Math.random() * branch_ids.length)]
             const insertOrderQuery = `
-                INSERT INTO "order" (customer_id, full_name, email, phone, gender, address, brand_id, branch_id, status, payment_method, cart)
-                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+                INSERT INTO "order" (customer_id, branch_id, status, payment_method, cart)
+                VALUES ($1, $2, $3, $4, $5)
                 RETURNING *
             `
             const orderResult = await pool.query(insertOrderQuery, [
                 customer_id, 
-                customerResult.rows[0].full_name, 
-                customerResult.rows[0].email, 
-                customerResult.rows[0].phone, 
-                customerResult.rows[0].gender, 
-                customerResult.rows[0].address, 
-                brand_id, branch_id, 'Processing', payment_method, cart])
+                branch_id, 'Processing', payment_method, cart])
             const newOrder = orderResult.rows[0]
             const userQuery = `SELECT * FROM member_information INNER JOIN customer ON customer.member_information_id = member_information.id WHERE customer.id = $1;`
             const userResult = await pool.query(userQuery, [customer_id])

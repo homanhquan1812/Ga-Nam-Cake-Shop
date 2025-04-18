@@ -44,6 +44,7 @@ class LoginController
                 full_name: userLogin.full_name, 
                 brand_id: userLogin.brand_id,
                 role: userLogin.role,
+                branch_id: userLogin.branch_id
             }, process.env.SECRET_KEY, { expiresIn: '24h' })
 
             res.status(200).json({
@@ -54,7 +55,8 @@ class LoginController
                     username: userLogin.username,
                     full_name: userLogin.full_name,
                     brand_id: userLogin.brand_id,
-                    role: userLogin.role
+                    role: userLogin.role,
+                    branch_id: userLogin.branch_id
                 }
             })
         } catch (error) {
