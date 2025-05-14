@@ -34,7 +34,7 @@ class RegisterController
             const hashedPassword = await bcrypt.hash(password, saltRounds)
             const memberInfoQuery = `
                 INSERT INTO member_information (full_name, username, password, role, email, phone, gender, address)
-                VALUES ($1, $2, $3, 'User', $4, $5, $6, $7)
+                VALUES ($1, $2, $3, 'Customer', $4, $5, $6, $7)
                 RETURNING id
             `;
             const memberInfoValues = [full_name, username, hashedPassword, email, phone, gender, address];

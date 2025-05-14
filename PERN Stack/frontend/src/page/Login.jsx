@@ -56,7 +56,8 @@ const Login = () => {
         address,
         username,
         email,
-        password
+        password,
+        brand_id: '68b50680-d17d-4470-b2cf-306dd234e982'
       })
 
       if (response.status === 400) {
