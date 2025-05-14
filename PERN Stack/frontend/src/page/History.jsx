@@ -105,14 +105,14 @@ const History = () => {
                                 </td>
                                 <td>{order.cart.total_price}</td>
                                 <td>
-                                    {order.status ? 'Completed' (
-                                        <button type="button" className="btn btn-success">Delivered</button>
-                                    ) : 'Declined' ? (
-                                        <button type="button" className="btn btn-danger">Declined</button>
-                                    ) : (
-                                        <button type="button" className="btn btn-warning">Processing</button>
-                                    )}
-                                    </td>
+                                  {order.status === 'Completed' ? (
+                                    <button type="button" className="btn btn-success">Delivered</button>
+                                  ) : order.status === 'Declined' ? (
+                                    <button type="button" className="btn btn-danger">Declined</button>
+                                  ) : (
+                                    <button type="button" className="btn btn-warning">Processing</button>
+                                  )}
+                                </td>
 
                               </tr>
                               ) : (
