@@ -105,13 +105,15 @@ const History = () => {
                                 </td>
                                 <td>{order.cart.total_price}</td>
                                 <td>
-                                  {order.status === 'Completed' ? (
-                                    <button type="button" className="btn btn-success">Delivered</button>
-                                  ) : order.status === 'Declined' ? (
-                                    <button type="button" className="btn btn-danger">Declined</button>
-                                  ) : (
-                                    <button type="button" className="btn btn-warning">Processing</button>
-                                  )}
+                                  {(() => {
+                                  if (order.status === 'Completed') {
+                                    return <button type="button" className="btn btn-success">Delivered</button>;
+                                  } else if (order.status === 'Declined') {
+                                    return <button type="button" className="btn btn-danger">Declined</button>;
+                                  } else {
+                                    return <button type="button" className="btn btn-warning">Processing</button>;
+                                  }
+                                })()}
                                 </td>
 
                               </tr>
