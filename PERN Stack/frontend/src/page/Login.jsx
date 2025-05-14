@@ -54,6 +54,7 @@ const Login = () => {
         gender,
         phone,
         address,
+        dob: '2001-01-01',
         username,
         email,
         password,
