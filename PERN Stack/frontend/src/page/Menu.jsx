@@ -5,14 +5,19 @@ import { Footer } from '../component/Footer'
 import Script from '../component/Script'
 import { jwtDecode } from "jwt-decode"
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 
 const Menu = () => {
+    const defaultBrandId = import.meta.env.VITE_APP_BRAND_ID || '';
     const [products, setProducts] = useState([]);
+    const [brands, setBrands] = useState([]);
     const [productId, setProductId] = useState('');
-    const [info, setInfo] = useState(null);  // Changed to null initially
+    const [info, setInfo] = useState(null);
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [selectedBrand, setSelectedBrand] = useState(defaultBrandId);
     const navigateTo = useNavigate();
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     const isJwtExpired = (token) => {
       if (!token) return true
@@ -52,20 +57,63 @@ const Menu = () => {
         console.error(error);
       }
     };
-  
+
+    // Fetch all brands to populate the dropdown
+    // Initial effect to set URL parameter based on default brand if not already specified
     useEffect(() => {
-      const fetchData = async () => {
+      // Only set the brand parameter if:
+      // 1. There's a default brand ID
+      // 2. There's no brand_id in the URL already
+      if (defaultBrandId && !searchParams.has('brand_id')) {
+        setSearchParams({ brand_id: defaultBrandId });
+      }
+    }, [defaultBrandId, searchParams, setSearchParams]);
+    
+    useEffect(() => {
+      const fetchBrands = async () => {
         try {
-          const response = await fetch(`${import.meta.env.VITE_APP_WEB_SERVICE}/product`);
+          const response = await fetch(`${import.meta.env.VITE_APP_WEB_SERVICE}/brand`);
+          const data = await response.json();
+          setBrands(data.brands || []);
+        } catch (error) {
+          console.error('Error fetching brands:', error);
+        }
+      };
+      
+      fetchBrands();
+    }, []);
+  
+    // Fetch products with optional brand filter
+    useEffect(() => {
+      const fetchProducts = async () => {
+        setIsLoading(true);
+        try {
+          // Check URL parameter first, then fall back to default brand ID
+          const brandIdParam = searchParams.get('brand_id') || defaultBrandId;
+          
+          // Update selectedBrand state if needed
+          if (brandIdParam !== selectedBrand) {
+            setSelectedBrand(brandIdParam);
+          }
+          
+          // Build URL with brand_id parameter
+          let url = `${import.meta.env.VITE_APP_WEB_SERVICE}/product`;
+          if (brandIdParam) {
+            url += `?brand_id=${brandIdParam}`;
+          }
+          
+          const response = await fetch(url);
           const data = await response.json();
           setProducts(data.product);
         } catch (error) {
-          console.error('Error fetching data:', error);
+          console.error('Error fetching products:', error);
+        } finally {
+          setIsLoading(false);
         }
       };
   
-      fetchData();
-    }, []);
+      fetchProducts();
+    }, [searchParams, defaultBrandId]);
   
     useEffect(() => {
       const fetchData2 = async () => {
@@ -98,6 +146,18 @@ const Menu = () => {
       }
     };
 
+    const handleBrandChange = (e) => {
+      const brandId = e.target.value;
+      setSelectedBrand(brandId);
+      
+      // Update URL with the selected brand or remove parameter if "All brands" is selected
+      if (brandId) {
+        setSearchParams({ brand_id: brandId });
+      } else {
+        setSearchParams({});
+      }
+    };
+
     useEffect(() => {
       const checkLoginStatus = () => {
           const token = localStorage.getItem('token')
@@ -113,9 +173,9 @@ const Menu = () => {
       const intervalId = setInterval(checkLoginStatus, 1000) // Check every second
 
       return () => clearInterval(intervalId)
-  }, [])
+    }, []);
 
-      function filterProducts() {
+    function filterProducts() {
         var input, filter, items, type, i, txtValue;
         input = document.getElementById("product-searchbar123");
         filter = input.value.toUpperCase();
@@ -133,10 +193,13 @@ const Menu = () => {
         }
     }
 
-    document.querySelectorAll(".demo").forEach(function(element) {
-        var x = Math.floor(Math.random() * 100) + 1;
-        element.innerHTML = x;
-    });
+    useEffect(() => {
+      // Apply random sold numbers to elements with "demo" class
+      document.querySelectorAll(".demo").forEach(function(element) {
+          var x = Math.floor(Math.random() * 100) + 1;
+          element.innerHTML = x;
+      });
+    }, [products]); // Rerun when products change
 
   return (
     <div>
