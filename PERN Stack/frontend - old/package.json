@@ -10,19 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@hookform/resolvers": "^5.0.1",
     "@ionic/react": "^8.2.7",
     "axios": "^1.7.7",
-    "date-fns": "^4.1.0",
     "jquery": "^3.7.1",
     "jwt-decode": "^4.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
-    "react-hook-form": "^7.56.4",
     "react-router-dom": "^6.26.1",
-    "vite-plugin-mkcert": "^1.17.6",
-    "zod": "^3.24.4"
+    "vite-plugin-mkcert": "^1.17.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
