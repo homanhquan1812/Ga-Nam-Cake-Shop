@@ -1,10 +1,27 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Footer } from "../component/Footer";
 import Head from "../component/Head";
 import { Header } from "../component/Header";
-import { ModelFormReservation } from "../component/ModelFormReservation";
 import Script from "../component/Script";
+import CardBlogHome from "../component/CardBlogHome";
 
 const Home = () => {
+  const [listBlogs, setListBlogs] = useState([]);
+  const getListBlogs = async () => {
+    try {
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_APP_WEB_SERVICE}/blog`
+      );
+      setListBlogs(data.blog);
+    } catch (err) {
+      console.error("Failed to fetch branch list:", err);
+    }
+  };
+
+  useEffect(() => {
+    getListBlogs();
+  }, []);
   return (
     <div>
       <Head
@@ -305,6 +322,22 @@ const Home = () => {
               <p className="feedback__name">Kelvin</p>
             </div>
           </div>
+        </div>
+      </section>
+      <section style={{ backgroundColor: "#f9e3d4" }}>
+        <h2 className="text-center mb-0 py-2">LATEST BLOGS</h2>
+        <h4 className="text-center py-2">
+          Explore The Recent Most Bought Shakes This Week
+        </h4>
+        <div className="d-flex justify-content-center">
+          {listBlogs.slice(0, 3).map((item) => (
+            <CardBlogHome
+              key={item.id}
+              title={item.title}
+              image={item.photo[1]}
+              description={item.content}
+            />
+          ))}
         </div>
       </section>
       <Footer></Footer>
