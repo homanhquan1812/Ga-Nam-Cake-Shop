@@ -60,7 +60,7 @@ class CartController
         }
     }
 
-    // [DELETE] /cart
+    // [DELETE] /cart/:id
     async deleteItemsInACart(req, res, next) {
         try {
             const { product_id, customer_id } = req.body

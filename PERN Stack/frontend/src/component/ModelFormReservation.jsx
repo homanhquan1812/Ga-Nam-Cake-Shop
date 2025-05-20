@@ -41,7 +41,6 @@ export const ModelFormReservation = ({ isOpen, onClose }) => {
       content: "",
     },
   });
-  console.log(errors);
 
   const getListBranch = async () => {
     try {
@@ -56,18 +55,17 @@ export const ModelFormReservation = ({ isOpen, onClose }) => {
 
   const onSubmit = async (data) => {
     if (data) {
+      const formatData = {
+        ...data,
+        reservation_time: data.reservation_time
+          ? format(new Date(data.reservation_time), "yyyy/MM/dd HH:mm:ss")
+          : "",
+      };
+
       try {
         await axios.post(
           `${import.meta.env.VITE_APP_WEB_SERVICE}/reservation`,
-          {
-            ...data,
-            reservation_time: data.time
-              ? format(new Date(data.time), "mm:hh")
-              : "",
-            reservation_date: data.time
-              ? format(new Date(data.time), "dd/MM/yyyy")
-              : "",
-          }
+          formatData
         );
         alert("Book a table successfully");
         onClose();
@@ -136,7 +134,7 @@ export const ModelFormReservation = ({ isOpen, onClose }) => {
               <div className="col-12 gy-2">
                 <label>Time</label>
                 <Controller
-                  name="time"
+                  name="reservation_time"
                   control={control}
                   render={({ field }) => (
                     <input
