@@ -9,7 +9,7 @@ import { z } from "zod";
 const schemaFeedback = z.object({
   full_name: z.string().trim().min(1, "Please enter your full name"),
   phone: z.string().trim().min(1, "Please enter your phone number"),
-  time: z.string().trim().min(1, "Please select a time"),
+  reservation_time: z.string().trim().min(1, "Please select a time"),
   place: z.string().trim().min(1, "Please enter the place"),
   number_of_customer: z
     .string()
