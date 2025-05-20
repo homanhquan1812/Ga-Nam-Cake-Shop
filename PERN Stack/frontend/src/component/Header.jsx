@@ -1,7 +1,7 @@
 import { jwtDecode } from "jwt-decode";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { StoreContext } from "../store/store";
+import { StoreContext } from "../store/Store";
 import { ModelFormReservation } from "./ModelFormReservation";
 
 export const Header = () => {
